@@ -262,6 +262,42 @@
         .hero-image:hover {
             transform: translateY(-10px);
         }
+.language-selector {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0;
+  margin-top: 8px;
+  list-style: none;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+  background: #f3f4f6;
+}
+
+.language-selector.active .dropdown-menu {
+  display: block;
+}
+
 
         /* SECTIONS */
         .section {
