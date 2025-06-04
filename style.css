@@ -626,4 +626,9 @@
             .business-name {
                 font-size: 20px;
             }
+            .apartment-link {
+                text-decoration: none;
+                color: inherit;
+                display: block;
+            }
         }
