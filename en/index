@@ -28,7 +28,11 @@
 
             <div class="nav-actions">
                 <div class="language-selector">
-                    <button class="lang-btn">🌐 IT</button>
+<!-- Italiano -->
+<button class="lang-btn active">🌐 EN</button>
+<a href="/SpaceEstate/index.html" class="lang-btn">IT</a>
+
+
                 </div>
                 <a href="#prenota" class="cta-button">Prenota Ora</a>
             </div>
