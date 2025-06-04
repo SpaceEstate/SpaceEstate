@@ -7,6 +7,21 @@
 	<link rel="stylesheet" href="style.css">
 
 </head>
+	document.addEventListener("DOMContentLoaded", function () {
+    const selector = document.querySelector(".language-selector .lang-btn");
+    selector.addEventListener("click", function (e) {
+      e.preventDefault();
+      this.parentElement.classList.toggle("active");
+    });
+
+    // Chiudi il menu se clicchi fuori
+    document.addEventListener("click", function (e) {
+      const dropdown = document.querySelector(".language-selector");
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove("active");
+      }
+    });
+  });
 <body>
     <!-- HEADER -->
     <header class="header">
@@ -29,9 +44,12 @@
             <div class="nav-actions">
                 <div class="language-selector">
                     <!-- Italiano -->
-<button class="lang-btn active">🌐 IT</button>
-<a href="/SpaceEstate/en/index.html" class="lang-btn">EN</a>
-
+<button class="lang-btn">🌐 IT</button>
+  <ul class="dropdown-menu">
+    <li><a href="/SpaceEstate/index.html">🇮🇹 Italiano</a></li>
+    <li><a href="/SpaceEstate/en/index.html">🇬🇧 English</a></li>
+    <li><a href="/SpaceEstate/de/index.html">🇩🇪 Deutsch</a></li>
+  </ul>
                 </div>
                 <a href="#prenota" class="cta-button">Prenota Ora</a>
             </div>
