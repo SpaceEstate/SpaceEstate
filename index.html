@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="style.css">
 
 </head>
+<script>
 	document.addEventListener("DOMContentLoaded", function () {
     const selector = document.querySelector(".language-selector .lang-btn");
     selector.addEventListener("click", function (e) {
@@ -22,38 +23,10 @@
       }
     });
   });
-<body>
+</script>
+	<body>
     <!-- HEADER -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo-section">
-                <div class="logo">
-                    <img src=/SpaceEstate/img/Logo-piccolo.png alt="Space Estate Logo" class="logo-img">
-                </div>
-                <div class="business-name">Space Estate</div>
-            </div>
-
-            <ul class="nav-menu">
-                <li><a href=index.html>Home</a></li>
-                <li><a href=Appartamenti.html>Appartamenti</a></li>
-                <li><a href=Proprietari.html>Per Proprietari</a></li>
-                <li><a href=Area-Riservata.html>Area Riservata</a></li>
-                <li><a href=Contatti.html>Contatti</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <div class="language-selector">
-                    <!-- Italiano -->
-<button class="lang-btn">🌐 IT</button>
-  <ul class="dropdown-menu">
-    <li><a href="/SpaceEstate/index.html">🇮🇹 Italiano</a></li>
-    <li><a href="/SpaceEstate/en/index.html">🇬🇧 English</a></li>
- </ul>
-                </div>
-                <a href="#prenota" class="cta-button">Prenota Ora</a>
-            </div>
-        </nav>
-    </header>
+   <div id="header-placeholder"></div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="home">
@@ -78,6 +51,14 @@
             </div>
         </div>
     </section>
+	<script>
+  fetch("/SpaceEstate/header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header-placeholder").innerHTML = data;
+    });
+</script>
+
 </body>
 <footer class="footer" id="contatti">
     <div class="container">
