@@ -1,110 +1,114 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Estate - Soggiorni Indimenticabili</title>
-	<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Estate - Soggiorni Indimenticabili</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<script>
-	document.addEventListener("DOMContentLoaded", function () {
-    const selector = document.querySelector(".language-selector .lang-btn");
-    selector.addEventListener("click", function (e) {
-      e.preventDefault();
-      this.parentElement.classList.toggle("active");
-    });
+<body>
 
-    // Chiudi il menu se clicchi fuori
-    document.addEventListener("click", function (e) {
-      const dropdown = document.querySelector(".language-selector");
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("active");
+  <!-- HEADER -->
+  <div id="header-placeholder"></div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-headlines">
+        <h1 class="hero-headline-1">Soggiorni Indimenticabili</h1>
+        <h2 class="hero-headline-2">Massimizza i Tuoi Ricavi</h2>
+        <p class="hero-subtitle">
+          Scopri appartamenti esclusivi per ospiti esigenti e trasforma la tua proprietà in una fonte di reddito stabile e redditizia
+        </p>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#appartamenti" class="hero-cta primary">Trova il Tuo Appartamento</a>
+        <a href="#proprietari" class="hero-cta secondary">Diventa Partner</a>
+      </div>
+
+      <div class="hero-images">
+        <div class="hero-image">🏠</div>
+        <div class="hero-image">🏢</div>
+        <div class="hero-image">🌟</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contatti">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Space Estate</h3>
+          <p>La tua destinazione per soggiorni di lusso e investimenti immobiliari redditizi a Trento.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Servizi</h3>
+          <ul>
+            <li><a href="#apartments">Appartamenti</a></li>
+            <li><a href="#partners">Gestione Proprietà</a></li>
+            <li><a href="#marketing">Marketing Immobiliare</a></li>
+            <li><a href="#investment">Consulenza Investimenti</a></li>
+            <li><a href="#maintenance">Manutenzione</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contatti</h3>
+          <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Trento TN</p>
+            <p><i class="fas fa-phone"></i> +39 351 704 3594</p>
+            <p><i class="fas fa-envelope"></i> spacestate@yahoo.com</p>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Seguici</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
+          <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Termini di Servizio</a>
+            <a href="#cookies">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    fetch("/SpaceEstate/header.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("header-placeholder").innerHTML = data;
+      });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const selector = document.querySelector(".language-selector .lang-btn");
+      if (selector) {
+        selector.addEventListener("click", function (e) {
+          e.preventDefault();
+          this.parentElement.classList.toggle("active");
+        });
+
+        document.addEventListener("click", function (e) {
+          const dropdown = document.querySelector(".language-selector");
+          if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove("active");
+          }
+        });
       }
     });
-  });
-</script>
-	<body>
-    <!-- HEADER -->
-   <div id="header-placeholder"></div>
-
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-headlines">
-                <h1 class="hero-headline-1">Soggiorni Indimenticabili1</h1>
-                <h2 class="hero-headline-2">Massimizza i Tuoi Ricavi</h2>
-                <p class="hero-subtitle">
-                    Scopri appartamenti esclusivi per ospiti esigenti e trasforma la tua proprietà in una fonte di reddito stabile e redditizia
-                </p>
-            </div>
-
-            <div class="hero-ctas">
-                <a href="#appartamenti" class="hero-cta primary">Trova il Tuo Appartamento</a>
-                <a href="#proprietari" class="hero-cta secondary">Diventa Partner</a>
-            </div>
-
-            <div class="hero-images">
-                <div class="hero-image">🏠</div>
-                <div class="hero-image">🏢</div>
-                <div class="hero-image">🌟</div>
-            </div>
-        </div>
-    </section>
-	<script>
-  fetch("/SpaceEstate/header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header-placeholder").innerHTML = data;
-    });
-</script>
+  </script>
 
 </body>
-<footer class="footer" id="contatti">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Space Estate</h3>
-                <p>La tua destinazione per soggiorni di lusso e investimenti immobiliari redditizi a Trento.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Servizi</h3>
-                <ul>
-                    <li><a href="#apartments">Appartamenti</a></li>
-                    <li><a href="#partners">Gestione Proprietà</a></li>
-                    <li><a href="#marketing">Marketing Immobiliare</a></li>
-                    <li><a href="#investment">Consulenza Investimenti</a></li>
-                    <li><a href="#maintenance">Manutenzione</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contatti</h3>
-                <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> Trento TN</p>
-                    <p><i class="fas fa-phone"></i> +39 351 704 3594</p>
-                    <p><i class="fas fa-envelope"></i> spacestate@yahoo.com</p>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Seguici</h3>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
-                <div class="footer-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Termini di Servizio</a>
-                    <a href="#cookies">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 </html>
