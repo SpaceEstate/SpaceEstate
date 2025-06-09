@@ -3,110 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Space Estate - Soggiorni Indimenticabili</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Space Estate - Luxury Apartments for Vacation Rentals in Trento</title>
 </head>
 <body>
 
   <!-- HEADER -->
-  <div id="header-placeholder"></div>
+  <header class="header">
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="#home">About</a></li>
+        <li><a href="#apartments">Properties</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- HERO SECTION -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-headlines">
-        <h1 class="hero-headline-1">Soggiorni Indimenticabili</h1>
-        <h2 class="hero-headline-2">Massimizza i Tuoi Ricavi</h2>
-        <p class="hero-subtitle">
-          Scopri appartamenti esclusivi per ospiti esigenti e trasforma la tua proprietà in una fonte di reddito stabile e redditizia
-        </p>
-      </div>
-
-      <div class="hero-ctas">
-        <a href="#appartamenti" class="hero-cta primary">Trova il Tuo Appartamento</a>
-        <a href="#proprietari" class="hero-cta secondary">Diventa Partner</a>
-      </div>
-
-      <div class="hero-images">
-        <div class="hero-image">🏠</div>
-        <div class="hero-image">🏢</div>
-        <div class="hero-image">🌟</div>
-      </div>
+      <div class="logo">SPACE ESTATE</div>
+      <h1>Luxury Apartments</h1>
+      <h2>for Vacation Rentals in Trento</h2>
+      <p>
+        Luxurious apartments in ancient Sicarily in Trento, comfort, elegant, 
+        and prime locations in our beautiful historic town
+      </p>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer" id="contatti">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Space Estate</h3>
-          <p>La tua destinazione per soggiorni di lusso e investimenti immobiliari redditizi a Trento.</p>
-        </div>
-        <div class="footer-section">
-          <h3>Servizi</h3>
-          <ul>
-            <li><a href="#apartments">Appartamenti</a></li>
-            <li><a href="#partners">Gestione Proprietà</a></li>
-            <li><a href="#marketing">Marketing Immobiliare</a></li>
-            <li><a href="#investment">Consulenza Investimenti</a></li>
-            <li><a href="#maintenance">Manutenzione</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Contatti</h3>
-          <div class="contact-info">
-            <p><i class="fas fa-map-marker-alt"></i> Trento TN</p>
-            <p><i class="fas fa-phone"></i> +39 351 704 3594</p>
-            <p><i class="fas fa-envelope"></i> spacestate@yahoo.com</p>
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <div class="left-column" id="apartments">
+      <div class="apartment-grid">
+        <div class="apartment-card">
+          <div class="apartment-image">🏠</div>
+          <div class="apartment-info">
+            <h3>Centro Storico Suite</h3>
           </div>
         </div>
-        <div class="footer-section">
-          <h3>Seguici</h3>
-          <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <div class="apartment-card">
+          <div class="apartment-image">🌟</div>
+          <div class="apartment-info">
+            <h3>Palazzo Luxury</h3>
+          </div>
+        </div>
+        <div class="apartment-card">
+          <div class="apartment-image">🏢</div>
+          <div class="apartment-info">
+            <h3>Modern Loft</h3>
           </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
-          <div class="footer-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Termini di Servizio</a>
-            <a href="#cookies">Cookie Policy</a>
+    </div>
+
+    <div class="right-sidebar">
+      <!-- CHECK AVAILABILITY -->
+      <div class="sidebar-section">
+        <h3>Check Availability</h3>
+        <div class="calendar">
+          <div class="calendar-header">
+            <button class="calendar-nav">‹</button>
+            <span class="calendar-month">May 2024</span>
+            <button class="calendar-nav">›</button>
           </div>
+          <div class="calendar-weekdays">
+            <div class="calendar-weekday">S</div>
+            <div class="calendar-weekday">M</div>
+            <div class="calendar-weekday">T</div>
+            <div class="calendar-weekday">W</div>
+            <div class="calendar-weekday">T</div>
+            <div class="calendar-weekday">F</div>
+            <div class="calendar-weekday">S</div>
+          </div>
+          <div class="calendar-grid">
+            <div class="calendar-day"></div>
+            <div class="calendar-day"></div>
+            <div class="calendar-day"></div>
+            <div class="calendar-day">1</div>
+            <div class="calendar-day">2</div>
+            <div class="calendar-day available">3</div>
+            <div class="calendar-day">4</div>
+            <div class="calendar-day">5</div>
+            <div class="calendar-day available">6</div>
+            <div class="calendar-day">7</div>
+            <div class="calendar-day available">8</div>
+            <div class="calendar-day">9</div>
+            <div class="calendar-day available">10</div>
+            <div class="calendar-day">11</div>
+            <div class="calendar-day">12</div>
+            <div class="calendar-day available">13</div>
+            <div class="calendar-day">14</div>
+            <div class="calendar-day">15</div>
+            <div class="calendar-day available">16</div>
+            <div class="calendar-day">17</div>
+            <div class="calendar-day">18</div>
+            <div class="calendar-day available">19</div>
+            <div class="calendar-day">20</div>
+            <div class="calendar-day">21</div>
+            <div class="calendar-day available">22</div>
+            <div class="calendar-day">23</div>
+            <div class="calendar-day">24</div>
+            <div class="calendar-day available">25</div>
+            <div class="calendar-day">26</div>
+            <div class="calendar-day">27</div>
+            <div class="calendar-day available">28</div>
+            <div class="calendar-day">29</div>
+            <div class="calendar-day">30</div>
+            <div class="calendar-day available">31</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOOK NOW -->
+      <div class="sidebar-section">
+        <h3>Book Now</h3>
+        <a href="#booking" class="btn" style="width: 100%; text-align: center; display: block;">Reserve Your Stay</a>
+      </div>
+
+      <!-- GUEST REVIEWS -->
+      <div class="sidebar-section">
+        <h3>Guest Reviews</h3>
+        <div class="review">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Absolutely stunning apartment in the heart of Trento. Perfect location and luxury amenities."</p>
+          <p class="review-author">— Maria R.</p>
+        </div>
+        <div class="review">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Exceeded all expectations. The attention to detail and service was impeccable."</p>
+          <p class="review-author">— James K.</p>
+        </div>
+        <div class="review">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"A truly memorable stay. Will definitely return and recommend to friends."</p>
+          <p class="review-author">— Sofia L.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Ready for Your Perfect Stay?</h2>
+    <p>Experience luxury and comfort in the heart of Trento</p>
+    <a href="#apartments" class="btn">View Apartments</a>
+    <a href="#contact" class="btn secondary">Contact Us</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Space Estate</h3>
+        <p>La tua destinazione per soggiorni di lusso e investimenti immobiliari redditizi a Trento.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Servizi</h3>
+        <ul>
+          <li><a href="#apartments">Appartamenti</a></li>
+          <li><a href="#partners">Gestione Proprietà</a></li>
+          <li><a href="#marketing">Marketing Immobiliare</a></li>
+          <li><a href="#investment">Consulenza Investimenti</a></li>
+          <li><a href="#maintenance">Manutenzione</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contatti</h3>
+        <div class="contact-info">
+          <p>📍 Trento TN</p>
+          <p>📞 +39 351 704 3594</p>
+          <p>✉️ spacestate@yahoo.com</p>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Seguici</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">i</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="YouTube">y</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
+        <div class="footer-links">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Termini di Servizio</a>
+          <a href="#cookies">Cookie Policy</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
-    fetch("/SpaceEstate/header.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
+    // Calendar functionality
+    const calendarDays = document.querySelectorAll('.calendar-day');
+    calendarDays.forEach(day => {
+      day.addEventListener('click', function() {
+        if (this.textContent && !this.classList.contains('available')) {
+          this.classList.toggle('available');
+        }
       });
+    });
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const selector = document.querySelector(".language-selector .lang-btn");
-      if (selector) {
-        selector.addEventListener("click", function (e) {
-          e.preventDefault();
-          this.parentElement.classList.toggle("active");
-        });
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
 
-        document.addEventListener("click", function (e) {
-          const dropdown = document.querySelector(".language-selector");
-          if (!dropdown.contains(e.target)) {
-            dropdown.classList.remove("active");
-          }
-        });
+    // Calendar navigation
+    const prevBtn = document.querySelector('.calendar-nav:first-child');
+    const nextBtn = document.querySelector('.calendar-nav:last-child');
+    const monthSpan = document.querySelector('.calendar-month');
+    
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                   'July', 'August', 'September', 'October', 'November', 'December'];
+    let currentMonth = 4; // May (0-indexed)
+    let currentYear = 2024;
+
+    prevBtn.addEventListener('click', () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
       }
+      monthSpan.textContent = `${months[currentMonth]} ${currentYear}`;
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      monthSpan.textContent = `${months[currentMonth]} ${currentYear}`;
     });
   </script>
 
