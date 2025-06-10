@@ -1,0 +1,85 @@
+/* PAGINA APPARTAMENTI */
+
+.intro-section {
+  text-align: center;
+  padding: 40px 0;
+  background: white;
+  margin-top: 80px;
+}
+
+.intro-section h1 {
+  font-size: 36px;
+  color: #6d5a47;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.intro-section p {
+  font-size: 18px;
+  color: #8b7355;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.apartment-details {
+  margin: 20px 0;
+}
+
+.apartment-details h4 {
+  color: #6d5a47;
+  margin-bottom: 10px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.apartment-details ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.apartment-details li {
+  margin-bottom: 8px;
+  color: #8b7355;
+}
+
+.apartment-amenities {
+  margin: 20px 0;
+  padding: 20px;
+  background: #f9f7f4;
+  border-radius: 10px;
+}
+
+.apartment-nearby {
+  margin-top: 20px;
+  padding: 15px;
+  background: #e8e4df;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.additional-info {
+  padding: 60px 0;
+  background: #f9f7f4;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(139, 115, 85, 0.1);
+}
+
+.info-card h3 {
+  color: #6d5a47;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
