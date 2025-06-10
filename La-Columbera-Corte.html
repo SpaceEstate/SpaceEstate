@@ -1,1 +1,502 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Columbera Corte - Space Estate</title>
+    <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="header-footer.css">
+  <link rel="stylesheet" href="apartments-single.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="img/logo.png" alt="Space Estate Logo" class="logo-img">
+                <span class="business-name">SPACE ESTATE</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="/SpaceEstate/index.html">Home</a></li>
+                    <li><a href="/SpaceEstate/Appartamenti.html">Appartamenti</a></li>
+                    <li><a href="/SpaceEstate/Proprietari.html">Proprietari</a></li>
+                    <li><a href="/SpaceEstate/Area-Riservata.html">Area Riservata</a></li>
+                    <li><a href="/SpaceEstate/Contatti.html">Contatti</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="lang-btn">IT</button>
+                <a href="#booking" class="cta-button">Prenota Ora</a>
+            </div>
+        </div>
+    </header>
 
+    <!-- MAIN CONTENT -->
+    <main class="apartment-page">
+        <!-- APARTMENT HERO -->
+        <section class="apartment-hero">
+            <div class="apartment-hero-content">
+                <div class="container">
+                    <div class="apartment-main-info">
+                        <div class="apartment-gallery">
+                            <div class="main-image">
+                                <div class="apartment-image">🏛️</div>
+                            </div>
+                            <div class="thumbnail-grid">
+                                <div class="thumbnail active">🏛️</div>
+                                <div class="thumbnail">🛏️</div>
+                                <div class="thumbnail">🛁</div>
+                                <div class="thumbnail">🍽️</div>
+                            </div>
+                        </div>
+                        
+                        <div class="apartment-sidebar">
+                            <!-- APARTMENT DETAILS -->
+                            <div class="sidebar-section">
+                                <h1>La Columbera Corte</h1>
+                                <div class="apartment-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">(4.9/5 - 127 recensioni)</span>
+                                </div>
+                                <p class="apartment-location">📍 Centro Storico, Trento TN</p>
+                                <div class="apartment-price">
+                                    <span class="price">€85</span>
+                                    <span class="price-period">/ notte</span>
+                                </div>
+                            </div>
+
+                            <!-- QUICK SPECS -->
+                            <div class="sidebar-section">
+                                <h3>Caratteristiche</h3>
+                                <div class="apartment-specs">
+                                    <div class="spec">
+                                        <span class="spec-icon">👥</span>
+                                        <span>4 ospiti</span>
+                                    </div>
+                                    <div class="spec">
+                                        <span class="spec-icon">🛏️</span>
+                                        <span>2 camere</span>
+                                    </div>
+                                    <div class="spec">
+                                        <span class="spec-icon">🛁</span>
+                                        <span>1 bagno</span>
+                                    </div>
+                                    <div class="spec">
+                                        <span class="spec-icon">📶</span>
+                                        <span>WiFi gratuito</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CALENDAR -->
+                            <div class="sidebar-section">
+                                <h3>Verifica Disponibilità</h3>
+                                <div class="calendar">
+                                    <div class="calendar-header">
+                                        <button class="calendar-nav" onclick="changeMonth(-1)">‹</button>
+                                        <span class="calendar-month" id="currentMonth">Giugno 2025</span>
+                                        <button class="calendar-nav" onclick="changeMonth(1)">›</button>
+                                    </div>
+                                    <div class="calendar-weekdays">
+                                        <div class="calendar-weekday">D</div>
+                                        <div class="calendar-weekday">L</div>
+                                        <div class="calendar-weekday">M</div>
+                                        <div class="calendar-weekday">M</div>
+                                        <div class="calendar-weekday">G</div>
+                                        <div class="calendar-weekday">V</div>
+                                        <div class="calendar-weekday">S</div>
+                                    </div>
+                                    <div class="calendar-grid" id="calendarGrid">
+                                        <!-- Calendar days will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="calendar-legend">
+                                    <div class="legend-item">
+                                        <div class="legend-color available"></div>
+                                        <span>Disponibile</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color occupied"></div>
+                                        <span>Occupato</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BOOKING -->
+                            <div class="sidebar-section">
+                                <h3>Prenota Ora</h3>
+                                <div class="booking-form">
+                                    <div class="date-inputs">
+                                        <div class="date-input">
+                                            <label>Check-in</label>
+                                            <input type="date" id="checkin" min="2025-06-10">
+                                        </div>
+                                        <div class="date-input">
+                                            <label>Check-out</label>
+                                            <input type="date" id="checkout" min="2025-06-11">
+                                        </div>
+                                    </div>
+                                    <div class="guest-select">
+                                        <label>Ospiti</label>
+                                        <select id="guests">
+                                            <option value="1">1 ospite</option>
+                                            <option value="2">2 ospiti</option>
+                                            <option value="3">3 ospiti</option>
+                                            <option value="4">4 ospiti</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn primary booking-btn" onclick="handleBooking()">
+                                        Prenota Ora - €85/notte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APARTMENT DETAILS -->
+        <section class="apartment-details-section">
+            <div class="container">
+                <div class="details-content">
+                    <div class="details-main">
+                        <div class="section-block">
+                            <h2>Descrizione</h2>
+                            <p>Elegante appartamento nel cuore del centro storico di Trento, La Columbera Corte offre un soggiorno raffinato in un palazzo d'epoca completamente ristrutturato. Con i suoi soffitti alti e gli arredi di design, questo appartamento combina il fascino storico con tutti i comfort moderni.</p>
+                            
+                            <p>Situato in una delle zone più prestigiose della città, l'appartamento si trova a pochi passi dal Duomo, da Piazza del Duomo e dalle principali attrazioni turistiche. La posizione strategica permette di raggiungere facilmente ristoranti, musei e negozi.</p>
+                        </div>
+
+                        <div class="section-block">
+                            <h2>Servizi e Comfort</h2>
+                            <div class="amenities-grid">
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">📶</span>
+                                    <span>WiFi ad alta velocità</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🍽️</span>
+                                    <span>Cucina completamente attrezzata</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">📺</span>
+                                    <span>TV Smart con Netflix</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🛁</span>
+                                    <span>Bagno privato con doccia</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🧺</span>
+                                    <span>Lavatrice</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🅿️</span>
+                                    <span>Parcheggio nelle vicinanze</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🔥</span>
+                                    <span>Riscaldamento autonomo</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🧊</span>
+                                    <span>Aria condizionata</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-block">
+                            <h2>Nelle Vicinanze</h2>
+                            <div class="nearby-places">
+                                <div class="nearby-item">
+                                    <strong>⛪ Duomo di Trento</strong>
+                                    <span>2 minuti a piedi</span>
+                                </div>
+                                <div class="nearby-item">
+                                    <strong>🏛️ Castello del Buonconsiglio</strong>
+                                    <span>8 minuti a piedi</span>
+                                </div>
+                                <div class="nearby-item">
+                                    <strong>🍽️ Ristoranti tipici</strong>
+                                    <span>1-3 minuti a piedi</span>
+                                </div>
+                                <div class="nearby-item">
+                                    <strong>🚌 Fermata autobus</strong>
+                                    <span>1 minuto a piedi</span>
+                                </div>
+                                <div class="nearby-item">
+                                    <strong>🛒 Supermercato</strong>
+                                    <span>5 minuti a piedi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="details-sidebar">
+                        <div class="host-info">
+                            <h3>Il tuo Host</h3>
+                            <div class="host-card">
+                                <div class="host-avatar">👤</div>
+                                <div class="host-details">
+                                    <h4>Space Estate Team</h4>
+                                    <p>Superhost da 3 anni</p>
+                                    <div class="host-stats">
+                                        <span>⭐ 4.9 rating</span>
+                                        <span>💬 Risposta in 1h</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="policies">
+                            <h3>Politiche</h3>
+                            <div class="policy-item">
+                                <strong>Check-in:</strong> 15:00 - 22:00
+                            </div>
+                            <div class="policy-item">
+                                <strong>Check-out:</strong> Prima delle 11:00
+                            </div>
+                            <div class="policy-item">
+                                <strong>Cancellazione:</strong> Gratuita fino a 24h prima
+                            </div>
+                            <div class="policy-item">
+                                <strong>Animali:</strong> Non ammessi
+                            </div>
+                            <div class="policy-item">
+                                <strong>Feste:</strong> Non consentite
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS SECTION -->
+        <section class="reviews-section">
+            <div class="container">
+                <h2>Recensioni degli Ospiti</h2>
+                <div class="reviews-overview">
+                    <div class="rating-summary">
+                        <div class="overall-rating">
+                            <span class="rating-number">4.9</span>
+                            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-count">127 recensioni</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong>Marco R.</strong>
+                                <span class="review-date">Maggio 2025</span>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p>"Appartamento fantastico nel cuore di Trento! Posizione perfetta per visitare la città, molto pulito e ben arredato. Host super disponibile."</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong>Anna M.</strong>
+                                <span class="review-date">Aprile 2025</span>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p>"Soggiorno perfetto! L'appartamento è esattamente come nelle foto, molto confortevole e in una posizione strategica. Consiglio vivamente!"</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong>Giuseppe T.</strong>
+                                <span class="review-date">Marzo 2025</span>
+                            </div>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <p>"Esperienza eccellente! Appartamento elegante, ben curato nei dettagli. La cucina è perfettamente attrezzata. Torneremo sicuramente!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Space Estate</h3>
+          <p>La tua destinazione per soggiorni di lusso a Trento e investimenti immobiliari redditizi.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Servizi</h3>
+          <ul>
+            <li><a href="Appartamenti.html">Appartamenti</a></li>
+            <li><a href="Proprietari.html">Gestione Proprietà</a></li>
+            <li><a href="Area-Riservata.html">Area Riservata</a></li>
+            <li><a href="Contatti.html">Assistenza</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>📞 Contatti</h3>
+          <div class="contact-info">
+            <p>📍 Centro Storico, Trento TN</p>
+            <p>📞 +39 351 704 3594</p>
+            <p>✉️ spacestate@yahoo.com</p>
+            <p>⏰ Lun-Dom: 8:00-22:00</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Seguici</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
+          <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Termini di Servizio</a>
+            <a href="#cookies">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <script>
+        // Calendar functionality
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
+        const months = [
+            'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+            'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
+        ];
+
+        // Available dates (example data)
+        const availableDates = [3, 6, 8, 10, 13, 16, 19, 22, 25, 28, 31];
+
+        function generateCalendar() {
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            
+            document.getElementById('currentMonth').textContent = `${months[currentMonth]} ${currentYear}`;
+            
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+            
+            // Empty cells for days before first day of month
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day';
+                calendarGrid.appendChild(emptyDay);
+            }
+            
+            // Days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = day;
+                
+                if (availableDates.includes(day)) {
+                    dayElement.classList.add('available');
+                    dayElement.onclick = () => selectDate(day);
+                }
+                
+                calendarGrid.appendChild(dayElement);
+            }
+        }
+
+        function changeMonth(direction) {
+            currentMonth += direction;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            } else if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar();
+        }
+
+        function selectDate(day) {
+            const selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            
+            const checkinInput = document.getElementById('checkin');
+            const checkoutInput = document.getElementById('checkout');
+            
+            if (!checkinInput.value || (checkinInput.value && checkoutInput.value)) {
+                checkinInput.value = selectedDate;
+                checkoutInput.value = '';
+            } else if (checkinInput.value && !checkoutInput.value) {
+                const checkinDate = new Date(checkinInput.value);
+                const selectedDateObj = new Date(selectedDate);
+                
+                if (selectedDateObj > checkinDate) {
+                    checkoutInput.value = selectedDate;
+                } else {
+                    checkinInput.value = selectedDate;
+                    checkoutInput.value = '';
+                }
+            }
+        }
+
+        function handleBooking() {
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const guests = document.getElementById('guests').value;
+            
+            if (!checkin || !checkout) {
+                alert('Seleziona le date di check-in e check-out');
+                return;
+            }
+            
+            // Calculate nights and total price
+            const checkinDate = new Date(checkin);
+            const checkoutDate = new Date(checkout);
+            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+            const totalPrice = nights * 85;
+            
+            const message = `Richiesta di prenotazione:
+- Appartamento: La Columbera Corte
+- Check-in: ${checkin}
+- Check-out: ${checkout}
+- Ospiti: ${guests}
+- Notti: ${nights}
+- Prezzo totale: €${totalPrice}
+
+Contatta Space Estate per confermare la prenotazione.`;
+            
+            // In a real application, this would send the booking request
+            alert(message);
+            
+            // Redirect to contact or booking confirmation page
+            window.location.href = 'Contatti.html';
+        }
+
+        // Initialize calendar on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            generateCalendar();
+        });
+    </script>
+</body>
+</html>
+   
