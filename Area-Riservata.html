@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatti - Space Estate</title>
-  <link rel="stylesheet" href="base.css">
+    <title>Area Riservata - Space Estate</title>
+    <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="header-footer.css">
   <link rel="stylesheet" href="specific-pages.css">
   <link rel="stylesheet" href="responsive.css">
@@ -36,77 +36,152 @@
         </nav>
     </header>
 
-    <!-- CONTACT HERO -->
-    <section class="contact-hero">
+    <!-- LOGIN SECTION -->
+    <section class="section" style="margin-top: 80px; background: white;">
         <div class="container">
-            <h1>Contattaci</h1>
-            <p>Siamo qui per aiutarti. Contattaci per qualsiasi informazione o per prenotare il tuo soggiorno perfetto a Trento.</p>
+            <div class="section-title">Area Riservata</div>
+            <div class="section-subtitle">Accedi alla tua area personale per gestire le tue prenotazioni</div>
+            
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <h3>Accesso Clienti</h3>
+                        <p>Inserisci le tue credenziali per accedere</p>
+                    </div>
+                    
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                Ricordami
+                            </label>
+                            <a href="#" class="forgot-password">Password dimenticata?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn primary" style="width: 100%;">Accedi</button>
+                    </form>
+                    
+                    <div class="login-footer">
+                        <p>Non hai ancora un account? <a href="#register" class="register-link">Registrati</a></p>
+                    </div>
+                </div>
+                
+                <div class="login-benefits">
+                    <h4>Cosa puoi fare nell'Area Riservata:</h4>
+                    <ul class="benefits-list">
+                        <li>
+                            <span class="benefit-icon">📅</span>
+                            <div>
+                                <strong>Gestisci le Prenotazioni</strong>
+                                <p>Visualizza, modifica o cancella le tue prenotazioni</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="benefit-icon">🏠</span>
+                            <div>
+                                <strong>Storico Soggiorni</strong>
+                                <p>Accedi alla cronologia completa dei tuoi soggiorni</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="benefit-icon">💳</span>
+                            <div>
+                                <strong>Fatture e Pagamenti</strong>
+                                <p>Scarica fatture e gestisci i metodi di pagamento</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="benefit-icon">⭐</span>
+                            <div>
+                                <strong>Recensioni</strong>
+                                <p>Lascia recensioni sui tuoi soggiorni passati</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="benefit-icon">🎁</span>
+                            <div>
+                                <strong>Offerte Esclusive</strong>
+                                <p>Accedi a sconti e promozioni riservate</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- CONTACT MAIN -->
-    <section class="contact-main">
+    <!-- REGISTER SECTION -->
+    <section class="section" style="background: #f9f7f4; display: none;" id="register-section">
         <div class="container">
-            <div class="contact-grid">
-                <!-- CONTACT FORM -->
-                <div class="contact-form-section">
-                    <h3>Invia un Messaggio</h3>
-                    <form class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="nome">Nome</label>
-                                <input type="text" id="nome" name="nome" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cognome">Cognome</label>
-                                <input type="text" id="cognome" name="cognome" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="telefono">Telefono</label>
-                                <input type="tel" id="telefono" name="telefono">
-                            </div>
-                        </div>
-                        
+            <div class="section-title">Registrazione</div>
+            <div class="section-subtitle">Crea il tuo account per accedere a tutti i servizi</div>
+            
+            <div class="register-container">
+                <form class="register-form">
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="argomento">Argomento</label>
-                            <select id="argomento" name="argomento" required>
-                                <option value="">Seleziona un argomento</option>
-                                <option value="prenotazione">Nuova Prenotazione</option>
-                                <option value="modifica">Modifica Prenotazione</option>
-                                <option value="cancellazione">Cancellazione</option>
-                                <option value="informazioni">Informazioni Generali</option>
-                                <option value="problema">Segnalazione Problema</option>
-                                <option value="altro">Altro</option>
-                            </select>
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" required>
                         </div>
-						                        <div class="form-group">
-                            <label for="messaggio">Messaggio</label>
-                            <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
-                        </div>
-
                         <div class="form-group">
-                            <button type="submit">Invia Messaggio</button>
+                            <label for="cognome">Cognome</label>
+                            <input type="text" id="cognome" name="cognome" required>
                         </div>
-                    </form>
-                </div>
-
-                <!-- CONTACT INFO -->
-                <div class="contact-info-section">
-                    <h3>Informazioni di Contatto</h3>
-                    <p>Hai domande o preferisci parlare con noi direttamente? Ecco come puoi raggiungerci:</p>
-                    <ul>
-                        <li><strong>Telefono:</strong> <a href="tel:+390461123456">+39 0461 123456</a></li>
-                        <li><strong>Email:</strong> <a href="mailto:info@spaceestate.it">info@spaceestate.it</a></li>
-                        <li><strong>Indirizzo:</strong> Via Esempio 123, 38100 Trento (TN)</li>
-                    </ul>
-                    <p>Seguici anche sui social per restare aggiornato sulle novità!</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email-reg">Email</label>
+                        <input type="email" id="email-reg" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password-reg">Password</label>
+                            <input type="password" id="password-reg" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Conferma Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacy" required>
+                            <span class="checkmark"></span>
+                            Accetto i <a href="#">Termini e Condizioni</a> e la <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter">
+                            <span class="checkmark"></span>
+                            Voglio ricevere offerte e aggiornamenti via email
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn primary" style="width: 100%;">Registrati</button>
+                </form>
+                
+                <div class="register-footer">
+                    <p>Hai già un account? <a href="#" class="login-link">Accedi</a></p>
                 </div>
             </div>
         </div>
@@ -163,5 +238,31 @@
       </div>
     </div>
   </footer>
+
+    <script>
+        // Toggle between login and register
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerLink = document.querySelector('.register-link');
+            const loginLink = document.querySelector('.login-link');
+            const loginSection = document.querySelector('.section');
+            const registerSection = document.getElementById('register-section');
+            
+            if (registerLink) {
+                registerLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginSection.style.display = 'none';
+                    registerSection.style.display = 'block';
+                });
+            }
+            
+            if (loginLink) {
+                loginLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginSection.style.display = 'block';
+                    registerSection.style.display = 'none';
+                });
+            }
+        });
+    </script>
 </body>
 </html>
