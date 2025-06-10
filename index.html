@@ -3,189 +3,220 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Space Estate - Luxury Apartments for Vacation Rentals in Trento</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Space Estate - Appartamenti di Lusso a Trento</title>
+  <!-- ORDINE CORRETTO DEI CSS -->
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="header-footer.css">
+  <link rel="stylesheet" href="homepage.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="header">
-    <nav class="nav">
-      <ul class="nav-links">
-        <li><a href="#home">About</a></li>
-        <li><a href="#apartments">Properties</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <nav class="nav-container">
+      <div class="logo-section">
+        <div class="logo">
+          <img src="img/logo-piccolo.png" alt="Space Estate Logo" class="logo-img">
+        </div>
+        <div class="business-name">Space Estate</div>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="Appartamenti.html">Appartamenti</a></li>
+        <li><a href="Proprietari.html">Per Proprietari</a></li>
+        <li><a href="Area-Riservata.html">Area Riservata</a></li>
+        <li><a href="Contatti.html">Contatti</a></li>
       </ul>
+
+      <div class="nav-actions">
+        <div class="language-selector">
+          <button class="lang-btn">🌐 IT</button>
+        </div>
+        <a href="#prenota" class="cta-button">Prenota Ora</a>
+      </div>
+
+      <!-- HAMBURGER MENU PER MOBILE -->
+      <button class="mobile-menu-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </header>
 
   <!-- HERO SECTION -->
   <section class="hero" id="home">
+    <div class="hero-background">
+      <div class="hero-gradient"></div>
+    </div>
     <div class="hero-content">
-      <div class="logo">SPACE ESTATE</div>
-      <h1>Luxury Apartments</h1>
-      <h2>for Vacation Rentals in Trento</h2>
-      <p>
-        Luxurious apartments in ancient Sicarily in Trento, comfort, elegant, 
-        and prime locations in our beautiful historic town
-      </p>
+      <div class="hero-logo">
+        <img src="img/logo-piccolo.png" alt="Logo Space Estate" />
+        <h1>SPACE ESTATE</h1>
+      </div>
+      <h2>Appartamenti di Lusso a Trento</h2>
+      <p>Scopri il comfort e l'eleganza nel cuore del Trentino-Alto Adige</p>
+      <div class="hero-actions">
+        <a href="Appartamenti.html" class="btn primary">Scopri gli Appartamenti</a>
+        <a href="Contatti.html" class="btn secondary">Contattaci</a>
+      </div>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <div class="main-content">
-    <div class="left-column" id="apartments">
+  <!-- APPARTAMENTI IN EVIDENZA -->
+  <section class="featured-apartments" id="appartamenti">
+    <div class="container">
+      <h2>I Nostri Appartamenti</h2>
       <div class="apartment-grid">
-        <div class="apartment-card">
-          <div class="apartment-image">🏠</div>
-          <div class="apartment-info">
-            <h3>Centro Storico Suite</h3>
+        <a href="La-Columbera-Corte.html" class="apartment-card">
+          <div class="apartment-image">
+            <img src="img/columbera-corte-main.jpg" alt="La Columbera Corte" loading="lazy">
           </div>
-        </div>
-        <div class="apartment-card">
-          <div class="apartment-image">🌟</div>
           <div class="apartment-info">
-            <h3>Palazzo Luxury</h3>
+            <h3>La Columbera - Corte</h3>
+            <p class="apartment-location">📍 Centro Storico, Trento</p>
+            <p class="apartment-price">€120/notte</p>
+            <div class="apartment-features">
+              <span>2 ospiti</span>
+              <span>1 camera</span>
+              <span>WiFi</span>
+            </div>
           </div>
-        </div>
+        </a>
+        
+        <a href="La-Columbera-Torre.html" class="apartment-card">
+          <div class="apartment-image">
+            <img src="img/columbera-torre-main.jpg" alt="La Columbera Torre" loading="lazy">
+          </div>
+          <div class="apartment-info">
+            <h3>La Columbera - Torre</h3>
+            <p class="apartment-location">📍 Centro Storico - Attico</p>
+            <p class="apartment-price">€180/notte</p>
+            <div class="apartment-features">
+              <span>4 ospiti</span>
+              <span>2 camere</span>
+              <span>Vista panoramica</span>
+            </div>
+          </div>
+        </a>
+        
         <div class="apartment-card">
-          <div class="apartment-image">🏢</div>
+          <div class="apartment-image">
+            <img src="img/modern-loft-main.jpg" alt="Modern Loft" loading="lazy">
+          </div>
           <div class="apartment-info">
             <h3>Modern Loft</h3>
+            <p class="apartment-location">📍 Zona Università</p>
+            <p class="apartment-price">€90/notte</p>
+            <div class="apartment-features">
+              <span>2 ospiti</span>
+              <span>1 camera</span>
+              <span>Smart Working</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="right-sidebar">
-      <!-- CHECK AVAILABILITY -->
-      <div class="sidebar-section">
-        <h3>Check Availability</h3>
-        <div class="calendar">
-          <div class="calendar-header">
-            <button class="calendar-nav">‹</button>
-            <span class="calendar-month">May 2024</span>
-            <button class="calendar-nav">›</button>
-          </div>
-          <div class="calendar-weekdays">
-            <div class="calendar-weekday">S</div>
-            <div class="calendar-weekday">M</div>
-            <div class="calendar-weekday">T</div>
-            <div class="calendar-weekday">W</div>
-            <div class="calendar-weekday">T</div>
-            <div class="calendar-weekday">F</div>
-            <div class="calendar-weekday">S</div>
-          </div>
-          <div class="calendar-grid">
-            <div class="calendar-day"></div>
-            <div class="calendar-day"></div>
-            <div class="calendar-day"></div>
-            <div class="calendar-day">1</div>
-            <div class="calendar-day">2</div>
-            <div class="calendar-day available">3</div>
-            <div class="calendar-day">4</div>
-            <div class="calendar-day">5</div>
-            <div class="calendar-day available">6</div>
-            <div class="calendar-day">7</div>
-            <div class="calendar-day available">8</div>
-            <div class="calendar-day">9</div>
-            <div class="calendar-day available">10</div>
-            <div class="calendar-day">11</div>
-            <div class="calendar-day">12</div>
-            <div class="calendar-day available">13</div>
-            <div class="calendar-day">14</div>
-            <div class="calendar-day">15</div>
-            <div class="calendar-day available">16</div>
-            <div class="calendar-day">17</div>
-            <div class="calendar-day">18</div>
-            <div class="calendar-day available">19</div>
-            <div class="calendar-day">20</div>
-            <div class="calendar-day">21</div>
-            <div class="calendar-day available">22</div>
-            <div class="calendar-day">23</div>
-            <div class="calendar-day">24</div>
-            <div class="calendar-day available">25</div>
-            <div class="calendar-day">26</div>
-            <div class="calendar-day">27</div>
-            <div class="calendar-day available">28</div>
-            <div class="calendar-day">29</div>
-            <div class="calendar-day">30</div>
-            <div class="calendar-day available">31</div>
-          </div>
+  <!-- PERCHÉ SCEGLIERE SPACE ESTATE -->
+  <section class="why-choose-us">
+    <div class="container">
+      <h2>Perché Scegliere Space Estate</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Qualità Garantita</h3>
+          <p>Ogni appartamento è ispezionato personalmente e soddisfa i nostri elevati standard di qualità.</p>
         </div>
-      </div>
-
-      <!-- BOOK NOW -->
-      <div class="sidebar-section">
-        <h3>Book Now</h3>
-        <a href="#booking" class="btn" style="width: 100%; text-align: center; display: block;">Reserve Your Stay</a>
-      </div>
-
-      <!-- GUEST REVIEWS -->
-      <div class="sidebar-section">
-        <h3>Guest Reviews</h3>
-        <div class="review">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Absolutely stunning apartment in the heart of Trento. Perfect location and luxury amenities."</p>
-          <p class="review-author">— Maria R.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📞</div>
+          <h3>Supporto 24/7</h3>
+          <p>Il nostro team è sempre disponibile per assistenza durante il vostro soggiorno.</p>
         </div>
-        <div class="review">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Exceeded all expectations. The attention to detail and service was impeccable."</p>
-          <p class="review-author">— James K.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3>Posizioni Premium</h3>
+          <p>Appartamenti nelle migliori zone di Trento, vicino alle principali attrazioni.</p>
         </div>
-        <div class="review">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"A truly memorable stay. Will definitely return and recommend to friends."</p>
-          <p class="review-author">— Sofia L.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💎</div>
+          <h3>Servizi Esclusivi</h3>
+          <p>Accoglienza personalizzata e consigli locali per rendere ogni soggiorno speciale.</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- CTA SECTION -->
-  <section class="cta-section">
-    <h2>Ready for Your Perfect Stay?</h2>
-    <p>Experience luxury and comfort in the heart of Trento</p>
-    <a href="#apartments" class="btn">View Apartments</a>
-    <a href="#contact" class="btn secondary">Contact Us</a>
+  <!-- TESTIMONIANZE -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Cosa Dicono i Nostri Ospiti</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Soggiorno fantastico alla Columbera Torre! La vista era spettacolare e l'appartamento ancora più bello delle foto."</p>
+          <strong>— Marco & Elena, Milano</strong>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Il Modern Loft è perfetto per chi lavora in smart working. WiFi velocissimo e spazio ben organizzato."</p>
+          <strong>— Alessandro, Roma</strong>
+        </div>
+        
+        <div class="testimonial">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p>"Posizione eccezionale per La Columbera Corte. A due passi dal centro ma tranquillo."</p>
+          <strong>— Sarah & Tom, London</strong>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer" id="contact">
+  <footer class="footer">
     <div class="footer-content">
       <div class="footer-section">
         <h3>Space Estate</h3>
-        <p>La tua destinazione per soggiorni di lusso e investimenti immobiliari redditizi a Trento.</p>
+        <p>La tua destinazione per soggiorni di lusso a Trento e investimenti immobiliari redditizi.</p>
       </div>
+      
       <div class="footer-section">
         <h3>Servizi</h3>
         <ul>
-          <li><a href="#apartments">Appartamenti</a></li>
-          <li><a href="#partners">Gestione Proprietà</a></li>
-          <li><a href="#marketing">Marketing Immobiliare</a></li>
-          <li><a href="#investment">Consulenza Investimenti</a></li>
-          <li><a href="#maintenance">Manutenzione</a></li>
+          <li><a href="Appartamenti.html">Appartamenti</a></li>
+          <li><a href="Proprietari.html">Gestione Proprietà</a></li>
+          <li><a href="Area-Riservata.html">Area Riservata</a></li>
+          <li><a href="Contatti.html">Assistenza</a></li>
         </ul>
       </div>
+      
       <div class="footer-section">
-        <h3>Contatti</h3>
+        <h3>📞 Contatti</h3>
         <div class="contact-info">
-          <p>📍 Trento TN</p>
+          <p>📍 Centro Storico, Trento TN</p>
           <p>📞 +39 351 704 3594</p>
           <p>✉️ spacestate@yahoo.com</p>
+          <p>⏰ Lun-Dom: 8:00-22:00</p>
         </div>
       </div>
+      
       <div class="footer-section">
         <h3>Seguici</h3>
         <div class="social-links">
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">i</a>
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="YouTube">y</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
         </div>
       </div>
     </div>
+    
     <div class="footer-bottom">
       <div class="footer-bottom-content">
         <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
@@ -199,17 +230,7 @@
   </footer>
 
   <script>
-    // Calendar functionality
-    const calendarDays = document.querySelectorAll('.calendar-day');
-    calendarDays.forEach(day => {
-      day.addEventListener('click', function() {
-        if (this.textContent && !this.classList.contains('available')) {
-          this.classList.toggle('available');
-        }
-      });
-    });
-
-    // Smooth scrolling for navigation links
+    // Smooth scrolling per i link di navigazione
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -223,32 +244,23 @@
       });
     });
 
-    // Calendar navigation
-    const prevBtn = document.querySelector('.calendar-nav:first-child');
-    const nextBtn = document.querySelector('.calendar-nav:last-child');
-    const monthSpan = document.querySelector('.calendar-month');
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
     
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
-                   'July', 'August', 'September', 'October', 'November', 'December'];
-    let currentMonth = 4; // May (0-indexed)
-    let currentYear = 2024;
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+      });
+    }
 
-    prevBtn.addEventListener('click', () => {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      monthSpan.textContent = `${months[currentMonth]} ${currentYear}`;
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      monthSpan.textContent = `${months[currentMonth]} ${currentYear}`;
+    // Chiudi menu mobile quando si clicca su un link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+      });
     });
   </script>
 
