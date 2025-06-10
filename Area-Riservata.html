@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appartamenti</title>
-	<link rel="stylesheet" href="style.css">
-
+    <title>Contatti - Space Estate</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="header-footer.css">
+  <link rel="stylesheet" href="specific-pages.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
-<header class="header">
+<body>
+    <header class="header">
         <nav class="nav-container">
             <div class="logo-section">
                 <div class="logo">
-                    <img src=/SpaceEstate/img/Logo-piccolo.png alt="Space Estate Logo" class="logo-img">
+                    <img src="img/logo-piccolo.png" alt="Space Estate Logo" class="logo-img">
                 </div>
                 <div class="business-name">Space Estate</div>
             </div>
 
             <ul class="nav-menu">
-                <li><a href=index.html>Home</a></li>
-                <li><a href=Appartamenti.html>Appartamenti</a></li>
-                <li><a href=Proprietari.html>Per Proprietari</a></li>
-                <li><a href=Area-Riservata.html>Area Riservata</a></li>
-                <li><a href=Contatti.html>Contatti</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appartamenti.html">Appartamenti</a></li>
+                <li><a href="Proprietari.html">Per Proprietari</a></li>
+                <li><a href="Area-riservata.html">Area Riservata</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -32,3 +35,133 @@
             </div>
         </nav>
     </header>
+
+    <!-- CONTACT HERO -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contattaci</h1>
+            <p>Siamo qui per aiutarti. Contattaci per qualsiasi informazione o per prenotare il tuo soggiorno perfetto a Trento.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT MAIN -->
+    <section class="contact-main">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- CONTACT FORM -->
+                <div class="contact-form-section">
+                    <h3>Invia un Messaggio</h3>
+                    <form class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cognome">Cognome</label>
+                                <input type="text" id="cognome" name="cognome" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Telefono</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="argomento">Argomento</label>
+                            <select id="argomento" name="argomento" required>
+                                <option value="">Seleziona un argomento</option>
+                                <option value="prenotazione">Nuova Prenotazione</option>
+                                <option value="modifica">Modifica Prenotazione</option>
+                                <option value="cancellazione">Cancellazione</option>
+                                <option value="informazioni">Informazioni Generali</option>
+                                <option value="problema">Segnalazione Problema</option>
+                                <option value="altro">Altro</option>
+                            </select>
+                        </div>
+						                        <div class="form-group">
+                            <label for="messaggio">Messaggio</label>
+                            <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit">Invia Messaggio</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- CONTACT INFO -->
+                <div class="contact-info-section">
+                    <h3>Informazioni di Contatto</h3>
+                    <p>Hai domande o preferisci parlare con noi direttamente? Ecco come puoi raggiungerci:</p>
+                    <ul>
+                        <li><strong>Telefono:</strong> <a href="tel:+390461123456">+39 0461 123456</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:info@spaceestate.it">info@spaceestate.it</a></li>
+                        <li><strong>Indirizzo:</strong> Via Esempio 123, 38100 Trento (TN)</li>
+                    </ul>
+                    <p>Seguici anche sui social per restare aggiornato sulle novità!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Space Estate</h3>
+          <p>La tua destinazione per soggiorni di lusso a Trento e investimenti immobiliari redditizi.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Servizi</h3>
+          <ul>
+            <li><a href="Appartamenti.html">Appartamenti</a></li>
+            <li><a href="Proprietari.html">Gestione Proprietà</a></li>
+            <li><a href="Area-Riservata.html">Area Riservata</a></li>
+            <li><a href="Contatti.html">Assistenza</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>📞 Contatti</h3>
+          <div class="contact-info">
+            <p>📍 Centro Storico, Trento TN</p>
+            <p>📞 +39 351 704 3594</p>
+            <p>✉️ spacestate@yahoo.com</p>
+            <p>⏰ Lun-Dom: 8:00-22:00</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Seguici</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
+          <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Termini di Servizio</a>
+            <a href="#cookies">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
