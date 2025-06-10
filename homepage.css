@@ -13,7 +13,7 @@
 }
 
 .hero-background {
-  background-image: url('img/trento1.jpg');
+  background-image: url('/SpaceEstate/img/trento1.jpg');
   background-size: cover;
   background-position: center;
   position: absolute;
