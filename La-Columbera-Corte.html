@@ -8,45 +8,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
     
-    <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="/SpaceEstate/header-footer.css">
-  <link rel="stylesheet" href="/SpaceEstate/apartments-single.css">
-  <link rel="stylesheet" href="/SpaceEstate/responsive.css">
+    <link rel="stylesheet" href="/SpaceEstate/css/base.css">
+  <link rel="stylesheet" href="/SpaceEstate/css/header-footer.css">
+  <link rel="stylesheet" href="/SpaceEstate/css/apartments-single.css">
+  <link rel="stylesheet" href="/SpaceEstate/css/responsive.css">
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
-    <nav class="nav-container">
-      <div class="logo-section">
-        <div class="logo">
-          <img src="/SpaceEstate/img/Logo-piccolo.png" alt="Space Estate Logo" class="logo-img">
-        </div>
-        <div class="business-name">Space Estate</div>
-      </div>
-
-      <ul class="nav-menu">
-        <li><a href="/SpaceEstate/index.html">Home</a></li>
-        <li><a href="/SpaceEstate/Appartamenti.html" class="active">Appartamenti</a></li>
-        <li><a href="/SpaceEstate/Proprietari.html">Per Proprietari</a></li>
-        <li><a href="/SpaceEstate/Area-Riservata.html">Area Riservata</a></li>
-        <li><a href="/SpaceEstate/Contatti.html">Contatti</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <div class="language-selector">
-          <button class="lang-btn">🌐 IT</button>
-        </div>
-        <a href="#prenota" class="cta-button">Prenota Ora</a>
-      </div>
-
-      <!-- HAMBURGER MENU PER MOBILE -->
-      <button class="mobile-menu-btn" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </header>
+   <div data-include="/SpaceEstate/header.html"></div>
 
     <!-- MAIN CONTENT -->
     <main class="apartment-page">
@@ -342,56 +311,7 @@
     </main>
 
     <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Space Estate</h3>
-          <p>La tua destinazione per soggiorni di lusso a Trento e investimenti immobiliari redditizi.</p>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Servizi</h3>
-          <ul>
-            <li><a href="Appartamenti.html">Appartamenti</a></li>
-            <li><a href="Proprietari.html">Gestione Proprietà</a></li>
-            <li><a href="Area-Riservata.html">Area Riservata</a></li>
-            <li><a href="Contatti.html">Assistenza</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>📞 Contatti</h3>
-          <div class="contact-info">
-            <p>📍 Centro Storico, Trento TN</p>
-            <p>📞 +39 351 704 3594</p>
-            <p>✉️ spacestate@yahoo.com</p>
-            <p>⏰ Lun-Dom: 8:00-22:00</p>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Seguici</h3>
-          <div class="social-links">
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="LinkedIn">💼</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div class="footer-bottom-content">
-          <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
-          <div class="footer-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Termini di Servizio</a>
-            <a href="#cookies">Cookie Policy</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <div data-include="/SpaceEstate/footer.html"></div>
 
     <script>
         // Calendar functionality
