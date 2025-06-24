@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/SpaceEstate/css/header-footer.css">
   <link rel="stylesheet" href="/SpaceEstate/css/apartments-single.css">
   <link rel="stylesheet" href="/SpaceEstate/css/responsive.css">
+    <script src="/SpaceEstate/include.js" defer></script>
 </head>
 <body>
     <!-- HEADER -->
@@ -314,6 +315,36 @@
   <div data-include="/SpaceEstate/footer.html"></div>
 
     <script>
+        // Initialize calendar on page load
+document.addEventListener('DOMContentLoaded', function() {
+    generateCalendar();
+    
+    // AGGIUNGI QUESTE RIGHE PER IL MENU MOBILE
+    // Attendiamo un po' per assicurarci che header e footer siano caricati
+    setTimeout(initializeMobileMenu, 100);
+});
+
+// AGGIUNGI QUESTA FUNZIONE
+function initializeMobileMenu() {
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+
+        // Chiudi menu mobile quando si clicca su un link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    }
+}
         // Calendar functionality
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
