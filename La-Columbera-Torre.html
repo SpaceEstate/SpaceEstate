@@ -365,6 +365,10 @@
    <div data-include="/SpaceEstate/footer.html"></div>
     
     <script>
+        // Aspetta che tutto sia caricato prima di inizializzare
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initializeScripts, 100);
+    });
         // Calendar functionality (same as Corte)
         let currentDate = new Date();
         let currentMonth = currentDate.getMonth();
@@ -478,10 +482,7 @@ Contatta Space Estate per confermare la prenotazione premium.`;
         document.addEventListener('DOMContentLoaded', function() {
             generateCalendar();
         });
-        // Aspetta che tutto sia caricato prima di inizializzare
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(initializeScripts, 100);
-    });
+        
 
     function initializeScripts() {
         // Mobile menu toggle
