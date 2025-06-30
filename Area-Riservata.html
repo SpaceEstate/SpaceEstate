@@ -6,20 +6,20 @@
     <title>Area Riservata - Space Estate</title>
     <!-- FAVICON PER TUTTI I DISPOSITIVI -->
   
-  <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
     
     <link rel="stylesheet" href="/SpaceEstate/base.css">
-  <link rel="stylesheet" href="/SpaceEstate/header-footer.css">
-  <link rel="stylesheet" href="/SpaceEstate/specific-pages.css">
-  <link rel="stylesheet" href="/SpaceEstate/responsive.css">
-  <script src="/SpaceEstate/include.js" defer></script>
+    <link rel="stylesheet" href="/SpaceEstate/header-footer.css">
+    <link rel="stylesheet" href="/SpaceEstate/specific-pages.css">
+    <link rel="stylesheet" href="/SpaceEstate/responsive.css">
+    <script src="/SpaceEstate/include.js" defer></script>
 </head>
 <body>
     <div data-include="/SpaceEstate/header.html"></div>
 
     <!-- LOGIN SECTION -->
-    <section class="section" style="margin-top: 80px; background: white;">
+    <section class="section" id="login-section" style="margin-top: 80px; background: white;">
         <div class="container">
             <div class="section-title">Area Riservata</div>
             <div class="section-subtitle">Accedi alla tua area personale per gestire le tue prenotazioni</div>
@@ -170,39 +170,39 @@
     </section>
 
     <!-- FOOTER -->
- <div data-include="/SpaceEstate/footer.html"></div>
+    <div data-include="/SpaceEstate/footer.html"></div>
 
     <script>
         // Aspetta che tutto sia caricato prima di inizializzare
-    document.addEventListener('DOMContentLoaded', function() {
-        // Attendiamo un po' per assicurarci che header e footer siano caricati
-        setTimeout(initializeScripts, 100);
-    });
-
-    function initializeScripts() {
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                mobileMenuBtn.classList.toggle('active');
-            });
-
-            // Chiudi menu mobile quando si clicca su un link
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
-                });
-            });
-        }
-        // Toggle between login and register
         document.addEventListener('DOMContentLoaded', function() {
+            // Attendiamo un po' per assicurarci che header e footer siano caricati
+            setTimeout(initializeScripts, 100);
+        });
+
+        function initializeScripts() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    mobileMenuBtn.classList.toggle('active');
+                });
+
+                // Chiudi menu mobile quando si clicca su un link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.classList.remove('active');
+                    });
+                });
+            }
+
+            // Toggle between login and register
             const registerLink = document.querySelector('.register-link');
             const loginLink = document.querySelector('.login-link');
-            const loginSection = document.querySelector('.section');
+            const loginSection = document.getElementById('login-section');
             const registerSection = document.getElementById('register-section');
             
             if (registerLink) {
@@ -220,7 +220,7 @@
                     registerSection.style.display = 'none';
                 });
             }
-        });
+        }
     </script>
 </body>
 </html>
