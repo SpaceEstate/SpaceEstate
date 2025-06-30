@@ -173,6 +173,31 @@
  <div data-include="/SpaceEstate/footer.html"></div>
 
     <script>
+        // Aspetta che tutto sia caricato prima di inizializzare
+    document.addEventListener('DOMContentLoaded', function() {
+        // Attendiamo un po' per assicurarci che header e footer siano caricati
+        setTimeout(initializeScripts, 100);
+    });
+
+    function initializeScripts() {
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+
+            // Chiudi menu mobile quando si clicca su un link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+        }
         // Toggle between login and register
         document.addEventListener('DOMContentLoaded', function() {
             const registerLink = document.querySelector('.register-link');
