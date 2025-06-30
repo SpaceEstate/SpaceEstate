@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appartamenti di Lusso - Space Estate</title>
+    <meta name="description" content="Scopri i nostri appartamenti di lusso a Trento per affitti brevi. Posizioni premium nel centro storico con servizi esclusivi.">
     
     <!-- FAVICON -->
     <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
@@ -14,7 +15,6 @@
     <link rel="stylesheet" href="/SpaceEstate/header-footer.css">
     <link rel="stylesheet" href="/SpaceEstate/apartments.css">
     <link rel="stylesheet" href="/SpaceEstate/responsive.css">
-    <script src="/SpaceEstate/include.js" defer></script>
     
     <!-- SCRIPTS -->
     <script src="/SpaceEstate/include.js" defer></script>
@@ -94,7 +94,7 @@
                             <option value="universita">Zona Università</option>
                         </select>
                     </div>
-                    <button class="filter-btn">Cerca</button>
+                    <button class="filter-btn" onclick="filterApartments()">Cerca</button>
                 </div>
             </div>
         </section>
@@ -102,12 +102,15 @@
         <!-- GRIGLIA APPARTAMENTI -->
         <section class="apartments-grid-section">
             <div class="container">
-                <div class="apartments-grid">
+                <div class="apartments-grid" id="apartments-grid">
                     
                     <!-- LA COLUMBERA - CORTE -->
                     <article class="apartment-card" data-guests="4" data-price="120" data-location="centro">
                         <div class="apartment-image">
-                            <img src="/SpaceEstate/img/corte/Copia di Soggiorno 1.jpg" alt="La Columbera Corte" loading="lazy">
+                            <img src="/SpaceEstate/img/corte/Copia di Soggiorno 1.jpg" 
+                                 alt="La Columbera Corte - Soggiorno elegante" 
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;background:#f5f3f0;color:#8b7355;font-size:16px;\'>📸 Immagine in caricamento...</div>'">
                             <div class="apartment-badge popular">Più Richiesto</div>
                         </div>
                         <div class="apartment-info">
@@ -165,7 +168,11 @@
                     <!-- LA COLUMBERA - TORRE -->
                     <article class="apartment-card featured" data-guests="6" data-price="180" data-location="centro">
                         <div class="apartment-image">
-                            <img src="/SpaceEstate/img/torre/Copia di Matrimoniale 2.jpg" alt="La Columbera Torre" loading="lazy">
+                            <img src="/SpaceEstate/img/torre/Copia di Matrimoniale 2.jpg" 
+     alt="La Columbera Torre - Camera matrimoniale lussuosa" 
+     loading="lazy"
+     onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex; align-items:center; justify-content:center; height:100%; background:#f0f0f0; color:#555; font-style:italic;\'>Immagine non disponibile</div>';">
+
                             <div class="apartment-badge premium">Premium</div>
                         </div>
                         <div class="apartment-info">
