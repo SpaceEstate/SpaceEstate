@@ -3,509 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area Riservata - Space Estate</title>
-    <!-- FAVICON PER TUTTI I DISPOSITIVI -->
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
+    <title>Appartamenti di Lusso - Space Estate</title>
     
-  <link rel="stylesheet" href="/SpaceEstate/base.css">
-  <link rel="stylesheet" href="/SpaceEstate/header-footer.css">
-  <link rel="stylesheet" href="/SpaceEstate/apartments.css">
-  <link rel="stylesheet" href="/SpaceEstate/responsive.css">
-  <script src="/SpaceEstate/include.js" defer></script>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
+    
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="/SpaceEstate/base.css">
+    <link rel="stylesheet" href="/SpaceEstate/header-footer.css">
+    <link rel="stylesheet" href="/SpaceEstate/apartments.css">
+    <link rel="stylesheet" href="/SpaceEstate/responsive.css">
+    
+    <!-- SCRIPTS -->
+    <script src="/SpaceEstate/include.js" defer></script>
 </head>
 <body>
-    <div data-include="/SpaceEstate/header.html"></div>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="/SpaceEstate/img/Logo-piccolo.png" alt="Space Estate Logo" class="logo-img" />
+                </div>
+                <div class="business-name">Space Estate</div>
+            </div>
 
-  <main class="main-content">
-    <!-- HERO SECTION APPARTAMENTI -->
-    <section class="apartments-hero">
-      <div class="container">
-        <h1>Appartamenti di Lusso a Trento</h1>
-        <p>Scopri i nostri esclusivi appartamenti per affitti brevi nel cuore del Trentino-Alto Adige. Ogni proprietà è stata accuratamente selezionata per offrire comfort, eleganza e un'esperienza indimenticabile.</p>
-      </div>
-    </section>
+            <ul class="nav-menu">
+                <li><a href="/SpaceEstate/index.html">Home</a></li>
+                <li><a href="/SpaceEstate/Appartamenti.html" class="active">Appartamenti</a></li>
+                <li><a href="/SpaceEstate/Proprietari.html">Per Proprietari</a></li>
+                <li><a href="/SpaceEstate/Area-Riservata.html">Area Riservata</a></li>
+                <li><a href="/SpaceEstate/Contatti.html">Contatti</a></li>
+            </ul>
 
-    <!-- FILTRI DI RICERCA -->
-    <section class="search-filters">
-      <div class="container">
-        <h3>Trova l'appartamento perfetto</h3>
-        <div class="filters-grid">
-          <div class="filter-group">
-            <label for="guests">Ospiti</label>
-            <select id="guests" class="filter-select">
-              <option value="">Tutti</option>
-              <option value="2">Fino a 2</option>
-              <option value="4">Fino a 4</option>
-              <option value="6">Fino a 6</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label for="price">Prezzo per notte</label>
-            <select id="price" class="filter-select">
-              <option value="">Tutti i prezzi</option>
-              <option value="0-100">€0 - €100</option>
-              <option value="100-150">€100 - €150</option>
-              <option value="150+">€150+</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label for="location">Zona</label>
-            <select id="location" class="filter-select">
-              <option value="">Tutte le zone</option>
-              <option value="centro">Centro Storico</option>
-              <option value="universita">Zona Università</option>
-            </select>
-          </div>
-          <button class="filter-btn">Cerca</button>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <button class="lang-btn">🌐 IT</button>
+                </div>
+                <a href="#prenota" class="cta-button">Prenota Ora</a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- HERO SECTION -->
+        <section class="apartments-hero">
+            <div class="container">
+                <h1>Appartamenti di Lusso a Trento</h1>
+                <p>Scopri i nostri esclusivi appartamenti per affitti brevi nel cuore del Trentino-Alto Adige. Ogni proprietà è stata accuratamente selezionata per offrire comfort, eleganza e un'esperienza indimenticabile.</p>
+            </div>
+        </section>
+
+        <!-- FILTRI DI RICERCA -->
+        <section class="search-filters">
+            <div class="container">
+                <h3>Trova l'appartamento perfetto</h3>
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="guests">Ospiti</label>
+                        <select id="guests" class="filter-select">
+                            <option value="">Tutti</option>
+                            <option value="2">Fino a 2</option>
+                            <option value="4">Fino a 4</option>
+                            <option value="6">Fino a 6</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="price">Prezzo per notte</label>
+                        <select id="price" class="filter-select">
+                            <option value="">Tutti i prezzi</option>
+                            <option value="0-100">€0 - €100</option>
+                            <option value="100-150">€100 - €150</option>
+                            <option value="150+">€150+</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="location">Zona</label>
+                        <select id="location" class="filter-select">
+                            <option value="">Tutte le zone</option>
+                            <option value="centro">Centro Storico</option>
+                            <option value="universita">Zona Università</option>
+                        </select>
+                    </div>
+                    <button class="filter-btn">Cerca</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRIGLIA APPARTAMENTI -->
+        <section class="apartments-grid-section">
+            <div class="container">
+                <div class="apartments-grid">
+                    
+                    <!-- LA COLUMBERA - CORTE -->
+                    <article class="apartment-card" data-guests="4" data-price="120" data-location="centro">
+                        <div class="apartment-image">
+                            <img src="/SpaceEstate/img/corte/Copia di Soggiorno 1.jpg" alt="La Columbera Corte" loading="lazy">
+                            <div class="apartment-badge popular">Più Richiesto</div>
+                        </div>
+                        <div class="apartment-info">
+                            <div class="apartment-header">
+                                <h3>La Columbera - Corte</h3>
+                                <div class="apartment-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">(4.9) · 127 recensioni</span>
+                                </div>
+                            </div>
+                            
+                            <p class="apartment-location">📍 Centro Storico, Trento</p>
+                            
+                            <div class="apartment-price">
+                                <span class="price-night">€120/notte</span>
+                                <span class="price-week">€800/settimana</span>
+                            </div>
+                            
+                            <p class="apartment-description">
+                                Elegante appartamento situato in una storica corte del centro di Trento. Combina il fascino dell'architettura tradizionale con comfort moderni.
+                            </p>
+                            
+                            <div class="apartment-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🛏️</span>
+                                    <span>2 camere · 4 ospiti</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🚿</span>
+                                    <span>2 bagni completi</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🅿️</span>
+                                    <span>Parcheggio incluso</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📶</span>
+                                    <span>WiFi gratuito</span>
+                                </div>
+                            </div>
+                            
+                            <div class="apartment-amenities">
+                                <span class="amenity-tag">Check-in autonomo</span>
+                                <span class="amenity-tag">Biancheria inclusa</span>
+                                <span class="amenity-tag">Pulizia finale</span>
+                            </div>
+                            
+                            <div class="apartment-actions">
+                                <a href="/SpaceEstate/La-Columbera-Corte.html" class="btn primary">Vedi Dettagli</a>
+                                <button class="btn secondary" onclick="prenota('corte')">Prenota Ora</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- LA COLUMBERA - TORRE -->
+                    <article class="apartment-card featured" data-guests="6" data-price="180" data-location="centro">
+                        <div class="apartment-image">
+                            <img src="/SpaceEstate/img/torre/Copia di Matrimoniale 2.jpg" alt="La Columbera Torre" loading="lazy">
+                            <div class="apartment-badge premium">Premium</div>
+                        </div>
+                        <div class="apartment-info">
+                            <div class="apartment-header">
+                                <h3>La Columbera - Torre</h3>
+                                <div class="apartment-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">(5.0) · 89 recensioni</span>
+                                </div>
+                            </div>
+                            
+                            <p class="apartment-location">📍 Centro Storico - Piano Attico</p>
+                            
+                            <div class="apartment-price">
+                                <span class="price-night">€180/notte</span>
+                                <span class="price-week">€1200/settimana</span>
+                            </div>
+                            
+                            <p class="apartment-description">
+                                Lussuoso attico con vista panoramica mozzafiato sulle Dolomiti. L'esperienza di soggiorno più esclusiva della nostra collezione.
+                            </p>
+                            
+                            <div class="apartment-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🛏️</span>
+                                    <span>3 camere · 6 ospiti</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🛁</span>
+                                    <span>2 bagni lusso</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🌅</span>
+                                    <span>Terrazza panoramica</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">❄️</span>
+                                    <span>Aria condizionata</span>
+                                </div>
+                            </div>
+                            
+                            <div class="apartment-amenities">
+                                <span class="amenity-tag premium">Servizio concierge</span>
+                                <span class="amenity-tag premium">Pulizia giornaliera</span>
+                                <span class="amenity-tag premium">Transfer aeroporto</span>
+                            </div>
+                            
+                            <div class="apartment-actions">
+                                <a href="/SpaceEstate/La-Columbera-Torre.html" class="btn primary">Vedi Dettagli</a>
+                                <button class="btn secondary" onclick="prenota('torre')">Prenota Ora</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- SUITE ELEGANCE -->
+                    <article class="apartment-card" data-guests="6" data-price="150" data-location="centro">
+                        <div class="apartment-image">
+                            <img src="/SpaceEstate/img/elegance.jpg" alt="Suite Elegance" loading="lazy">
+                            <div class="apartment-badge luxury">Luxury</div>
+                        </div>
+                        <div class="apartment-info">
+                            <div class="apartment-header">
+                                <h3>Suite Elegance</h3>
+                                <div class="apartment-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">(4.8) · 65 recensioni</span>
+                                </div>
+                            </div>
+                            
+                            <p class="apartment-location">📍 Centro Storico, Trento</p>
+                            
+                            <div class="apartment-price">
+                                <span class="price-night">€150/notte</span>
+                                <span class="price-week">€1000/settimana</span>
+                            </div>
+                            
+                            <p class="apartment-description">
+                                Suite elegante con design raffinato e servizi premium. Ideale per soggiorni di lusso nel cuore di Trento.
+                            </p>
+                            
+                            <div class="apartment-features">
+                                <div class="feature-item">
+                                    <span class="feature-icon">🛏️</span>
+                                    <span>3 camere · 6 ospiti</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">👨‍🍳</span>
+                                    <span>Cucina gourmet</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🏛️</span>
+                                    <span>Design premium</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🍾</span>
+                                    <span>Welcome amenities</span>
+                                </div>
+                            </div>
+                            
+                            <div class="apartment-amenities">
+                                <span class="amenity-tag">Luxury experience</span>
+                                <span class="amenity-tag">Business ready</span>
+                                <span class="amenity-tag">Premium location</span>
+                            </div>
+                            
+                            <div class="apartment-actions">
+                                <a href="/SpaceEstate/Suite-Elegance.html" class="btn primary">Vedi Dettagli</a>
+                                <button class="btn secondary" onclick="prenota('elegance')">Prenota Ora</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PERCHÉ SCEGLIERE SPACE ESTATE -->
+        <section class="why-choose-us">
+            <div class="container">
+                <h2>Perché scegliere Space Estate?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Qualità Garantita</h3>
+                        <p>Ogni appartamento è ispezionato personalmente e soddisfa i nostri elevati standard di qualità.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📞</div>
+                        <h3>Supporto 24/7</h3>
+                        <p>Il nostro team è sempre disponibile per assistenza durante il vostro soggiorno.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Posizioni Premium</h3>
+                        <p>Appartamenti nelle migliori zone di Trento, vicino alle principali attrazioni.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💎</div>
+                        <h3>Servizi Esclusivi</h3>
+                        <p>Accoglienza personalizzata e consigli locali per rendere ogni soggiorno speciale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIANZE -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>Cosa dicono i nostri ospiti</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Soggiorno fantastico alla Columbera Torre! La vista era spettacolare e l'appartamento ancora più bello delle foto."</p>
+                        <strong>— Marco & Elena, Milano</strong>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Suite Elegance perfetta per il nostro soggiorno di lavoro. Servizi impeccabili e design raffinato."</p>
+                        <strong>— Alessandro, Roma</strong>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Posizione eccezionale per La Columbera Corte. A due passi dal centro ma tranquillo."</p>
+                        <strong>— Sarah & Tom, London</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Pronto per la tua esperienza di lusso?</h2>
+                <p>Prenota ora uno dei nostri esclusivi appartamenti e scopri il meglio di Trento</p>
+                <div class="cta-buttons">
+                    <a href="/SpaceEstate/Contatti.html" class="btn primary large">Prenota Ora</a>
+                    <a href="/SpaceEstate/Contatti.html" class="btn secondary large">Richiedi Info</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="/SpaceEstate/img/Logo-piccolo.png" alt="Space Estate">
+                        <span>Space Estate</span>
+                    </div>
+                    <p>Appartamenti di lusso a Trento per esperienze indimenticabili.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Link Utili</h4>
+                    <ul>
+                        <li><a href="/SpaceEstate/index.html">Home</a></li>
+                        <li><a href="/SpaceEstate/Appartamenti.html">Appartamenti</a></li>
+                        <li><a href="/SpaceEstate/Contatti.html">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contatti</h4>
+                    <p>📧 info@spaceestate.it</p>
+                    <p>📞 +39 123 456 7890</p>
+                    <p>📍 Trento, Italia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
+            </div>
         </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- GRIGLIA APPARTAMENTI -->
-    <section class="apartments-grid-section">
-      <div class="container">
-        <div class="apartments-grid">
-          <!-- LA COLUMBERA - CORTE -->
-          <article class="apartment-card" data-guests="4" data-price="120" data-location="centro">
-            <div class="apartment-image">
-              <img src="/SpaceEstate/img/corte/Copia di Soggiorno 1.jpg" alt="La Columbera Corte" loading="lazy">
-              <div class="apartment-badge popular">Più Richiesto</div>
-            </div>
-            <div class="apartment-info">
-              <div class="apartment-header">
-                <h3>La Columbera - Corte</h3>
-                <div class="apartment-rating">
-                  <span class="stars">⭐⭐⭐⭐⭐</span>
-                  <span class="rating-text">(4.9) · 127 recensioni</span>
-                </div>
-              </div>
-              
-              <p class="apartment-location">📍 Centro Storico, Trento</p>
-              
-              <div class="apartment-price">
-                <span class="price-night">€120/notte</span>
-                <span class="price-week">€800/settimana</span>
-              </div>
-              
-              <p class="apartment-description">
-                Elegante appartamento situato in una storica corte del centro di Trento. Combina il fascino dell'architettura tradizionale con comfort moderni.
-              </p>
-              
-              <div class="apartment-features">
-                <div class="feature-item">
-                  <span class="feature-icon">🛏️</span>
-                  <span>2 camere · 4 ospiti</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">🚿</span>
-                  <span>2 bagni completi</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">🅿️</span>
-                  <span>Parcheggio incluso</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">📶</span>
-                  <span>WiFi gratuito</span>
-                </div>
-              </div>
-              
-              <div class="apartment-amenities">
-                <span class="amenity-tag">Check-in autonomo</span>
-                <span class="amenity-tag">Biancheria inclusa</span>
-                <span class="amenity-tag">Pulizia finale</span>
-              </div>
-              
-              <div class="apartment-actions">
-                <a href="La-Columbera-Corte.html" class="btn primary">Vedi Dettagli</a>
-                <button class="btn secondary">Prenota Ora</button>
-              </div>
-            </div>
-          </article>
+    <script>
+        // Aspetta che tutto sia caricato
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeScripts();
+        });
 
-          <!-- LA COLUMBERA - TORRE -->
-          <article class="apartment-card featured" data-guests="6" data-price="180" data-location="centro">
-            <div class="apartment-image">
-              <img src="/SpaceEstate/img/torre/Copia di Matrimoniale 2.jpg" alt="La Columbera Torre" loading="lazy">
-              <div class="apartment-badge premium">Premium</div>
-            </div>
-            <div class="apartment-info">
-              <div class="apartment-header">
-                <h3>La Columbera - Torre</h3>
-                <div class="apartment-rating">
-                  <span class="stars">⭐⭐⭐⭐⭐</span>
-                  <span class="rating-text">(5.0) · 89 recensioni</span>
-                </div>
-              </div>
-              
-              <p class="apartment-location">📍 Centro Storico - Piano Attico</p>
-              
-              <div class="apartment-price">
-                <span class="price-night">€180/notte</span>
-                <span class="price-week">€1200/settimana</span>
-              </div>
-              
-              <p class="apartment-description">
-                Lussuoso attico con vista panoramica mozzafiato sulle Dolomiti. L'esperienza di soggiorno più esclusiva della nostra collezione.
-              </p>
-              
-              <div class="apartment-features">
-                <div class="feature-item">
-                  <span class="feature-icon">🛏️</span>
-                  <span>3 camere · 6 ospiti</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">🛁</span>
-                  <span>2 bagni lusso</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">🌅</span>
-                  <span>Terrazza panoramica</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">❄️</span>
-                  <span>Aria condizionata</span>
-                </div>
-              </div>
-              
-              <div class="apartment-amenities">
-                <span class="amenity-tag premium">Servizio concierge</span>
-                <span class="amenity-tag premium">Pulizia giornaliera</span>
-                <span class="amenity-tag premium">Transfer aeroporto</span>
-              </div>
-              
-              <div class="apartment-actions">
-                <a href="La-Columbera-Torre.html" class="btn primary">Vedi Dettagli</a>
-                <button class="btn secondary">Prenota Ora</button>
-              </div>
-            </div>
-          </article>
+        function initializeScripts() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    mobileMenuBtn.classList.toggle('active');
+                });
 
-          <!-- MODERN LOFT 
-          <article class="apartment-card" data-guests="2" data-price="90" data-location="universita">
-            <div class="apartment-image">
-              <img src="img/modern-loft-main.jpg" alt="Modern Loft" loading="lazy">
-              <div class="apartment-badge modern">Moderno</div>
-            </div>
-            <div class="apartment-info">
-              <div class="apartment-header">
-                <h3>Modern Loft</h3>
-                <div class="apartment-rating">
-                  <span class="stars">⭐⭐⭐⭐⭐</span>
-                  <span class="rating-text">(4.8) · 73 recensioni</span>
-                </div>
-              </div>
-              
-              <p class="apartment-location">📍 Zona Università, Trento</p>
-              
-              <div class="apartment-price">
-                <span class="price-night">€90/notte</span>
-                <span class="price-week">€600/settimana</span>
-              </div>
-              
-              <p class="apartment-description">
-                Moderno loft dal design minimalista, perfetto per soggiorni di lavoro e coppie che apprezzano lo stile urbano.
-              </p>
-              
-              <div class="apartment-features">
-                <div class="feature-item">
-                  <span class="feature-icon">🛏️</span>
-                  <span>1 camera · 2 ospiti</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">💼</span>
-                  <span>Area studio</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">🚲</span>
-                  <span>Bici gratuite</span>
-                </div>
-                <div class="feature-item">
-                  <span class="feature-icon">📶</span>
-                  <span>WiFi fibra</span>
-                </div>
-              </div>
-              
-              <div class="apartment-amenities">
-                <span class="amenity-tag">Smart working</span>
-                <span class="amenity-tag">Business travel</span>
-                <span class="amenity-tag">Design lovers</span>
-              </div>
-              
-              <div class="apartment-actions">
-                <a href="Modern-Loft.html" class="btn primary">Vedi Dettagli</a>
-                <button class="btn secondary">Prenota Ora</button>
-              </div>
-            </div>
-          </article>
-         
-          -->
+                // Chiudi menu mobile quando si clicca su un link
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.classList.remove('active');
+                    });
+                });
+            }
 
-          
-        </div>
-      </div>
-    </section>
+            // Filtro appartamenti
+            function filterApartments() {
+                const guests = document.getElementById('guests').value;
+                const price = document.getElementById('price').value;
+                const location = document.getElementById('location').value;
+                
+                const apartments = document.querySelectorAll('.apartment-card');
+                
+                apartments.forEach(apartment => {
+                    let show = true;
+                    
+                    if (guests && parseInt(apartment.dataset.guests) < parseInt(guests)) {
+                        show = false;
+                    }
+                    
+                    if (price) {
+                        const apartmentPrice = parseInt(apartment.dataset.price);
+                        if (price === '0-100' && apartmentPrice > 100) show = false;
+                        if (price === '100-150' && (apartmentPrice < 100 || apartmentPrice > 150)) show = false;
+                        if (price === '150+' && apartmentPrice < 150) show = false;
+                    }
+                    
+                    if (location && apartment.dataset.location !== location) {
+                        show = false;
+                    }
+                    
+                    apartment.style.display = show ? 'block' : 'none';
+                });
+            }
+            
+            // Event listeners per i filtri
+            document.getElementById('guests').addEventListener('change', filterApartments);
+            document.getElementById('price').addEventListener('change', filterApartments);
+            document.getElementById('location').addEventListener('change', filterApartments);
+            document.querySelector('.filter-btn').addEventListener('click', filterApartments);
 
-    <!-- PERCHÉ SCEGLIERE SPACE ESTATE -->
-    <section class="why-choose-us">
-      <div class="container">
-        <h2>Perché scegliere Space Estate?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">🏆</div>
-            <h3>Qualità Garantita</h3>
-            <p>Ogni appartamento è ispezionato personalmente e soddisfa i nostri elevati standard di qualità.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📞</div>
-            <h3>Supporto 24/7</h3>
-            <p>Il nostro team è sempre disponibile per assistenza durante il vostro soggiorno.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">📍</div>
-            <h3>Posizioni Premium</h3>
-            <p>Appartamenti nelle migliori zone di Trento, vicino alle principali attrazioni.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💎</div>
-            <h3>Servizi Esclusivi</h3>
-            <p>Accoglienza personalizzata e consigli locali per rendere ogni soggiorno speciale.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIANZE -->
-    <section class="testimonials">
-      <div class="container">
-        <h2>Cosa dicono i nostri ospiti</h2>
-        <div class="testimonial-grid">
-          <div class="testimonial">
-            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            <p>"Soggiorno fantastico alla Columbera Torre! La vista era spettacolare e l'appartamento ancora più bello delle foto."</p>
-            <strong>— Marco & Elena, Milano</strong>
-          </div>
-          <div class="testimonial">
-            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            <p>"Il Modern Loft è perfetto per chi lavora in smart working. WiFi velocissimo e spazio ben organizzato."</p>
-            <strong>— Alessandro, Roma</strong>
-          </div>
-          <div class="testimonial">
-            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            <p>"Posizione eccezionale per La Columbera Corte. A due passi dal centro ma tranquillo."</p>
-            <strong>— Sarah & Tom, London</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CALL TO ACTION -->
-    <section class="cta-section">
-      <div class="container">
-        <h2>Pronto per la tua esperienza di lusso?</h2>
-        <p>Prenota ora uno dei nostri esclusivi appartamenti e scopri il meglio di Trento</p>
-        <div class="cta-buttons">
-          <a href="Contatti.html" class="btn primary large">Prenota Ora</a>
-          <a href="Contatti.html" class="btn secondary large">Richiedi Info</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <div data-include="/SpaceEstate/footer.html"></div>
-
-  <script>
-      // Aspetta che tutto sia caricato prima di inizializzare
-    document.addEventListener('DOMContentLoaded', function() {
-        // Attendiamo un po' per assicurarci che header e footer siano caricati
-        setTimeout(initializeScripts, 100);
-    });
-
-    function initializeScripts() {
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                mobileMenuBtn.classList.toggle('active');
-            });
-
-            // Chiudi menu mobile quando si clicca su un link
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    mobileMenuBtn.classList.remove('active');
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
             });
         }
-    // Filtro appartamenti
-    function filterApartments() {
-      const guests = document.getElementById('guests').value;
-      const price = document.getElementById('price').value;
-      const location = document.getElementById('location').value;
-      
-      const apartments = document.querySelectorAll('.apartment-card');
-      
-      apartments.forEach(apartment => {
-        let show = true;
-        
-        if (guests && parseInt(apartment.dataset.guests) < parseInt(guests)) {
-          show = false;
+
+        // Funzione per gestire le prenotazioni
+        function prenota(appartamento) {
+            // Qui puoi implementare la logica di prenotazione
+            alert(`Prenotazione per ${appartamento}. Ti reindirizzeremo alla pagina di contatto.`);
+            window.location.href = '/SpaceEstate/Contatti.html';
         }
-        
-        if (price) {
-          const apartmentPrice = parseInt(apartment.dataset.price);
-          if (price === '0-100' && apartmentPrice > 100) show = false;
-          if (price === '100-150' && (apartmentPrice < 100 || apartmentPrice > 150)) show = false;
-          if (price === '150+' && apartmentPrice < 150) show = false;
-        }
-        
-        if (location && apartment.dataset.location !== location) {
-          show = false;
-        }
-        
-        apartment.style.display = show ? 'block' : 'none';
-      });
-    }
-    
-    // Event listeners per i filtri
-    document.getElementById('guests').addEventListener('change', filterApartments);
-    document.getElementById('price').addEventListener('change', filterApartments);
-    document.getElementById('location').addEventListener('change', filterApartments);
-    document.querySelector('.filter-btn').addEventListener('click', filterApartments);
-    
-    // Mobile menu toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuBtn && navMenu) {
-      mobileMenuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('active');
-      });
-    }
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Appartamenti</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <header class="header">
-    <nav class="nav-container">
-      <div class="logo-section">
-        <div class="logo">
-          <img src="/SpaceEstate/img/Logo-piccolo.png" alt="Space Estate Logo" class="logo-img" />
-        </div>
-        <div class="business-name">Space Estate</div>
-      </div>
-
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Appartamenti.html">Appartamenti</a></li>
-        <li><a href="Proprietari.html">Per Proprietari</a></li>
-        <li><a href="Area-Riservata.html">Area Riservata</a></li>
-        <li><a href="Contatti.html">Contatti</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <div class="language-selector">
-          <button class="lang-btn">🌐 IT</button>
-        </div>
-        <a href="#prenota" class="cta-button">Prenota Ora</a>
-      </div>
-    </nav>
-  </header>
-
-  <section class="section" id="appartamenti">
-    <div class="container">
-      <h2 class="section-title">I Nostri Appartamenti</h2>
-      <p class="section-subtitle">
-        Selezione esclusiva di proprietà di lusso nel cuore di Trento, perfette per soggiorni di lavoro e leisure25
-      </p>
-
-      <div class="apartments-grid">
-
-        <div class="apartment-card">
-          <div class="apartment-image">
-            <img src="/SpaceEstate/img/corte/Copia di Soggiorno 2.jpg" alt="Corte" />
-          </div>
-          <a href="/SpaceEstate/app/La-Columbera-Corte.html" class="apartment-link">
-            <div class="apartment-info">
-              <h3 class="apartment-name">La Columbera - Corte</h3>
-              <div class="apartment-price">€120/notte</div>
-              <div class="apartment-features">
-                <span class="feature">4 ospiti</span>
-                <span class="feature">WiFi</span>
-                <span class="feature">Terrazza</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="apartment-card">
-          <div class="apartment-image">
-            <img src="/SpaceEstate/img/torre/Copia di Matrimoniale 2.jpg" alt="Torre" />
-          </div>
-          <a href="/SpaceEstate/app/La-Columbera-Torre.html" class="apartment-link">
-            <div class="apartment-info">
-              <h3 class="apartment-name">La Columbera - Torre</h3>
-              <div class="apartment-price">€95/notte</div>
-              <div class="apartment-features">
-                <span class="feature">5 ospiti</span>
-                <span class="feature">Parcheggio</span>
-                <span class="feature">Balcone</span>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div class="apartment-card">
-          <div class="apartment-image">
-            <img src="/SpaceEstate/img/elegance.jpg" alt="Suite Elegance" />
-          </div>
-          <div class="apartment-info">
-            <h3 class="apartment-name">Suite Elegance</h3>
-            <div class="apartment-price">€150/notte</div>
-            <div class="apartment-features">
-              <span class="feature">6 ospiti</span>
-              <span class="feature">Cucina</span>
-              <span class="feature">Premium</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="view-all-btn">
-        <a href="#all-apartments">Scopri Tutti gli Appartamenti</a>
-      </div>
-    </div>
-  </section>
-
+    </script>
 </body>
 </html>
