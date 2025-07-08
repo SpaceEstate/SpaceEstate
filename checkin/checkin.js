@@ -154,7 +154,7 @@ function showNotification(message, type = 'info') {
   }, 3000);
 }
 
-function toggleTipoGruppo() {
+window.toggleTipoGruppo = function() {
   const numeroOspiti = parseInt(document.getElementById("numero-ospiti").value);
   const gruppoWrapper = document.getElementById("gruppo-wrapper");
   
@@ -168,7 +168,7 @@ function toggleTipoGruppo() {
   }
 }
 
-function toggleComuneProvincia(ospiteNum) {
+window.toggleComuneProvincia = function(ospiteNum) {
   const luogoNascita = document.querySelector(`select[name="ospite${ospiteNum}_luogo_nascita"]`).value;
   const comuneProvinciaWrapper = document.getElementById(`comune-provincia-wrapper-${ospiteNum}`);
   
@@ -185,7 +185,7 @@ function toggleComuneProvincia(ospiteNum) {
   }
 }
 
-function prossimoStep() {
+window.prossimoStep = function() {
   console.log('Prossimo step - Current step:', currentStep);
   
   if (currentStep === 1) {
@@ -231,7 +231,7 @@ function prossimoStep() {
   console.log('Nuovo step attivo:', currentStep);
 }
 
-function indietroStep() {
+window.indietroStep = function() {
   console.log('Indietro - Current step:', currentStep);
   
   if (currentStep === 99) {
@@ -520,7 +520,7 @@ function preparaRiepilogo() {
 }
 
 // Gestione upload file
-function handleFileUpload(input, ospiteNum) {
+window.handleFileUpload = function(input, ospiteNum) {
   const file = input.files[0];
   const label = input.previousElementSibling;
   
@@ -551,7 +551,7 @@ async function openCamera(ospiteNum) {
   }
 }
 
-function capturePhoto(ospiteNum) {
+window.capturePhoto = function(ospiteNum) {
   const video = document.getElementById(`camera-video-${ospiteNum}`);
   const canvas = document.getElementById(`camera-canvas-${ospiteNum}`);
   const ctx = canvas.getContext('2d');
@@ -586,7 +586,7 @@ function capturePhoto(ospiteNum) {
   closeCamera(ospiteNum);
 }
 
-function closeCamera(ospiteNum) {
+window.closeCamera = function(ospiteNum) {
   const preview = document.getElementById(`camera-preview-${ospiteNum}`);
   
   if (currentStream) {
@@ -1236,4 +1236,3 @@ CREATE TABLE ospiti (
   FOREIGN KEY (prenotazione_id) REFERENCES prenotazioni(id)
 );
 */
-
