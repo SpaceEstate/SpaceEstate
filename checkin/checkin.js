@@ -1236,4 +1236,4 @@ CREATE TABLE ospiti (
   FOREIGN KEY (prenotazione_id) REFERENCES prenotazioni(id)
 );
 */
-*/
+
