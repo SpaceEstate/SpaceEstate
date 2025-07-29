@@ -1,0 +1,8 @@
+{
+  "name": "space-estate",
+  "version": "1.0.0",
+  "description": "Check-in e pagamento tassa soggiorno",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
