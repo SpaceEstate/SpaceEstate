@@ -639,8 +639,8 @@ async function creaLinkPagamento() {
   }
   
   try {
-    // Qui dovresti fare una chiamata al tuo backend per creare la sessione Stripe
-    const response = await fetch('/api/crea-pagamento-stripe', {
+    // URL CORRETTO per la tua struttura Vercel
+    const response = await fetch('https://space-estate-two.vercel.app/checkin/api/crea-pagamento-stripe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -659,7 +659,7 @@ async function creaLinkPagamento() {
   }
 }
 
-// Funzione per salvare i dati localmente prima del pagamento
+// Funzione per salvare i dati localmente prima del pagamento (semplificata)
 function salvaDatiLocalmente() {
   const datiPrenotazione = {
     appartamento: document.getElementById('appartamento').value,
@@ -700,46 +700,6 @@ function salvaDatiLocalmente() {
   sessionStorage.setItem('datiPrenotazione', JSON.stringify(datiPrenotazione));
   
   return datiPrenotazione;
-}
-
-// Funzione per finalizzare la prenotazione (da chiamare sulla pagina di successo)
-async function finalizzaPrenotazione() {
-  const datiSalvati = sessionStorage.getItem('datiPrenotazione');
-  
-  if (!datiSalvati) {
-    console.error('Nessun dato di prenotazione trovato');
-    return;
-  }
-  
-  const datiPrenotazione = JSON.parse(datiSalvati);
-  
-  try {
-    // Salva la prenotazione nel database
-    const response = await fetch('/api/salva-prenotazione', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(datiPrenotazione)
-    });
-    
-    if (response.ok) {
-      // Pulisci i dati salvati
-      sessionStorage.removeItem('datiPrenotazione');
-      
-      // Mostra messaggio di successo
-      showNotification('Prenotazione completata con successo!', 'success');
-      
-      // Opzionale: reindirizza a una pagina di conferma
-      // window.location.href = '/conferma-prenotazione';
-    } else {
-      throw new Error('Errore nel salvataggio della prenotazione');
-    }
-    
-  } catch (error) {
-    console.error('Errore nel salvataggio:', error);
-    showNotification('Errore nel salvataggio della prenotazione', 'error');
-  }
 }
 
 // Modifica la funzione per il bottone di pagamento
@@ -806,7 +766,7 @@ function preparaRiepilogo() {
   aggiornaBottonePagamento();
 }
 
-// Gestione della validazione finale prima del pagamento
+// Gestione della validazione finale prima del pagamento (semplificata)
 function validaPrenotazioneCompleta() {
   // Verifica che tutti i dati siano stati inseriti
   for (let i = 1; i <= numeroOspiti; i++) {
@@ -814,13 +774,6 @@ function validaPrenotazioneCompleta() {
       showNotification(`Errore nei dati dell'ospite ${i}`, 'error');
       return false;
     }
-  }
-  
-  // Verifica che almeno un documento sia stato caricato per il responsabile
-  const documentoFile = document.getElementById('ospite1_documento_file');
-  if (!documentoFile.files.length) {
-    showNotification('È necessario caricare il documento del responsabile', 'error');
-    return false;
   }
   
   return true;
