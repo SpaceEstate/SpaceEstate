@@ -33,6 +33,16 @@
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
+    .code-box {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #a67c52;
+      background: #faf9f6;
+      padding: 15px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
     .btn {
       display: inline-block;
       padding: 14px 28px;
@@ -53,9 +63,38 @@
   <div class="success-box">
     <h1>✅ Pagamento completato con successo!</h1>
     <p>Grazie per aver effettuato il check-in e il pagamento della tassa di soggiorno.</p>
-    <p>Riceverai una conferma via email con i dettagli della tua prenotazione.</p>
-    <a href="index.html" class="btn">Torna alla Home</a>
+    <p>Ecco il codice della cassetta di sicurezza per il tuo appartamento:</p>
+    <div id="codice-cassetta" class="code-box">Caricamento...</div>
+    <a href="checkin.html" class="btn">Torna alla Home</a>
   </div>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    async function mostraCodice() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const sessionId = urlParams.get("session_id");
+
+      if (!sessionId) {
+        document.getElementById("codice-cassetta").textContent = "Errore: sessione non trovata";
+        return;
+      }
+
+      try {
+        // Chiama la tua API server-side per recuperare i metadata
+        const response = await fetch(`/api/get-session?session_id=${sessionId}`);
+        const data = await response.json();
+
+        if (data.appartamento.includes("Corte")) {
+          document.getElementById("codice-cassetta").textContent = "1933";
+        } else {
+          document.getElementById("codice-cassetta").textContent = "1935";
+        }
+      } catch (err) {
+        document.getElementById("codice-cassetta").textContent = "Errore nel recupero dati";
+      }
+    }
+
+    mostraCodice();
+  </script>
 </body>
 </html>
-
