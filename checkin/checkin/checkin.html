@@ -6,10 +6,10 @@
   <title>Check-in Ospiti</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
-    // Rileva l'ambiente e carica CSS/JS corretti
+    // Rileva l'ambiente e carica CSS corretto
     const isGitHubPages = window.location.hostname.includes('github.io');
     const basePath = isGitHubPages ? '/SpaceEstate/checkin/checkin/' : './';
-    
+
     // Carica CSS
     const cssLink = document.createElement('link');
     cssLink.rel = 'stylesheet';
@@ -118,12 +118,8 @@
     </div>
   </div>
 
-  <!-- Script dinamico -->
+  <!-- Caricamento script dinamico in fondo -->
   <script>
-    // Carica JavaScript in base all'ambiente
-    const isGitHubPages = window.location.hostname.includes('github.io');
-    const basePath = isGitHubPages ? '/SpaceEstate/checkin/checkin/' : './';
-    
     const script = document.createElement('script');
     script.src = basePath + 'checkin.js';
     document.body.appendChild(script);
