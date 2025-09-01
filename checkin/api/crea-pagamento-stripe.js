@@ -1,6 +1,5 @@
 // api/crea-pagamento-stripe.js
 import Stripe from "stripe";
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
@@ -9,10 +8,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    // ricevi solo i dati necessari
-    const { totale } = req.body;
+    const { totale, appartamento } = req.body;
 
-    // crea la sessione Stripe
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
@@ -22,14 +19,17 @@ export default async function handler(req, res) {
             product_data: {
               name: "Tassa di soggiorno",
             },
-            unit_amount: Math.round(totale * 100), // in centesimi
+            unit_amount: Math.round(totale * 100),
           },
           quantity: 1,
         },
       ],
       mode: "payment",
-      success_url: `${req.headers.origin}/checkin/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/checkin/cancel`,
+      success_url: `${req.headers.origin}/checkin/successo-pagamento.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin}/checkin/checkin.html`,
+      metadata: {
+        appartamento: appartamento, // salvo l’appartamento
+      },
     });
 
     res.status(200).json({ checkoutUrl: session.url });
