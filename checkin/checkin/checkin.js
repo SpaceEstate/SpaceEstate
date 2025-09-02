@@ -640,7 +640,7 @@ async function creaLinkPagamento() {
   
   try {
     // URL CORRETTO per la tua struttura Vercel
-    const response = await fetch('https://space-estate-two.vercel.app/checkin/api/crea-pagamento-stripe', {
+    const response = await fetch('https://space-estate-two.vercel.app/api/crea-pagamento-stripe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
