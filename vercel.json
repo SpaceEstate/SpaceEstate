@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "functions": {
+    "checkin/api/**/*.js": {
+      "runtime": "@vercel/node",
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "checkin/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "checkin/checkin/$1"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
