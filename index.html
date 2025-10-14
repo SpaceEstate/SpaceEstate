@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Space Estate - Appartamenti di Lusso a Trento</title>
   <!-- FAVICON PER TUTTI I DISPOSITIVI -->
-   <link rel="icon" type="image/png" sizes="32x32" href="./img/Favion/1-03.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/Favion/1-03.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./img/Favion/1-03.png">
   <!-- ORDINE CORRETTO DEI CSS -->
   <link rel="stylesheet" href="./css/base.css">
@@ -139,24 +139,52 @@
   <div data-include="./footer.html"></div>
 
   <script>
-   // Attiva il link di navigazione corrente
-  document.addEventListener('DOMContentLoaded', function() {
-    const currentPage = window.location.pathname;
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.classList.remove('active');
-      if (currentPage.includes(link.getAttribute('href').split('/').pop())) {
-        link.classList.add('active');
-      }
-    });
-  });
-    // Aspetta che tutto sia caricato prima di inizializzare
+    // ============================================================
+    // INIZIALIZZAZIONE - Eseguito quando il DOM è completamente caricato
+    // ============================================================
     document.addEventListener('DOMContentLoaded', function() {
-      // Attendiamo un po' per assicurarci che header e footer siano caricati
-      setTimeout(initializeScripts, 100);
+      setTimeout(initializeAll, 150);
     });
 
-    function initializeScripts() {
-      // Smooth scrolling per i link di navigazione
+    function initializeAll() {
+      // ============================================================
+      // 1. ATTIVA IL LINK DI NAVIGAZIONE CORRENTE
+      // ============================================================
+      activateCurrentNavLink();
+
+      // ============================================================
+      // 2. SMOOTH SCROLLING PER I LINK CON #
+      // ============================================================
+      setupSmoothScroll();
+
+      // ============================================================
+      // 3. MOBILE MENU TOGGLE
+      // ============================================================
+      setupMobileMenu();
+    }
+
+    function activateCurrentNavLink() {
+      const currentPage = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-menu a');
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        const pageName = href.split('/').pop();
+        
+        // Controlla se il nome della pagina è nell'URL corrente
+        if (currentPage.includes(pageName)) {
+          link.classList.add('active');
+        }
+        // Caso speciale: home (index.html o /)
+        else if ((pageName === 'index.html' && currentPage.endsWith('/')) ||
+                 (pageName === 'index.html' && !currentPage.includes('.html'))) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    function setupSmoothScroll() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
@@ -169,33 +197,29 @@
           }
         });
       });
+    }
 
-      // Mobile menu toggle
+    function setupMobileMenu() {
       const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
       const navMenu = document.querySelector('.nav-menu');
       
-      if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-          navMenu.classList.toggle('active');
-          mobileMenuBtn.classList.toggle('active');
-        });
+      if (!mobileMenuBtn || !navMenu) return;
 
-        // Chiudi menu mobile quando si clicca su un link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-          link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileMenuBtn.classList.remove('active');
-          });
+      // Toggle menu
+      mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+      });
+
+      // Chiudi menu quando si clicca su un link
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
         });
-      }
+      });
     }
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
