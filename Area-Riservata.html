@@ -35,28 +35,30 @@
                         <p>Inserisci le tue credenziali per accedere</p>
                     </div>
                     
-                    <form class="login-form">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" required>
-                        </div>
-                        
-                        <div class="form-options">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="remember">
-                                <span class="checkmark"></span>
-                                Ricordami
-                            </label>
-                            <a href="#" class="forgot-password">Password dimenticata?</a>
-                        </div>
-                        
-                        <button type="submit" class="btn primary" style="width: 100%;">Accedi</button>
-                    </form>
+                    <!-- LOGIN FORM -->
+<form class="login-form" autocomplete="on">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required autocomplete="email">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required autocomplete="current-password">
+  </div>
+
+  <div class="form-options">
+    <label class="checkbox-label">
+      <input type="checkbox" name="remember">
+      <span class="checkmark"></span>
+      Ricordami
+    </label>
+    <a href="#" class="forgot-password">Password dimenticata?</a>
+  </div>
+
+  <button type="submit" class="btn primary" style="width: 100%;">Accedi</button>
+</form>
+
                     
                     <div class="login-footer">
                         <p>Non hai ancora un account? <a href="#register" class="register-link">Registrati</a></p>
@@ -114,57 +116,59 @@
             <div class="section-subtitle">Crea il tuo account per accedere a tutti i servizi</div>
             
             <div class="register-container">
-                <form class="register-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cognome">Cognome</label>
-                            <input type="text" id="cognome" name="cognome" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email-reg">Email</label>
-                        <input type="email" id="email-reg" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="telefono">Telefono</label>
-                        <input type="tel" id="telefono" name="telefono" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="password-reg">Password</label>
-                            <input type="password" id="password-reg" name="password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm-password">Conferma Password</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-options">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="privacy" required>
-                            <span class="checkmark"></span>
-                            Accetto i <a href="#">Termini e Condizioni</a> e la <a href="#">Privacy Policy</a>
-                        </label>
-                    </div>
-                    
-                    <div class="form-options">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="newsletter">
-                            <span class="checkmark"></span>
-                            Voglio ricevere offerte e aggiornamenti via email
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="btn primary" style="width: 100%;">Registrati</button>
-                </form>
+               <!-- REGISTER FORM -->
+<form class="register-form" autocomplete="on">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required autocomplete="given-name">
+    </div>
+    <div class="form-group">
+      <label for="cognome">Cognome</label>
+      <input type="text" id="cognome" name="cognome" required autocomplete="family-name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email-reg">Email</label>
+    <input type="email" id="email-reg" name="email" required autocomplete="email">
+  </div>
+
+  <div class="form-group">
+    <label for="telefono">Telefono</label>
+    <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="password-reg">Password</label>
+      <input type="password" id="password-reg" name="password" required autocomplete="new-password">
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Conferma Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" required autocomplete="new-password">
+    </div>
+  </div>
+
+  <div class="form-options">
+    <label class="checkbox-label">
+      <input type="checkbox" name="privacy" required>
+      <span class="checkmark"></span>
+      Accetto i <a href="#">Termini e Condizioni</a> e la <a href="#">Privacy Policy</a>
+    </label>
+  </div>
+
+  <div class="form-options">
+    <label class="checkbox-label">
+      <input type="checkbox" name="newsletter">
+      <span class="checkmark"></span>
+      Voglio ricevere offerte e aggiornamenti via email
+    </label>
+  </div>
+
+  <button type="submit" class="btn primary" style="width: 100%;">Registrati</button>
+</form>
+
                 
                 <div class="register-footer">
                     <p>Hai già un account? <a href="#" class="login-link">Accedi</a></p>
@@ -273,3 +277,4 @@
     </script>
 </body>
 </html>
+
