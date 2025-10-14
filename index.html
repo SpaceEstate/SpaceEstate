@@ -164,25 +164,27 @@
     }
 
     function activateCurrentNavLink() {
-      const currentPage = window.location.pathname;
-      const navLinks = document.querySelectorAll('.nav-menu a');
-      
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href');
-        const pageName = href.split('/').pop();
-        
-        // Controlla se il nome della pagina è nell'URL corrente
-        if (currentPage.includes(pageName)) {
-          link.classList.add('active');
-        }
-        // Caso speciale: home (index.html o /)
-        else if ((pageName === 'index.html' && currentPage.endsWith('/')) ||
-                 (pageName === 'index.html' && !currentPage.includes('.html'))) {
-          link.classList.add('active');
-        }
-      });
+  const currentPage = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    const pageName = href.split('/').pop();
+    
+    // Rimuovi eventuali parametri o hash dall'URL corrente
+    const cleanCurrentPage = currentPage.split('?')[0].split('#')[0];
+    
+    // Controlla se il nome della pagina corrisponde esattamente
+    if (cleanCurrentPage.endsWith(pageName)) {
+      link.classList.add('active');
     }
+    // Caso speciale: home (index.html o /)
+    else if (pageName === 'index.html' && (cleanCurrentPage.endsWith('/') || cleanCurrentPage === '')) {
+      link.classList.add('active');
+    }
+  });
+}
 
     function setupSmoothScroll() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -223,3 +225,4 @@
 
 </body>
 </html>
+
