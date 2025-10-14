@@ -1,114 +1,112 @@
 // include.js
-document.addEventListener("DOMContentLoaded", function () {
-  const includes = document.querySelectorAll('[data-include]');
+document.addEventListener("DOMContentLoaded", () => {
+  const includes = document.querySelectorAll("[data-include]");
+  let loaded = 0;
+
   includes.forEach(el => {
-    const file = el.getAttribute('data-include');
+    const file = el.getAttribute("data-include");
     fetch(file)
-      .then(response => {
-        if (response.ok) return response.text();
-        else throw new Error(`Impossibile caricare ${file}`);
+      .then(res => {
+        if (!res.ok) throw new Error(`Impossibile caricare ${file}`);
+        return res.text();
       })
       .then(data => {
         el.innerHTML = data;
+        loaded++;
+
+        // Quando tutti i file inclusi sono caricati, inizializza tutto
+        if (loaded === includes.length) {
+          initializeMobileMenu();
+          initializeSmoothScroll();
+        }
       })
-      .catch(error => {
-        console.error(error);
+      .catch(err => {
+        console.error("Errore include:", err);
         el.innerHTML = "<!-- Errore nel caricamento del file -->";
       });
   });
 });
-// MOBILE MENU FUNCTIONALITY
-document.addEventListener('DOMContentLoaded', function() {
-  // Attendiamo che header e footer siano caricati
-  setTimeout(initializeMobileMenu, 100);
-});
 
+// ==============================
+// MOBILE MENU
+// ==============================
 function initializeMobileMenu() {
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-menu a');
-  
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navMenu = document.querySelector(".nav-menu");
+
   if (!mobileMenuBtn || !navMenu) {
-    console.warn('Mobile menu elements not found');
+    console.warn("Elementi del menu mobile non trovati");
     return;
   }
 
-  // Toggle menu mobile
-  mobileMenuBtn.addEventListener('click', function(e) {
-    e.preventDefault();
+  const overlay = document.createElement("div");
+  overlay.className = "mobile-menu-overlay";
+  document.body.appendChild(overlay);
+
+  // Toggle menu
+  mobileMenuBtn.addEventListener("click", e => {
+    e.stopPropagation();
     toggleMobileMenu();
   });
 
-  // Chiudi menu quando si clicca su un link
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      closeMobileMenu();
-    });
+  // Chiudi al click sull’overlay
+  overlay.addEventListener("click", closeMobileMenu);
+
+  // Chiudi al click su un link
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMobileMenu);
   });
 
-  // Chiudi menu quando si clicca fuori
-  document.addEventListener('click', function(e) {
-    if (!mobileMenuBtn.contains(e.target) && !navMenu.contains(e.target)) {
-      closeMobileMenu();
-    }
-  });
-
-  // Chiudi menu con tasto ESC
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+  // Chiudi con ESC
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && navMenu.classList.contains("active")) {
       closeMobileMenu();
     }
   });
 
-  // Gestisci resize della finestra
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      closeMobileMenu();
-    }
-  });
-
-  // Smooth scrolling per tutti i link anchor
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
+  // Chiudi se si ridimensiona lo schermo
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) closeMobileMenu();
   });
 }
 
 function toggleMobileMenu() {
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navMenu = document.querySelector('.nav-menu');
-  
-  mobileMenuBtn.classList.toggle('active');
-  navMenu.classList.toggle('active');
-  
-  // Gestione accessibilità
-  const isOpen = navMenu.classList.contains('active');
-  mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-  
-  // Previeni scroll del body quando menu è aperto
-  if (isOpen) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = '';
-  }
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navMenu = document.querySelector(".nav-menu");
+  const overlay = document.querySelector(".mobile-menu-overlay");
+
+  const isOpen = navMenu.classList.toggle("active");
+  mobileMenuBtn.classList.toggle("active", isOpen);
+  overlay.classList.toggle("active", isOpen);
+  document.body.style.overflow = isOpen ? "hidden" : "";
+  mobileMenuBtn.setAttribute("aria-expanded", isOpen);
 }
 
 function closeMobileMenu() {
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navMenu = document.querySelector('.nav-menu');
-  
-  if (mobileMenuBtn && navMenu) {
-    mobileMenuBtn.classList.remove('active');
-    navMenu.classList.remove('active');
-    mobileMenuBtn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navMenu = document.querySelector(".nav-menu");
+  const overlay = document.querySelector(".mobile-menu-overlay");
+
+  if (mobileMenuBtn && navMenu && overlay) {
+    mobileMenuBtn.classList.remove("active");
+    navMenu.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+    mobileMenuBtn.setAttribute("aria-expanded", "false");
   }
+}
+
+// ==============================
+// SMOOTH SCROLL
+// ==============================
+function initializeSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
 }
