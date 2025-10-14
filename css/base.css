@@ -1,34 +1,12 @@
-/* Fix rapido per pagina proprietari */
-
-body > *:not(header):first-of-type,
-.main-content > *:first-child {
-    margin-top: 80px !important;
-    padding-top: 20px;
-}
-/* Fix universale per header fisso */
-.main-content {
-    margin-top: 80px;
-    min-height: calc(100vh - 80px);
-}
-
-/* Assicurati che tutte le prime sezioni abbiano il margine */
-.intro-section,
-.hero-section,
-.page-header {
-    margin-top: 80px;
-}
-@media (max-width: 768px) {
-    .main-content,
-    .intro-section,
-    .hero-section {
-        margin-top: 70px; /* Regola secondo l'altezza mobile dell'header */
-    }
-}
 /* BASE STYLES E RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -45,6 +23,26 @@ body {
   padding: 0 20px;
 }
 
+/* FIX PER HEADER FISSO - Spazio all'inizio di ogni pagina */
+.main-content,
+.apartment-page,
+.contact-hero,
+.proprietari-hero,
+.area-riservata-hero,
+.apartments-hero {
+  margin-top: 0;
+}
+
+body > section:first-of-type {
+  margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  body > section:first-of-type {
+    margin-top: 70px;
+  }
+}
+
 /* BOTTONI GENERALI */
 .btn {
   display: inline-block;
@@ -57,10 +55,12 @@ body {
   font-size: 14px;
   transition: all 0.3s ease;
   text-align: center;
+  border: none;
+  cursor: pointer;
 }
 
 .btn.primary {
-  background: #d4af37;
+  background: linear-gradient(135deg, #d4af37, #b8941f);
   color: white;
 }
 
@@ -79,6 +79,13 @@ body {
 .btn.secondary:hover {
   background: #6d5a47;
   color: white;
+}
+
+.btn.large {
+  padding: 16px 30px;
+  font-size: 16px;
+  min-width: 160px;
+  border-radius: 12px;
 }
 
 /* SEZIONI GENERALI */
@@ -111,4 +118,14 @@ section h2 {
   color: #6d5a47;
   margin-bottom: 50px;
   letter-spacing: 2px;
+}
+
+/* UTILITY CLASSES */
+.hidden {
+  display: none !important;
+}
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
 }
