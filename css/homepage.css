@@ -13,7 +13,7 @@
 }
 
 .hero-background {
-  background-image: url('./img/Trento1.jpg');
+  background-image: url('../img/Trento1.jpg');
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -420,4 +420,5 @@
     font-size: 13px;
   }
 }
+
 
