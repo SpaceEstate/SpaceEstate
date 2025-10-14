@@ -66,6 +66,7 @@
   gap: 30px;
   margin: 0;
   padding: 0;
+  top: 75px;
 }
 
 .nav-menu a {
@@ -475,4 +476,5 @@
   z-index: 1000; /* L'overlay rimane sotto al menu */
 }
 }
+
 
