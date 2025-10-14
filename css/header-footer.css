@@ -1,4 +1,20 @@
 /* HEADER UNIFICATO */
+/* Link attivo nella navigazione */
+.nav-menu a.active {
+  color: #FFD700;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFD700;
+}
 .header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -369,3 +385,4 @@
   outline: 2px solid #d4af37;
   outline-offset: 2px;
 }
+
