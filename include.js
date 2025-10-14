@@ -26,6 +26,20 @@ function initializeMobileMenu() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-menu a');
+const overlay = document.querySelector('.mobile-menu-overlay');
+
+mobileMenuBtn.addEventListener('click', e => {
+  e.preventDefault();
+  mobileMenuBtn.classList.toggle('active');
+  navMenu.classList.toggle('active');
+  overlay.classList.toggle('active'); // attiva/disattiva overlay
+
+  const isOpen = navMenu.classList.contains('active');
+  mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+overlay.addEventListener('click', closeMobileMenu); // clic sull'overlay chiude il menu
 
   if (!mobileMenuBtn || !navMenu) {
     console.warn('❌ Elementi menu mobile non trovati nel DOM');
