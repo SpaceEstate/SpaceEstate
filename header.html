@@ -22,6 +22,18 @@
       </div>
       <a href="#prenota" class="cta-button">Prenota Ora</a>
     </div>
+    <script>
+  // Attiva il link di navigazione corrente
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname;
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.classList.remove('active');
+      if (currentPage.includes(link.getAttribute('href').split('/').pop())) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
     
     <!-- HAMBURGER MENU PER MOBILE -->
     <button class="mobile-menu-btn" 
