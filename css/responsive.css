@@ -1,51 +1,163 @@
-/* RESPONSIVE DESIGN - Media Queries Generali */
+/* RESPONSIVE DESIGN - Media Queries Centralizzate */
 
-@media (max-width: 768px) {
-  /* NAVIGATION */
-  .nav-container {
-    flex-direction: column;
-    gap: 20px;
-    padding: 15px 20px;
+/* TABLET - 1024px */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 25px;
   }
   
-  .nav-menu {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+  section h2 {
+    font-size: 32px;
   }
   
-  .nav-actions {
-    gap: 15px;
-  }
-  
-  /* HERO SECTION */
   .hero h1 {
-    font-size: 40px;
+    font-size: 48px;
   }
   
   .hero h2 {
-    font-size: 22px;
+    font-size: 24px;
   }
   
   .hero p {
     font-size: 16px;
   }
   
+  .apartment-grid,
+  .features-grid,
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .apartments-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .filters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* TABLET PICCOLO / GRANDE MOBILE - 768px */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* SEZIONI E TITOLI */
+  section h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  /* HERO */
+  .hero {
+    height: 80vh;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+  
+  .hero h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  
   .hero-actions {
     flex-direction: column;
     align-items: center;
+    gap: 15px;
   }
   
-  /* SECTION TITLES */
-  section h2 {
-    font-size: 28px;
+  .btn {
+    width: 100%;
+    max-width: 280px;
   }
   
   /* GRIDS */
   .apartment-grid,
   .features-grid,
-  .testimonial-grid {
+  .testimonial-grid,
+  .apartments-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .apartment-card,
+  .feature-card,
+  .testimonial {
+    max-width: 100%;
+  }
+  
+  .apartment-image,
+  .apartment-image img {
+    height: 200px;
+  }
+  
+  /* FILTRI */
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    margin-top: 0;
+  }
+  
+  /* APARTMENT CARDS */
+  .apartment-features {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .apartment-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .apartment-actions .btn {
+    width: 100%;
+  }
+  
+  /* FORM */
+  .date-inputs,
+  .contact-form .form-row,
+  .register-form .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  /* LAYOUT COLONNE */
+  .apartment-main-info,
+  .details-content,
+  .contact-grid,
+  .login-container,
+  .contact-form-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .apartment-gallery,
+  .apartment-sidebar,
+  .details-sidebar,
+  .contact-info-section,
+  .contact-info-sidebar {
+    position: static;
+    max-height: none;
   }
   
   /* FOOTER */
@@ -53,44 +165,113 @@
     flex-direction: column;
     text-align: center;
   }
+  
+  .footer-links a {
+    margin: 0 10px;
+  }
+  
+  /* HERO SECTIONS */
+  .apartments-hero h1,
+  .proprietari-hero h1,
+  .contact-hero h1,
+  .area-riservata-hero h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+  
+  .apartments-hero p,
+  .proprietari-hero p,
+  .contact-hero p,
+  .area-riservata-hero p {
+    font-size: 16px;
+    padding: 0 20px;
+  }
+  
+  .apartments-hero h2,
+  .proprietari-hero h2,
+  .contact-hero h2,
+  .area-riservata-hero h2 {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  
+  /* PROPERTIES SPECIFIC */
+  .process-steps,
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .step,
+  .feature-card,
+  .result-card {
+    padding: 30px 25px;
+  }
+  
+  .result-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* AMENITIES */
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nearby-places {
+    max-width: 100%;
+  }
 }
 
-/* TABLET RESPONSIVE */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .apartment-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .hero h1 {
-    font-size: 50px;
-  }
-  
-  .hero h2 {
-    font-size: 24px;
-  }
-}
-
-/* LARGE MOBILE RESPONSIVE */
+/* MOBILE - 480px */
 @media (max-width: 480px) {
   .container {
     padding: 0 15px;
   }
   
+  /* SEZIONI E TITOLI */
+  section h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  /* HERO */
+  .hero {
+    height: 75vh;
+  }
+  
   .hero h1 {
-    font-size: 32px;
-    letter-spacing: 2px;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
   }
   
   .hero h2 {
     font-size: 18px;
+    margin-bottom: 10px;
   }
   
   .hero p {
     font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
   }
   
   .btn {
@@ -98,19 +279,229 @@
     font-size: 12px;
   }
   
-  section h2 {
-    font-size: 24px;
+  .btn.large {
+    padding: 12px 20px;
+    font-size: 13px;
   }
   
-  .nav-menu {
-    gap: 10px;
+  /* GRIDS */
+  .apartment-grid,
+  .features-grid,
+  .testimonial-grid,
+  .apartments-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
   
-  .nav-menu a {
+  .apartment-image,
+  .apartment-image img {
+    height: 160px;
+  }
+  
+  .apartment-info {
+    padding: 15px 12px;
+  }
+  
+  .apartment-info h3 {
+    font-size: 13px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+  
+  .apartment-location {
+    font-size: 11px;
+  }
+  
+  .apartment-price {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .apartment-features {
+    gap: 4px;
+  }
+  
+  .apartment-features span {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+  
+  .feature-card p,
+  .testimonial p {
+    font-size: 13px;
+  }
+  
+  .feature-card h3 {
+    font-size: 15px;
+  }
+  
+  /* FORM */
+  .contact-form-section,
+  .login-card,
+  .register-form {
+    padding: 25px 20px;
+  }
+  
+  .contact-form label,
+  .login-form label {
     font-size: 12px;
   }
   
-  .business-name {
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea,
+  .login-form input {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  /* AMENITIES */
+  .amenity-tag {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  
+  .spec {
+    font-size: 13px;
+  }
+  
+  /* LAYOUT SPECIFICI */
+  .hero-stats {
+    gap: 20px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .step,
+  .feature-card,
+  .result-card,
+  .testimonial {
+    padding: 20px 15px;
+  }
+  
+  .step-number {
+    width: 50px;
+    height: 50px;
     font-size: 20px;
+  }
+  
+  .feature-icon {
+    font-size: 36px;
+  }
+  
+  .benefit-icon {
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .benefits-list li {
+    padding: 15px;
+    gap: 12px;
+  }
+  
+  .benefits-list strong {
+    font-size: 14px;
+  }
+  
+  .benefits-list p {
+    font-size: 12px;
+  }
+  
+  /* HERO SECTIONS */
+  .apartments-hero,
+  .proprietari-hero,
+  .contact-hero,
+  .area-riservata-hero {
+    padding: 80px 0 50px;
+  }
+  
+  .apartments-hero h1,
+  .proprietari-hero h1,
+  .contact-hero h1,
+  .area-riservata-hero h1 {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+  
+  .apartments-hero h2,
+  .proprietari-hero h2,
+  .contact-hero h2,
+  .area-riservata-hero h2 {
+    font-size: 16px;
+  }
+  
+  .apartments-hero p,
+  .proprietari-hero p,
+  .contact-hero p,
+  .area-riservata-hero p {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  
+  .result-stats {
+    padding: 15px;
+  }
+  
+  .result-number {
+    font-size: 20px;
+  }
+  
+  .pricing-percentage {
+    font-size: 44px;
+  }
+  
+  .rating-number {
+    font-size: 28px;
+  }
+  
+  .overall-rating {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* MOBILE EXTRA PICCOLO - 380px */
+@media (max-width: 380px) {
+  .business-name {
+    font-size: 16px;
+  }
+  
+  .hero h1 {
+    font-size: 24px;
+  }
+  
+  .hero h2 {
+    font-size: 15px;
+  }
+  
+  .hero p {
+    font-size: 12px;
+  }
+  
+  .hero-logo img {
+    max-width: 120px;
+  }
+  
+  section h2 {
+    font-size: 22px;
+  }
+}
+
+/* PREFERS REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
