@@ -139,7 +139,16 @@
   <div data-include="./footer.html"></div>
 
   <script>
-  
+   // Attiva il link di navigazione corrente
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname;
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.classList.remove('active');
+      if (currentPage.includes(link.getAttribute('href').split('/').pop())) {
+        link.classList.add('active');
+      }
+    });
+  });
     // Aspetta che tutto sia caricato prima di inizializzare
     document.addEventListener('DOMContentLoaded', function() {
       // Attendiamo un po' per assicurarci che header e footer siano caricati
@@ -184,6 +193,7 @@
 
 </body>
 </html>
+
 
 
 
