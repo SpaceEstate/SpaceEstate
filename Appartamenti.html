@@ -7,52 +7,21 @@
     <meta name="description" content="Scopri i nostri appartamenti di lusso a Trento per affitti brevi. Posizioni premium nel centro storico con servizi esclusivi.">
     
     <!-- FAVICON -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/Favion/1-03.png">
     
     <!-- CSS FILES -->
-    <link rel="stylesheet" href="/SpaceEstate/css/base.css">
-    <link rel="stylesheet" href="/SpaceEstate/css/header-footer.css">
-    <link rel="stylesheet" href="/SpaceEstate/css/apartments.css">
-    <link rel="stylesheet" href="/SpaceEstate/css/responsive.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <link rel="stylesheet" href="./css/apartments.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     
     <!-- SCRIPTS -->
-    <script src="/SpaceEstate/include.js" defer></script>
+    <script src="./include.js" defer></script>
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo-section">
-                <div class="logo">
-                    <img src="/SpaceEstate/img/Logo-piccolo.png" alt="Space Estate Logo" class="logo-img" />
-                </div>
-                <div class="business-name">Space Estate</div>
-            </div>
-
-            <ul class="nav-menu">
-                <li><a href="/SpaceEstate/index.html">Home</a></li>
-                <li><a href="/SpaceEstate/Appartamenti.html" class="active">Appartamenti</a></li>
-                <li><a href="/SpaceEstate/Proprietari.html">Per Proprietari</a></li>
-                <li><a href="/SpaceEstate/Area-Riservata.html">Area Riservata</a></li>
-                <li><a href="/SpaceEstate/Contatti.html">Contatti</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <div class="language-selector">
-                    <button class="lang-btn">🌐 IT</button>
-                </div>
-                <a href="#prenota" class="cta-button">Prenota Ora</a>
-            </div>
-
-            <!-- Mobile menu button -->
-            <button class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+    <div data-include="./header.html"></div>
 
     <main class="main-content">
         <!-- HERO SECTION -->
@@ -107,10 +76,9 @@
                     <!-- LA COLUMBERA - CORTE -->
                     <article class="apartment-card" data-guests="4" data-price="120" data-location="centro">
                         <div class="apartment-image">
-                            <img src="/SpaceEstate/img/corte/Copia di Soggiorno 1.jpg" 
+                            <img src="./img/corte/Copia di Soggiorno 1.jpg" 
                                  alt="La Columbera Corte - Soggiorno elegante" 
-                                 loading="lazy"
-                                 onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;background:#f5f3f0;color:#8b7355;font-size:16px;\'>📸 Immagine in caricamento...</div>'">
+                                 loading="lazy">
                             <div class="apartment-badge popular">Più Richiesto</div>
                         </div>
                         <div class="apartment-info">
@@ -159,7 +127,7 @@
                             </div>
                             
                             <div class="apartment-actions">
-                                <a href="/SpaceEstate/La-Columbera-Corte.html" class="btn primary">Vedi Dettagli</a>
+                                <a href="./La-Columbera-Corte.html" class="btn primary">Vedi Dettagli</a>
                                 <button class="btn secondary" onclick="prenota('corte')">Prenota Ora</button>
                             </div>
                         </div>
@@ -168,11 +136,9 @@
                     <!-- LA COLUMBERA - TORRE -->
                     <article class="apartment-card featured" data-guests="6" data-price="180" data-location="centro">
                         <div class="apartment-image">
-                            <img src="/SpaceEstate/img/torre/Copia di Matrimoniale 2.jpg" 
-     alt="La Columbera Torre - Camera matrimoniale lussuosa" 
-     loading="lazy"
-     onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'display:flex; align-items:center; justify-content:center; height:100%; background:#f0f0f0; color:#555; font-style:italic;\'>Immagine non disponibile</div>';">
-
+                            <img src="./img/torre/Copia di Matrimoniale 2.jpg" 
+                                 alt="La Columbera Torre - Camera matrimoniale lussuosa" 
+                                 loading="lazy">
                             <div class="apartment-badge premium">Premium</div>
                         </div>
                         <div class="apartment-info">
@@ -221,7 +187,7 @@
                             </div>
                             
                             <div class="apartment-actions">
-                                <a href="/SpaceEstate/La-Columbera-Torre.html" class="btn primary">Vedi Dettagli</a>
+                                <a href="./La-Columbera-Torre.html" class="btn primary">Vedi Dettagli</a>
                                 <button class="btn secondary" onclick="prenota('torre')">Prenota Ora</button>
                             </div>
                         </div>
@@ -230,7 +196,7 @@
                     <!-- SUITE ELEGANCE -->
                     <article class="apartment-card" data-guests="6" data-price="150" data-location="centro">
                         <div class="apartment-image">
-                            <img src="/SpaceEstate/img/elegance.jpg" alt="Suite Elegance" loading="lazy">
+                            <img src="./img/elegance.jpg" alt="Suite Elegance" loading="lazy">
                             <div class="apartment-badge luxury">Luxury</div>
                         </div>
                         <div class="apartment-info">
@@ -279,7 +245,7 @@
                             </div>
                             
                             <div class="apartment-actions">
-                                <a href="/SpaceEstate/Suite-Elegance.html" class="btn primary">Vedi Dettagli</a>
+                                <a href="./Suite-Elegance.html" class="btn primary">Vedi Dettagli</a>
                                 <button class="btn secondary" onclick="prenota('elegance')">Prenota Ora</button>
                             </div>
                         </div>
@@ -348,53 +314,55 @@
                 <h2>Pronto per la tua esperienza di lusso?</h2>
                 <p>Prenota ora uno dei nostri esclusivi appartamenti e scopri il meglio di Trento</p>
                 <div class="cta-buttons">
-                    <a href="/SpaceEstate/Contatti.html" class="btn primary large">Prenota Ora</a>
-                    <a href="/SpaceEstate/Contatti.html" class="btn secondary large">Richiedi Info</a>
+                    <a href="./Contatti.html" class="btn primary large">Prenota Ora</a>
+                    <a href="./Contatti.html" class="btn secondary large">Richiedi Info</a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="/SpaceEstate/img/Logo-piccolo.png" alt="Space Estate">
-                        <span>Space Estate</span>
-                    </div>
-                    <p>Appartamenti di lusso a Trento per esperienze indimenticabili.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Link Utili</h4>
-                    <ul>
-                        <li><a href="/SpaceEstate/index.html">Home</a></li>
-                        <li><a href="/SpaceEstate/Appartamenti.html">Appartamenti</a></li>
-                        <li><a href="/SpaceEstate/Contatti.html">Contatti</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contatti</h4>
-                    <p>📧 info@spaceestate.it</p>
-                    <p>📞 +39 123 456 7890</p>
-                    <p>📍 Trento, Italia</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Space Estate. Tutti i diritti riservati.</p>
-            </div>
-        </div>
-    </footer>
+    <div data-include="./footer.html"></div>
 
     <script>
-        // Aspetta che tutto sia caricato
         document.addEventListener('DOMContentLoaded', function() {
-            initializeScripts();
+            setTimeout(initializeScripts, 150);
         });
 
         function initializeScripts() {
+            // Attiva link corrente
+            activateCurrentNavLink();
+            
             // Mobile menu toggle
+            setupMobileMenu();
+            
+            // Filtri appartamenti
+            setupFilters();
+            
+            // Smooth scrolling
+            setupSmoothScroll();
+        }
+
+        function activateCurrentNavLink() {
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                const pageName = href.split('/').pop();
+                const cleanCurrentPage = currentPage.split('?')[0].split('#')[0];
+                
+                if (cleanCurrentPage.endsWith(pageName)) {
+                    link.classList.add('active');
+                }
+                else if (pageName === 'index.html' && (cleanCurrentPage.endsWith('/') || cleanCurrentPage === '')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function setupMobileMenu() {
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navMenu = document.querySelector('.nav-menu');
             
@@ -404,7 +372,6 @@
                     mobileMenuBtn.classList.toggle('active');
                 });
 
-                // Chiudi menu mobile quando si clicca su un link
                 document.querySelectorAll('.nav-menu a').forEach(link => {
                     link.addEventListener('click', () => {
                         navMenu.classList.remove('active');
@@ -412,44 +379,50 @@
                     });
                 });
             }
+        }
 
-            // Filtro appartamenti
-            function filterApartments() {
-                const guests = document.getElementById('guests').value;
-                const price = document.getElementById('price').value;
-                const location = document.getElementById('location').value;
-                
-                const apartments = document.querySelectorAll('.apartment-card');
-                
-                apartments.forEach(apartment => {
-                    let show = true;
-                    
-                    if (guests && parseInt(apartment.dataset.guests) < parseInt(guests)) {
-                        show = false;
-                    }
-                    
-                    if (price) {
-                        const apartmentPrice = parseInt(apartment.dataset.price);
-                        if (price === '0-100' && apartmentPrice > 100) show = false;
-                        if (price === '100-150' && (apartmentPrice < 100 || apartmentPrice > 150)) show = false;
-                        if (price === '150+' && apartmentPrice < 150) show = false;
-                    }
-                    
-                    if (location && apartment.dataset.location !== location) {
-                        show = false;
-                    }
-                    
-                    apartment.style.display = show ? 'block' : 'none';
-                });
-            }
+        function setupFilters() {
+            const guestsFilter = document.getElementById('guests');
+            const priceFilter = document.getElementById('price');
+            const locationFilter = document.getElementById('location');
+            const filterBtn = document.querySelector('.filter-btn');
             
-            // Event listeners per i filtri
-            document.getElementById('guests').addEventListener('change', filterApartments);
-            document.getElementById('price').addEventListener('change', filterApartments);
-            document.getElementById('location').addEventListener('change', filterApartments);
-            document.querySelector('.filter-btn').addEventListener('click', filterApartments);
+            if (guestsFilter) guestsFilter.addEventListener('change', filterApartments);
+            if (priceFilter) priceFilter.addEventListener('change', filterApartments);
+            if (locationFilter) locationFilter.addEventListener('change', filterApartments);
+            if (filterBtn) filterBtn.addEventListener('click', filterApartments);
+        }
 
-            // Smooth scrolling
+        function filterApartments() {
+            const guests = document.getElementById('guests').value;
+            const price = document.getElementById('price').value;
+            const location = document.getElementById('location').value;
+            
+            const apartments = document.querySelectorAll('.apartment-card');
+            
+            apartments.forEach(apartment => {
+                let show = true;
+                
+                if (guests && parseInt(apartment.dataset.guests) < parseInt(guests)) {
+                    show = false;
+                }
+                
+                if (price) {
+                    const apartmentPrice = parseInt(apartment.dataset.price);
+                    if (price === '0-100' && apartmentPrice > 100) show = false;
+                    if (price === '100-150' && (apartmentPrice < 100 || apartmentPrice > 150)) show = false;
+                    if (price === '150+' && apartmentPrice < 150) show = false;
+                }
+                
+                if (location && apartment.dataset.location !== location) {
+                    show = false;
+                }
+                
+                apartment.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        function setupSmoothScroll() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -464,11 +437,9 @@
             });
         }
 
-        // Funzione per gestire le prenotazioni
         function prenota(appartamento) {
-            // Qui puoi implementare la logica di prenotazione
             alert(`Prenotazione per ${appartamento}. Ti reindirizzeremo alla pagina di contatto.`);
-            window.location.href = '/SpaceEstate/Contatti.html';
+            window.location.href = './Contatti.html';
         }
     </script>
 </body>
