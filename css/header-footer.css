@@ -15,6 +15,7 @@
   height: 2px;
   background-color: #FFD700;
 }
+
 .header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -148,6 +149,7 @@
 /* ANIMAZIONE HAMBURGER -> X */
 .mobile-menu-btn.active span:nth-child(1) {
   transform: rotate(45deg) translate(6px, 6px);
+  background: #d4af37;
 }
 
 .mobile-menu-btn.active span:nth-child(2) {
@@ -157,6 +159,27 @@
 
 .mobile-menu-btn.active span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
+  background: #d4af37;
+}
+
+/* OVERLAY SCURO DIETRO IL MENU */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  display: block;
+  opacity: 1;
 }
 
 /* FOOTER */
@@ -259,6 +282,22 @@
   opacity: 1;
 }
 
+/* Focus states per accessibilità */
+.mobile-menu-btn:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+.nav-menu li a:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+.cta-button:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
 /* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
   .nav-menu {
@@ -289,128 +328,7 @@
     height: 35px;
   }
   
-  .nav-menu {
-    position: fixed;
-    top: 70px;
-    right: -100%;
-    width: 80%;
-    max-width: 300px;
-    height: calc(100vh - 70px);
-    background: white;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    gap: 20px;
-    transition: right 0.3s ease;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-  
-  .nav-menu.active {
-    right: 0;
-  }
-  
-  .nav-menu li {
-    width: 100%;
-  }
-  
-  .nav-menu li a {
-    display: block;
-    padding: 15px 20px;
-    border-radius: 8px;
-    font-size: 1rem;
-  }
-  
-  .nav-actions {
-    display: none;
-  }
-  
-  .mobile-menu-btn {
-    display: flex;
-  }
-  
-  .footer-content {
-    gap: 30px;
-  }
-  
-  .footer-bottom-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-links a {
-    margin: 0 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    height: 60px;
-  }
-  
-  .nav-container {
-    padding: 0 10px;
-  }
-  
-  .business-name {
-    font-size: 18px;
-  }
-  
-  .logo-img {
-    height: 30px;
-  }
-  
-  .nav-menu {
-    top: 60px;
-    width: 90%;
-  }
-  
-  .footer-section h3 {
-    font-size: 16px;
-  }
-}
-
-/* Focus states per accessibilità */
-.mobile-menu-btn:focus {
-  outline: 2px solid #d4af37;
-  outline-offset: 2px;
-}
-
-.nav-menu li a:focus {
-  outline: 2px solid #d4af37;
-  outline-offset: 2px;
-}
-
-.cta-button:focus {
-  outline: 2px solid #d4af37;
-  outline-offset: 2px;
-}
-/* ========================================
-   MOBILE MENU CON OVERLAY - DA AGGIUNGERE IN FONDO A header-footer.css
-   ======================================== */
-
-/* Overlay scuro dietro il menu */
-.mobile-menu-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  z-index: 998;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.mobile-menu-overlay.active {
-  display: block;
-  opacity: 1;
-}
-
-/* Modifica del menu mobile esistente per centrarlo */
-@media (max-width: 768px) {
+  /* MENU MOBILE CENTRATO CON OVERLAY */
   .nav-menu {
     position: fixed;
     top: 50%;
@@ -485,6 +403,14 @@
     transform: translateX(-50%) scaleX(1);
   }
   
+  .nav-actions {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
   /* Icona animata quando menu aperto */
   .mobile-menu-btn.active {
     position: fixed;
@@ -493,12 +419,37 @@
     z-index: 1000;
   }
   
-  .mobile-menu-btn.active span {
-    background: #d4af37;
+  .footer-content {
+    gap: 30px;
+  }
+  
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
   }
 }
 
 @media (max-width: 480px) {
+  .header {
+    height: 60px;
+  }
+  
+  .nav-container {
+    padding: 0 10px;
+  }
+  
+  .business-name {
+    font-size: 18px;
+  }
+  
+  .logo-img {
+    height: 30px;
+  }
+  
   .nav-menu {
     width: 95%;
     padding: 30px 20px;
@@ -508,5 +459,8 @@
     font-size: 16px;
     padding: 18px;
   }
+  
+  .footer-section h3 {
+    font-size: 16px;
+  }
 }
-
