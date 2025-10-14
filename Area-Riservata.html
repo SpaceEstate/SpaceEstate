@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Area Riservata - Space Estate</title>
-    <!-- FAVICON PER TUTTI I DISPOSITIVI -->
-  
-    <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
     
-    <link rel="stylesheet" href="/SpaceEstate/css/base.css">
-    <link rel="stylesheet" href="/SpaceEstate/css/header-footer.css">
-    <link rel="stylesheet" href="/SpaceEstate/css/specific-pages.css">
-    <link rel="stylesheet" href="/SpaceEstate/css/responsive.css">
-    <script src="/SpaceEstate/include.js" defer></script>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/Favion/1-03.png">
+    
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <link rel="stylesheet" href="./css/specific-pages.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    
+    <!-- SCRIPTS -->
+    <script src="./include.js" defer></script>
 </head>
 <body>
-    <div data-include="/SpaceEstate/header.html"></div>
+    <!-- HEADER -->
+    <div data-include="./header.html"></div>
 
     <!-- LOGIN SECTION -->
     <section class="section" id="login-section" style="margin-top: 80px; background: white;">
@@ -170,17 +174,47 @@
     </section>
 
     <!-- FOOTER -->
-    <div data-include="/SpaceEstate/footer.html"></div>
+    <div data-include="./footer.html"></div>
 
     <script>
-        // Aspetta che tutto sia caricato prima di inizializzare
         document.addEventListener('DOMContentLoaded', function() {
-            // Attendiamo un po' per assicurarci che header e footer siano caricati
-            setTimeout(initializeScripts, 100);
+            setTimeout(initializeScripts, 150);
         });
 
         function initializeScripts() {
-            // Mobile menu toggle
+            // Attiva link corrente
+            activateCurrentNavLink();
+            
+            // Mobile menu
+            setupMobileMenu();
+            
+            // Login/Register toggle
+            setupLoginRegisterToggle();
+            
+            // Smooth scrolling
+            setupSmoothScroll();
+        }
+
+        function activateCurrentNavLink() {
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                const pageName = href.split('/').pop();
+                const cleanCurrentPage = currentPage.split('?')[0].split('#')[0];
+                
+                if (cleanCurrentPage.endsWith(pageName)) {
+                    link.classList.add('active');
+                }
+                else if (pageName === 'index.html' && (cleanCurrentPage.endsWith('/') || cleanCurrentPage === '')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function setupMobileMenu() {
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navMenu = document.querySelector('.nav-menu');
             
@@ -190,7 +224,6 @@
                     mobileMenuBtn.classList.toggle('active');
                 });
 
-                // Chiudi menu mobile quando si clicca su un link
                 document.querySelectorAll('.nav-menu a').forEach(link => {
                     link.addEventListener('click', () => {
                         navMenu.classList.remove('active');
@@ -198,8 +231,9 @@
                     });
                 });
             }
+        }
 
-            // Toggle between login and register
+        function setupLoginRegisterToggle() {
             const registerLink = document.querySelector('.register-link');
             const loginLink = document.querySelector('.login-link');
             const loginSection = document.getElementById('login-section');
@@ -220,6 +254,21 @@
                     registerSection.style.display = 'none';
                 });
             }
+        }
+
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
         }
     </script>
 </body>
