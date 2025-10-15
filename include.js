@@ -1,4 +1,4 @@
-// include.js
+// include.js - VERSIONE CORRETTA E UNIFICATA
 document.addEventListener("DOMContentLoaded", () => {
   const includes = document.querySelectorAll("[data-include]");
   let loaded = 0;
@@ -14,83 +14,146 @@ document.addEventListener("DOMContentLoaded", () => {
         el.innerHTML = data;
         loaded++;
         if (loaded === includes.length) {
-          // Inizializza funzioni solo dopo il caricamento completo
-          setTimeout(initializeMobileMenu, 50);
+          // Inizializza tutto dopo il caricamento completo
+          setTimeout(initializeAll, 100);
         }
       })
       .catch(err => console.error("Errore include:", err));
   });
 });
 
-function initializeMobileMenu() {
+function initializeAll() {
+  console.log("✅ Inizializzazione completa avviata");
+  
+  // Crea l'overlay se non esiste
+  createOverlay();
+  
+  // Inizializza tutte le funzioni
+  activateCurrentNavLink();
+  setupMobileMenu();
+  setupSmoothScroll();
+  
+  console.log("✅ Inizializzazione completata");
+}
+
+// Crea l'overlay per il menu mobile
+function createOverlay() {
+  let overlay = document.querySelector('.mobile-menu-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'mobile-menu-overlay';
+    document.body.appendChild(overlay);
+    console.log("✅ Overlay creato");
+  }
+}
+
+// Attiva il link corrente nella navigazione
+function activateCurrentNavLink() {
+  const currentPage = window.location.pathname;
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    const href = link.getAttribute('href');
+    const pageName = href.split('/').pop();
+    const cleanCurrentPage = currentPage.split('?')[0].split('#')[0];
+    
+    if (cleanCurrentPage.endsWith(pageName)) {
+      link.classList.add('active');
+    }
+    else if (pageName === 'index.html' && (cleanCurrentPage.endsWith('/') || cleanCurrentPage === '')) {
+      link.classList.add('active');
+    }
+  });
+  
+  console.log("✅ Link di navigazione attivato");
+}
+
+// Setup menu mobile
+function setupMobileMenu() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-menu a');
-const overlay = document.querySelector('.mobile-menu-overlay');
+  const overlay = document.querySelector('.mobile-menu-overlay');
 
-mobileMenuBtn.addEventListener('click', e => {
-  e.preventDefault();
-  mobileMenuBtn.classList.toggle('active');
-  navMenu.classList.toggle('active');
-  overlay.classList.toggle('active'); // attiva/disattiva overlay
-
-  const isOpen = navMenu.classList.contains('active');
-  mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-});
-
-overlay.addEventListener('click', closeMobileMenu); // clic sull'overlay chiude il menu
-
-  if (!mobileMenuBtn || !navMenu) {
-    console.warn('❌ Elementi menu mobile non trovati nel DOM');
+  if (!mobileMenuBtn || !navMenu || !overlay) {
+    console.warn('❌ Elementi menu mobile non trovati');
     return;
   }
 
-  console.log("✅ Mobile menu inizializzato");
+  console.log("✅ Setup menu mobile");
 
-  // Toggle menu mobile
-  mobileMenuBtn.addEventListener('click', e => {
-    e.preventDefault();
-    mobileMenuBtn.classList.toggle('active');
-    navMenu.classList.toggle('active');
+  // Funzione per aprire il menu
+  function openMenu() {
+    navMenu.classList.add('active');
+    mobileMenuBtn.classList.add('active');
+    overlay.classList.add('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
 
-    const isOpen = navMenu.classList.contains('active');
-    mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-
-  // Chiudi menu cliccando su un link
-  navLinks.forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
-  });
-
-  // Chiudi cliccando fuori
-  document.addEventListener('click', e => {
-    if (!mobileMenuBtn.contains(e.target) && !navMenu.contains(e.target)) {
-      closeMobileMenu();
-    }
-  });
-
-  // Chiudi con tasto ESC
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-      closeMobileMenu();
-    }
-  });
-
-  // Chiudi su resize
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) closeMobileMenu();
-  });
-}
-
-function closeMobileMenu() {
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navMenu = document.querySelector('.nav-menu');
-  if (mobileMenuBtn && navMenu) {
-    mobileMenuBtn.classList.remove('active');
+  // Funzione per chiudere il menu
+  function closeMenu() {
     navMenu.classList.remove('active');
+    mobileMenuBtn.classList.remove('active');
+    overlay.classList.remove('active');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
+
+  // Toggle menu al click del bottone hamburger
+  mobileMenuBtn.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (navMenu.classList.contains('active')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Chiudi menu al click sull'overlay
+  overlay.addEventListener('click', closeMenu);
+
+  // Chiudi menu quando si clicca su un link
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+  // Chiudi menu con tasto ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+
+  // Chiudi menu su resize verso desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+}
+
+// Setup smooth scroll
+function setupSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  console.log("✅ Smooth scroll attivato");
 }
