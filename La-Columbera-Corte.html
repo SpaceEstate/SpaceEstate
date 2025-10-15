@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Columbera Corte - Space Estate</title>
-    <!-- FAVICON PER TUTTI I DISPOSITIVI -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/SpaceEstate/img/Favion/1-03.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/SpaceEstate/img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/Favion/1-03.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/Favion/1-03.png">
     
-    <link rel="stylesheet" href="/SpaceEstate/css/base.css">
-  <link rel="stylesheet" href="/SpaceEstate/css/header-footer.css">
-  <link rel="stylesheet" href="/SpaceEstate/css/apartments-single.css">
-  <link rel="stylesheet" href="/SpaceEstate/css/responsive.css">
-    <script src="/SpaceEstate/include.js" defer></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/header-footer.css">
+    <link rel="stylesheet" href="./css/apartments-single.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <script src="./include.js" defer></script>
 </head>
 <body>
     <!-- HEADER -->
-   <div data-include="/SpaceEstate/header.html"></div>
+    <div data-include="./header.html"></div>
 
     <!-- MAIN CONTENT -->
     <main class="apartment-page">
@@ -47,7 +46,7 @@
                                 </div>
                                 <p class="apartment-location">📍 Centro Storico, Trento TN</p>
                                 <div class="apartment-price">
-                                    <span class="price">€85</span>
+                                    <span class="price">€120</span>
                                     <span class="price-period">/ notte</span>
                                 </div>
                             </div>
@@ -93,9 +92,7 @@
                                         <div class="calendar-weekday">V</div>
                                         <div class="calendar-weekday">S</div>
                                     </div>
-                                    <div class="calendar-grid" id="calendarGrid">
-                                        <!-- Calendar days will be populated by JavaScript -->
-                                    </div>
+                                    <div class="calendar-grid" id="calendarGrid"></div>
                                 </div>
                                 <div class="calendar-legend">
                                     <div class="legend-item">
@@ -133,7 +130,7 @@
                                         </select>
                                     </div>
                                     <button class="btn primary booking-btn" onclick="handleBooking()">
-                                        Prenota Ora - €85/notte
+                                        Prenota Ora - €120/notte
                                     </button>
                                 </div>
                             </div>
@@ -312,155 +309,8 @@
     </main>
 
     <!-- FOOTER -->
-  <div data-include="/SpaceEstate/footer.html"></div>
+    <div data-include="./footer.html"></div>
 
-    <script>
-        // Initialize calendar on page load
-document.addEventListener('DOMContentLoaded', function() {
-    generateCalendar();
-    
-    // AGGIUNGI QUESTE RIGHE PER IL MENU MOBILE
-    // Attendiamo un po' per assicurarci che header e footer siano caricati
-    setTimeout(initializeMobileMenu, 100);
-});
 
-// AGGIUNGI QUESTA FUNZIONE
-function initializeMobileMenu() {
-    // Mobile menu toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuBtn && navMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
-        });
-
-        // Chiudi menu mobile quando si clicca su un link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            });
-        });
-    }
-}
-        // Calendar functionality
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentYear = currentDate.getFullYear();
-
-        const months = [
-            'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
-            'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
-        ];
-
-        // Available dates (example data)
-        const availableDates = [3, 6, 8, 10, 13, 16, 19, 22, 25, 28, 31];
-
-        function generateCalendar() {
-            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            
-            document.getElementById('currentMonth').textContent = `${months[currentMonth]} ${currentYear}`;
-            
-            const calendarGrid = document.getElementById('calendarGrid');
-            calendarGrid.innerHTML = '';
-            
-            // Empty cells for days before first day of month
-            for (let i = 0; i < firstDay; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.className = 'calendar-day';
-                calendarGrid.appendChild(emptyDay);
-            }
-            
-            // Days of the month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayElement = document.createElement('div');
-                dayElement.className = 'calendar-day';
-                dayElement.textContent = day;
-                
-                if (availableDates.includes(day)) {
-                    dayElement.classList.add('available');
-                    dayElement.onclick = () => selectDate(day);
-                }
-                
-                calendarGrid.appendChild(dayElement);
-            }
-        }
-
-        function changeMonth(direction) {
-            currentMonth += direction;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            } else if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            generateCalendar();
-        }
-
-        function selectDate(day) {
-            const selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            
-            const checkinInput = document.getElementById('checkin');
-            const checkoutInput = document.getElementById('checkout');
-            
-            if (!checkinInput.value || (checkinInput.value && checkoutInput.value)) {
-                checkinInput.value = selectedDate;
-                checkoutInput.value = '';
-            } else if (checkinInput.value && !checkoutInput.value) {
-                const checkinDate = new Date(checkinInput.value);
-                const selectedDateObj = new Date(selectedDate);
-                
-                if (selectedDateObj > checkinDate) {
-                    checkoutInput.value = selectedDate;
-                } else {
-                    checkinInput.value = selectedDate;
-                    checkoutInput.value = '';
-                }
-            }
-        }
-
-        function handleBooking() {
-            const checkin = document.getElementById('checkin').value;
-            const checkout = document.getElementById('checkout').value;
-            const guests = document.getElementById('guests').value;
-            
-            if (!checkin || !checkout) {
-                alert('Seleziona le date di check-in e check-out');
-                return;
-            }
-            
-            // Calculate nights and total price
-            const checkinDate = new Date(checkin);
-            const checkoutDate = new Date(checkout);
-            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
-            const totalPrice = nights * 85;
-            
-            const message = `Richiesta di prenotazione:
-- Appartamento: La Columbera Corte
-- Check-in: ${checkin}
-- Check-out: ${checkout}
-- Ospiti: ${guests}
-- Notti: ${nights}
-- Prezzo totale: €${totalPrice}
-
-Contatta Space Estate per confermare la prenotazione.`;
-            
-            // In a real application, this would send the booking request
-            alert(message);
-            
-            // Redirect to contact or booking confirmation page
-            window.location.href = 'Contatti.html';
-        }
-
-        // Initialize calendar on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            generateCalendar();
-        });
-    </script>
 </body>
 </html>
-   
