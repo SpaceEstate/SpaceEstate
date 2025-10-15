@@ -36,6 +36,189 @@
                             </div>
                         </div>
                         
+                        <div class="apartment-sidebar">
+                            <!-- APARTMENT DETAILS -->
+                            <div class="sidebar-section">
+                                <h1>La Columbera Torre</h1>
+                                <div class="apartment-rating">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">(4.8/5 - 94 recensioni)</span>
+                                </div>
+                                <p class="apartment-location">📍 Centro Storico, Trento TN</p>
+                                <div class="apartment-price">
+                                    <span class="price">€95</span>
+                                    <span class="price-period">/ notte</span>
+                                </div>
+                                <div class="premium-badge">✨ Premium Suite</div>
+                            </div>
+
+                            <!-- QUICK SPECS -->
+                            <div class="sidebar-section">
+                                <h3>Caratteristiche</h3>
+                                <div class="apartment-specs">
+                                    <div class="spec">
+                                        <span class="spec-icon">👥</span>
+                                        <span>6 ospiti</span>
+                                    </div>
+                                    <div class="spec">
+                                        <span class="spec-icon">🛏️</span>
+                                        <span>3 camere</span>
+                                    </div>
+                                    <div class="spec">
+                                        <span class="spec-icon">🛁</span>
+                                        <span>2 bagni</span>
+                                    </div>
+                                    <div class="spec">
+                                        <span class="spec-icon">🌅</span>
+                                        <span>Vista panoramica</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CALENDAR -->
+                            <div class="sidebar-section">
+                                <h3>Verifica Disponibilità</h3>
+                                <div class="calendar">
+                                    <div class="calendar-header">
+                                        <button class="calendar-nav" onclick="changeMonth(-1)">‹</button>
+                                        <span class="calendar-month" id="currentMonth">Giugno 2025</span>
+                                        <button class="calendar-nav" onclick="changeMonth(1)">›</button>
+                                    </div>
+                                    <div class="calendar-weekdays">
+                                        <div class="calendar-weekday">D</div>
+                                        <div class="calendar-weekday">L</div>
+                                        <div class="calendar-weekday">M</div>
+                                        <div class="calendar-weekday">M</div>
+                                        <div class="calendar-weekday">G</div>
+                                        <div class="calendar-weekday">V</div>
+                                        <div class="calendar-weekday">S</div>
+                                    </div>
+                                    <div class="calendar-grid" id="calendarGrid"></div>
+                                </div>
+                                <div class="calendar-legend">
+                                    <div class="legend-item">
+                                        <div class="legend-color available"></div>
+                                        <span>Disponibile</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color occupied"></div>
+                                        <span>Occupato</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BOOKING -->
+                            <div class="sidebar-section">
+                                <h3>Prenota Ora</h3>
+                                <div class="booking-form">
+                                    <div class="date-inputs">
+                                        <div class="date-input">
+                                            <label>Check-in</label>
+                                            <input type="date" id="checkin" min="2025-06-10">
+                                        </div>
+                                        <div class="date-input">
+                                            <label>Check-out</label>
+                                            <input type="date" id="checkout" min="2025-06-11">
+                                        </div>
+                                    </div>
+                                    <div class="guest-select">
+                                        <label>Ospiti</label>
+                                        <select id="guests">
+                                            <option value="1">1 ospite</option>
+                                            <option value="2">2 ospiti</option>
+                                            <option value="3">3 ospiti</option>
+                                            <option value="4">4 ospiti</option>
+                                            <option value="5">5 ospiti</option>
+                                            <option value="6">6 ospiti</option>
+                                        </select>
+                                    </div>
+                                    <button class="btn primary booking-btn" onclick="handleBooking()">
+                                        Prenota Ora - €95/notte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- APARTMENT DETAILS -->
+        <section class="apartment-details-section">
+            <div class="container">
+                <div class="details-content">
+                    <div class="details-main">
+                        <div class="section-block">
+                            <h2>Descrizione</h2>
+                            <p>La Columbera Torre rappresenta il vertice dell'eleganza e del comfort nel cuore di Trento. Questa magnifica suite si trova ai piani superiori di un palazzo storico completamente restaurato, offrendo una vista mozzafiato sulla città e sulle Dolomiti circostanti.</p>
+                            
+                            <p>Con i suoi 120 metri quadrati di spazio abitativo, questo appartamento di lusso combina elementi architettonici storici con design contemporaneo di alta qualità. Le ampie finestre ad arco permettono alla luce naturale di illuminare gli spazi eleganti, creando un'atmosfera unica e raffinata.</p>
+                            
+                            <p>La posizione privilegiata nel centro storico offre accesso immediato alle principali attrazioni culturali, ai migliori ristoranti e alle boutique esclusive della città, mentre la tranquillità dell'appartamento garantisce un soggiorno riposante e rigenerante.</p>
+                        </div>
+
+                        <div class="section-block">
+                            <h2>Servizi Premium</h2>
+                            <div class="amenities-grid premium">
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🌅</span>
+                                    <div>
+                                        <strong>Vista Panoramica</strong>
+                                        <p>Vista mozzafiato su Trento e Dolomiti</p>
+                                    </div>
+                                </div>
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🛁</span>
+                                    <div>
+                                        <strong>Bagno di Lusso</strong>
+                                        <p>Vasca idromassaggio e doccia separata</p>
+                                    </div>
+                                </div>
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🍽️</span>
+                                    <div>
+                                        <strong>Cucina Gourmet</strong>
+                                        <p>Elettrodomestici di alta gamma</p>
+                                    </div>
+                                </div>
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🔥</span>
+                                    <div>
+                                        <strong>Camino Antico</strong>
+                                        <p>Autentico camino restaurato</p>
+                                    </div>
+                                </div>
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🎵</span>
+                                    <div>
+                                        <strong>Sistema Audio</strong>
+                                        <p>Sonos multi-room integrato</p>
+                                    </div>
+                                </div>
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🏃‍♂️</span>
+                                    <div>
+                                        <strong>Servizio Concierge</strong>
+                                        <p>Assistenza 24/7 per ogni esigenza</p>
+                                    </div>
+                                </div>
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🚗</span>
+                                    <div>
+                                        <strong>Parcheggio Privato</strong>
+                                        <p>Posto auto coperto incluso</p>
+                                    </div>
+                                </div>
+                                <div class="amenity-item premium">
+                                    <span class="amenity-icon">🍾</span>
+                                    <div>
+                                        <strong>Welcome Package</strong>
+                                        <p>Prodotti locali e vino Trentino</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="section-block">
                             <h2>Nelle Vicinanze</h2>
                             <div class="nearby-places premium">
@@ -294,186 +477,3 @@ Contatta Space Estate per confermare la prenotazione premium.`;
     </script>
 </body>
 </html>
-                        
-                        <div class="apartment-sidebar">
-                            <!-- APARTMENT DETAILS -->
-                            <div class="sidebar-section">
-                                <h1>La Columbera Torre</h1>
-                                <div class="apartment-rating">
-                                    <span class="stars">⭐⭐⭐⭐⭐</span>
-                                    <span class="rating-text">(4.8/5 - 94 recensioni)</span>
-                                </div>
-                                <p class="apartment-location">📍 Centro Storico, Trento TN</p>
-                                <div class="apartment-price">
-                                    <span class="price">€95</span>
-                                    <span class="price-period">/ notte</span>
-                                </div>
-                                <div class="premium-badge">✨ Premium Suite</div>
-                            </div>
-
-                            <!-- QUICK SPECS -->
-                            <div class="sidebar-section">
-                                <h3>Caratteristiche</h3>
-                                <div class="apartment-specs">
-                                    <div class="spec">
-                                        <span class="spec-icon">👥</span>
-                                        <span>6 ospiti</span>
-                                    </div>
-                                    <div class="spec">
-                                        <span class="spec-icon">🛏️</span>
-                                        <span>3 camere</span>
-                                    </div>
-                                    <div class="spec">
-                                        <span class="spec-icon">🛁</span>
-                                        <span>2 bagni</span>
-                                    </div>
-                                    <div class="spec">
-                                        <span class="spec-icon">🌅</span>
-                                        <span>Vista panoramica</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- CALENDAR -->
-                            <div class="sidebar-section">
-                                <h3>Verifica Disponibilità</h3>
-                                <div class="calendar">
-                                    <div class="calendar-header">
-                                        <button class="calendar-nav" onclick="changeMonth(-1)">‹</button>
-                                        <span class="calendar-month" id="currentMonth">Giugno 2025</span>
-                                        <button class="calendar-nav" onclick="changeMonth(1)">›</button>
-                                    </div>
-                                    <div class="calendar-weekdays">
-                                        <div class="calendar-weekday">D</div>
-                                        <div class="calendar-weekday">L</div>
-                                        <div class="calendar-weekday">M</div>
-                                        <div class="calendar-weekday">M</div>
-                                        <div class="calendar-weekday">G</div>
-                                        <div class="calendar-weekday">V</div>
-                                        <div class="calendar-weekday">S</div>
-                                    </div>
-                                    <div class="calendar-grid" id="calendarGrid"></div>
-                                </div>
-                                <div class="calendar-legend">
-                                    <div class="legend-item">
-                                        <div class="legend-color available"></div>
-                                        <span>Disponibile</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <div class="legend-color occupied"></div>
-                                        <span>Occupato</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BOOKING -->
-                            <div class="sidebar-section">
-                                <h3>Prenota Ora</h3>
-                                <div class="booking-form">
-                                    <div class="date-inputs">
-                                        <div class="date-input">
-                                            <label>Check-in</label>
-                                            <input type="date" id="checkin" min="2025-06-10">
-                                        </div>
-                                        <div class="date-input">
-                                            <label>Check-out</label>
-                                            <input type="date" id="checkout" min="2025-06-11">
-                                        </div>
-                                    </div>
-                                    <div class="guest-select">
-                                        <label>Ospiti</label>
-                                        <select id="guests">
-                                            <option value="1">1 ospite</option>
-                                            <option value="2">2 ospiti</option>
-                                            <option value="3">3 ospiti</option>
-                                            <option value="4">4 ospiti</option>
-                                            <option value="5">5 ospiti</option>
-                                            <option value="6">6 ospiti</option>
-                                        </select>
-                                    </div>
-                                    <button class="btn primary booking-btn" onclick="handleBooking()">
-                                        Prenota Ora - €95/notte
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- APARTMENT DETAILS -->
-        <section class="apartment-details-section">
-            <div class="container">
-                <div class="details-content">
-                    <div class="details-main">
-                        <div class="section-block">
-                            <h2>Descrizione</h2>
-                            <p>La Columbera Torre rappresenta il vertice dell'eleganza e del comfort nel cuore di Trento. Questa magnifica suite si trova ai piani superiori di un palazzo storico completamente restaurato, offrendo una vista mozzafiato sulla città e sulle Dolomiti circostanti.</p>
-                            
-                            <p>Con i suoi 120 metri quadrati di spazio abitativo, questo appartamento di lusso combina elementi architettonici storici con design contemporaneo di alta qualità. Le ampie finestre ad arco permettono alla luce naturale di illuminare gli spazi eleganti, creando un'atmosfera unica e raffinata.</p>
-                            
-                            <p>La posizione privilegiata nel centro storico offre accesso immediato alle principali attrazioni culturali, ai migliori ristoranti e alle boutique esclusive della città, mentre la tranquillità dell'appartamento garantisce un soggiorno riposante e rigenerante.</p>
-                        </div>
-
-                        <div class="section-block">
-                            <h2>Servizi Premium</h2>
-                            <div class="amenities-grid premium">
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🌅</span>
-                                    <div>
-                                        <strong>Vista Panoramica</strong>
-                                        <p>Vista mozzafiato su Trento e Dolomiti</p>
-                                    </div>
-                                </div>
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🛁</span>
-                                    <div>
-                                        <strong>Bagno di Lusso</strong>
-                                        <p>Vasca idromassaggio e doccia separata</p>
-                                    </div>
-                                </div>
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🍽️</span>
-                                    <div>
-                                        <strong>Cucina Gourmet</strong>
-                                        <p>Elettrodomestici di alta gamma</p>
-                                    </div>
-                                </div>
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🔥</span>
-                                    <div>
-                                        <strong>Camino Antico</strong>
-                                        <p>Autentico camino restaurato</p>
-                                    </div>
-                                </div>
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🎵</span>
-                                    <div>
-                                        <strong>Sistema Audio</strong>
-                                        <p>Sonos multi-room integrato</p>
-                                    </div>
-                                </div>
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🏃‍♂️</span>
-                                    <div>
-                                        <strong>Servizio Concierge</strong>
-                                        <p>Assistenza 24/7 per ogni esigenza</p>
-                                    </div>
-                                </div>
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🚗</span>
-                                    <div>
-                                        <strong>Parcheggio Privato</strong>
-                                        <p>Posto auto coperto incluso</p>
-                                    </div>
-                                </div>
-                                <div class="amenity-item premium">
-                                    <span class="amenity-icon">🍾</span>
-                                    <div>
-                                        <strong>Welcome Package</strong>
-                                        <p>Prodotti locali e vino Trentino</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
