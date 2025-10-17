@@ -333,14 +333,13 @@
   .nav-container {
     padding: 0 15px;
     position: relative;
-    justify-content: center !important;
-    flex-wrap: wrap;
   }
   
   .logo-section {
-    position: relative !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     flex-shrink: 0 !important;
-    order: 2;
   }
   
   .business-name {
@@ -448,16 +447,15 @@
   
   .mobile-menu-btn {
     display: flex !important;
-    position: fixed !important;
+    position: absolute !important;
     top: 50% !important;
-    right: 20px !important;
+    right: 15px !important;
     transform: translateY(-50%) !important;
     z-index: 1003 !important;
   }
   
   .mobile-menu-btn.active {
-    top: 20px !important;
-    transform: none !important;
+    transform: translateY(-50%) !important;
   }
   
   .nav-actions {
