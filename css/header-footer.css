@@ -338,18 +338,24 @@
   .logo-section {
     position: static !important;
     flex-shrink: 0 !important;
+    visibility: hidden !important;
   }
   
   .business-name {
     font-size: 20px;
     letter-spacing: 1px;
-    position: absolute !important;
+    position: fixed !important;
     left: 50% !important;
+    top: 15px !important;
     transform: translateX(-50%) !important;
+    visibility: visible !important;
+    color: #6d5a47;
+    z-index: 999;
   }
   
   .logo-img {
     height: 35px;
+    visibility: visible !important;
   }
   
   /* Nascondi menu desktop su mobile */
