@@ -1,31 +1,4 @@
-.logo-section {
-    position: static !important;
-    display: flex !important;
-    width: 60px !important;
-  }
-  
-  .business-name {
-    display: none !important;
-  }
-  
-  .business-name-mobile {
-    display: block !important;
-    position: fixed !important;
-    left: 50% !important;
-    top: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    font-size: 20px !important;
-    letter-spacing: 1px !important;
-    color: #6d5a47 !important;
-    z-index: 999 !important;
-    white-space: nowrap !important;
-  }
-  
-  .logo-img {
-    height: 35px !important;
-    width: auto !important;
-    display: block !important;
-  }/* HEADER UNIFICATO */
+/* HEADER UNIFICATO */
 .nav-menu a.active {
   color: #FFD700;
   font-weight: 600;
@@ -86,12 +59,6 @@
   white-space: nowrap;
 }
 
-/* BUSINESS NAME MOBILE - nascosto su desktop */
-.business-name-mobile {
-  display: none;
-}
-
-/* BUSINESS NAME MOBILE - nascosto su desktop */
 .business-name-mobile {
   display: none;
 }
@@ -358,9 +325,7 @@
   }
 }
 
-/* ========================================================================
-   MENU MOBILE - COMPLETO E FUNZIONANTE
-   ======================================================================== */
+/* MENU MOBILE */
 @media (max-width: 768px) {
   .header {
     padding: 12px 0;
@@ -373,26 +338,30 @@
   }
   
   .logo-section {
-    position: static !important;
-    flex-shrink: 0 !important;
-    visibility: hidden !important;
-  }
-  
-  .business-name {
-    font-size: 20px;
-    letter-spacing: 1px;
-    position: fixed !important;
-    left: 50% !important;
-    top: 15px !important;
-    transform: translateX(-50%) !important;
-    visibility: visible !important;
-    color: #6d5a47;
-    z-index: 999;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
   }
   
   .logo-img {
     height: 35px;
-    visibility: visible !important;
+  }
+  
+  .business-name {
+    display: none;
+  }
+  
+  .business-name-mobile {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #6d5a47;
+    z-index: 999;
   }
   
   /* Nascondi menu desktop su mobile */
@@ -529,7 +498,7 @@
     padding: 0 10px;
   }
   
-  .business-name {
+  .business-name-mobile {
     font-size: 18px;
   }
   
