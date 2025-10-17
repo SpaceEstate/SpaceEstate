@@ -333,13 +333,14 @@
   .nav-container {
     padding: 0 15px;
     position: relative;
-    justify-content: center;
+    justify-content: center !important;
+    flex-wrap: wrap;
   }
   
   .logo-section {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative !important;
+    flex-shrink: 0 !important;
+    order: 2;
   }
   
   .business-name {
