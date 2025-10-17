@@ -1,7 +1,7 @@
 // include.js - VERSIONE CORRETTA E UNIFICATA
 document.addEventListener("DOMContentLoaded", () => {
   const includes = document.querySelectorAll("[data-include]");
-  let loaded = 0;
+  let loaded = 0; 
 
   includes.forEach(el => {
     const file = el.getAttribute("data-include");
