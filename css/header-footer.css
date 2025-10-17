@@ -336,15 +336,16 @@
   }
   
   .logo-section {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    position: static !important;
     flex-shrink: 0 !important;
   }
   
   .business-name {
     font-size: 20px;
     letter-spacing: 1px;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
   
   .logo-img {
