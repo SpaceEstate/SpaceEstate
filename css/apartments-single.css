@@ -2,9 +2,11 @@
 .apartment-page {
   margin-top: 80px;
 }
+
 /* BACK BUTTON STYLES */
 .back-button-container {
   padding: 20px 0;
+  background: white;
 }
 
 .back-button {
@@ -12,22 +14,23 @@
   align-items: center;
   gap: 8px;
   background: none;
-  border: none;
+  border: 2px solid #d4af37;
   color: #d4af37;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: 12px 20px;
+  border-radius: 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .back-button:hover {
-  color: #b8941f;
-  background: rgba(212, 175, 55, 0.1);
+  color: white;
+  background: #d4af37;
   transform: translateX(-5px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
 .back-arrow {
@@ -40,17 +43,7 @@
   transform: translateX(-3px);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .back-button {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-  
-  .back-arrow {
-    font-size: 18px;
-  }
-
+/* APARTMENT HERO */
 .apartment-hero {
   background: white;
   padding: 40px 0;
@@ -640,6 +633,15 @@
 }
 
 @media (max-width: 768px) {
+  .back-button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+  
+  .back-arrow {
+    font-size: 18px;
+  }
+  
   .apartment-image {
     height: 250px;
     font-size: 80px;
@@ -669,5 +671,4 @@
   .rating-number {
     font-size: 36px;
   }
-
 }
