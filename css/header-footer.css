@@ -1,4 +1,31 @@
-/* HEADER UNIFICATO */
+.logo-section {
+    position: static !important;
+    display: flex !important;
+    width: 60px !important;
+  }
+  
+  .business-name {
+    display: none !important;
+  }
+  
+  .business-name-mobile {
+    display: block !important;
+    position: fixed !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 20px !important;
+    letter-spacing: 1px !important;
+    color: #6d5a47 !important;
+    z-index: 999 !important;
+    white-space: nowrap !important;
+  }
+  
+  .logo-img {
+    height: 35px !important;
+    width: auto !important;
+    display: block !important;
+  }/* HEADER UNIFICATO */
 .nav-menu a.active {
   color: #FFD700;
   font-weight: 600;
