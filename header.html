@@ -8,8 +8,8 @@
       <div class="business-name">Space Estate</div> 
     </div>
     
-    <!-- MENU DESKTOP - ORA È DENTRO L'HEADER -->
-    <ul class="nav-menu" role="navigation" aria-label="Menu principale">
+    <!-- MENU DESKTOP (visibile solo su desktop) -->
+    <ul class="nav-menu nav-menu-desktop" role="navigation" aria-label="Menu principale">
       <li><a href="./index.html">Home</a></li>
       <li><a href="./Appartamenti.html">Appartamenti</a></li>
       <li><a href="./Proprietari.html">Per Proprietari</a></li>
@@ -28,7 +28,7 @@
     <button class="mobile-menu-btn" 
             aria-label="Apri menu di navigazione" 
             aria-expanded="false"
-            aria-controls="nav-menu">
+            aria-controls="nav-menu-mobile">
       <span></span>
       <span></span>
       <span></span>
@@ -36,5 +36,13 @@
   </nav>
 </header>
 
-<!-- OVERLAY MOBILE -->
+<!-- MENU MOBILE (visibile solo su mobile quando attivo) -->
+<ul class="nav-menu nav-menu-mobile" id="nav-menu-mobile" role="navigation" aria-label="Menu mobile">
+  <li><a href="./index.html">Home</a></li>
+  <li><a href="./Appartamenti.html">Appartamenti</a></li>
+  <li><a href="./Proprietari.html">Per Proprietari</a></li>
+  <li><a href="./Area-Riservata.html">Area Riservata</a></li>
+  <li><a href="./Contatti.html">Contatti</a></li>
+</ul>
+
 <div class="mobile-menu-overlay"></div>
