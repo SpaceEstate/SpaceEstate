@@ -91,6 +91,11 @@
   display: none;
 }
 
+/* BUSINESS NAME MOBILE - nascosto su desktop */
+.business-name-mobile {
+  display: none;
+}
+
 /* MENU DESKTOP */
 .nav-menu {
   display: flex;
