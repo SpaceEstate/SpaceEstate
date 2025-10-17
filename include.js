@@ -1,4 +1,4 @@
-// include.js - VERSIONE CORRETTA E UNIFICATA
+// include.js - VERSIONE AGGIORNATA CON MENU DUPLICATO
 document.addEventListener("DOMContentLoaded", () => {
   const includes = document.querySelectorAll("[data-include]");
   let loaded = 0; 
@@ -47,10 +47,11 @@ function createOverlay() {
   }
 }
 
-// Attiva il link corrente nella navigazione
+// Attiva il link corrente nella navigazione (ENTRAMBI I MENU)
 function activateCurrentNavLink() {
   const currentPage = window.location.pathname;
-  const navLinks = document.querySelectorAll('.nav-menu a');
+  // Seleziona i link sia dal menu desktop che mobile
+  const navLinks = document.querySelectorAll('.nav-menu-desktop a, .nav-menu-mobile a');
   
   navLinks.forEach(link => {
     link.classList.remove('active');
@@ -72,10 +73,10 @@ function activateCurrentNavLink() {
 // Setup menu mobile
 function setupMobileMenu() {
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const navMenu = document.querySelector('.nav-menu');
+  const navMenuMobile = document.querySelector('.nav-menu-mobile');
   const overlay = document.querySelector('.mobile-menu-overlay');
 
-  if (!mobileMenuBtn || !navMenu || !overlay) {
+  if (!mobileMenuBtn || !navMenuMobile || !overlay) {
     console.warn('❌ Elementi menu mobile non trovati');
     return;
   }
@@ -84,7 +85,7 @@ function setupMobileMenu() {
 
   // Funzione per aprire il menu
   function openMenu() {
-    navMenu.classList.add('active');
+    navMenuMobile.classList.add('active');
     mobileMenuBtn.classList.add('active');
     overlay.classList.add('active');
     mobileMenuBtn.setAttribute('aria-expanded', 'true');
@@ -93,7 +94,7 @@ function setupMobileMenu() {
 
   // Funzione per chiudere il menu
   function closeMenu() {
-    navMenu.classList.remove('active');
+    navMenuMobile.classList.remove('active');
     mobileMenuBtn.classList.remove('active');
     overlay.classList.remove('active');
     mobileMenuBtn.setAttribute('aria-expanded', 'false');
@@ -105,7 +106,7 @@ function setupMobileMenu() {
     e.preventDefault();
     e.stopPropagation();
     
-    if (navMenu.classList.contains('active')) {
+    if (navMenuMobile.classList.contains('active')) {
       closeMenu();
     } else {
       openMenu();
@@ -116,7 +117,7 @@ function setupMobileMenu() {
   overlay.addEventListener('click', closeMenu);
 
   // Chiudi menu quando si clicca su un link
-  navMenu.querySelectorAll('a').forEach(link => {
+  navMenuMobile.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       closeMenu();
     });
@@ -124,14 +125,14 @@ function setupMobileMenu() {
 
   // Chiudi menu con tasto ESC
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+    if (e.key === 'Escape' && navMenuMobile.classList.contains('active')) {
       closeMenu();
     }
   });
 
   // Chiudi menu su resize verso desktop
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+    if (window.innerWidth > 768 && navMenuMobile.classList.contains('active')) {
       closeMenu();
     }
   });
