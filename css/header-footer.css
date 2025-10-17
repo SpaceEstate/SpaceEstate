@@ -44,6 +44,11 @@
   align-items: center;
   gap: 15px;
   flex-shrink: 0;
+  position: static;
+}
+
+.logo {
+  display: flex;
 }
 
 .logo-img {
