@@ -1,3 +1,4 @@
+// Sync attivo
 // ============================================
 // PARTE 1: Backend Script (Node.js)
 // File: sync-calendars.js
