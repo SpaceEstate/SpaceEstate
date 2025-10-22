@@ -1,0 +1,36 @@
+name: Sync Calendars
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Create calendars folder
+        run: |
+          mkdir -p calendars
+          touch calendars/.gitkeep
+      
+      - name: Sync Calendars
+        run: node sync-calendars.js
+      
+      - name: Commit and Push
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add calendars/
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-sync calendars"
+          git push
