@@ -22,7 +22,7 @@ function isDateOccupied(date, occupiedDates) {
 
 // Inizializzazione calendario nella pagina
 let occupiedDates = [];
-let currentMonth = new Date(2025, 5); // Giugno 2025
+let currentMonth = new Date(); // Mese corrente
 
 async function initCalendar(apartmentId) {
   occupiedDates = await loadOccupiedDates(apartmentId);
