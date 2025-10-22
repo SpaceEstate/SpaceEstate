@@ -671,4 +671,23 @@
   .rating-number {
     font-size: 36px;
   }
+  .calendar-day.past {
+  background: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.4;
 }
+
+.calendar-day.selected-checkin {
+  background: #4CAF50 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.calendar-day.selected-checkout {
+  background: #2196F3 !important;
+  color: white !important;
+  font-weight: bold;
+}
+}
+
