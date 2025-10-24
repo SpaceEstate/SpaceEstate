@@ -368,120 +368,19 @@
     <!-- FOOTER -->
     <div data-include="./footer.html"></div>
 
-    <script>
-        // Calendar functionality
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentYear = currentDate.getFullYear();
-
-        const months = [
-            'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
-            'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
-        ];
-
-        // Available dates for Torre (slightly different availability)
-        const availableDates = [5, 8, 12, 15, 18, 21, 24, 27, 30];
-
-        function generateCalendar() {
-            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            
-            document.getElementById('currentMonth').textContent = `${months[currentMonth]} ${currentYear}`;
-            
-            const calendarGrid = document.getElementById('calendarGrid');
-            calendarGrid.innerHTML = '';
-            
-            // Empty cells for days before first day of month
-            for (let i = 0; i < firstDay; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.className = 'calendar-day';
-                calendarGrid.appendChild(emptyDay);
-            }
-            
-            // Days of the month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayElement = document.createElement('div');
-                dayElement.className = 'calendar-day';
-                dayElement.textContent = day;
-                
-                if (availableDates.includes(day)) {
-                    dayElement.classList.add('available');
-                    dayElement.onclick = () => selectDate(day);
-                }
-                
-                calendarGrid.appendChild(dayElement);
-            }
-        }
-
-        function changeMonth(direction) {
-            currentMonth += direction;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            } else if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            generateCalendar();
-        }
-
-        function selectDate(day) {
-            const selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-            
-            const checkinInput = document.getElementById('checkin');
-            const checkoutInput = document.getElementById('checkout');
-            
-            if (!checkinInput.value || (checkinInput.value && checkoutInput.value)) {
-                checkinInput.value = selectedDate;
-                checkoutInput.value = '';
-            } else if (checkinInput.value && !checkoutInput.value) {
-                const checkinDate = new Date(checkinInput.value);
-                const selectedDateObj = new Date(selectedDate);
-                
-                if (selectedDateObj > checkinDate) {
-                    checkoutInput.value = selectedDate;
-                } else {
-                    checkinInput.value = selectedDate;
-                    checkoutInput.value = '';
-                }
-            }
-        }
-
-        function handleBooking() {
-            const checkin = document.getElementById('checkin').value;
-            const checkout = document.getElementById('checkout').value;
-            const guests = document.getElementById('guests').value;
-            
-            if (!checkin || !checkout) {
-                alert('Seleziona le date di check-in e check-out');
-                return;
-            }
-            
-            // Calculate nights and total price
-            const checkinDate = new Date(checkin);
-            const checkoutDate = new Date(checkout);
-            const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
-            const totalPrice = nights * 95;
-            
-            const message = `Richiesta di prenotazione PREMIUM:
-- Appartamento: La Columbera Torre (Suite Premium)
-- Check-in: ${checkin}
-- Check-out: ${checkout}
-- Ospiti: ${guests}
-- Notti: ${nights}
-- Prezzo totale: €${totalPrice}
-- Servizi inclusi: Concierge 24/7, Parcheggio privato, Welcome package
-
-Contatta Space Estate per confermare la prenotazione premium.`;
-            
-            alert(message);
-            window.location.href = 'Contatti.html';
-        }
-
-        // Initialize calendar on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            generateCalendar();
-        });
-    </script>
+    <!-- Carica il calendario dinamico -->
+<script src="./calendar-loader.js"></script>
+<script>
+  // Inizializza con l'ID corretto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initCalendar('la-columbera-torre');
+      setupDateInputHandlers();
+    });
+  } else {
+    initCalendar('la-columbera-torre');
+    setupDateInputHandlers();
+  }
+</script>
 </body>
 </html>
