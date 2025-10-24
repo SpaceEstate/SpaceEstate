@@ -2,10 +2,15 @@ const https = require('https');
 const fs = require('fs');
 
 // Configurazione appartamenti
+// Configurazione appartamenti
 const apartments = {
   'la-columbera-corte': {
     booking: 'https://ical.booking.com/v1/export?t=a548355b-70dd-434c-aa40-b5f826756554',
     airbnb: 'https://www.airbnb.it/calendar/ical/21897262.ics?s=ac74abfbed5c0fe4915529e86f1ee2db'
+  },
+  'la-columbera-torre': {
+    booking: 'TUO_URL_BOOKING_TORRE',  // Inserisci URL iCal di Booking
+    airbnb: 'TUO_URL_AIRBNB_TORRE'     // Inserisci URL iCal di Airbnb
   }
 };
 
