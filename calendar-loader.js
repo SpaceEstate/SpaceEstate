@@ -1,3 +1,6 @@
+// CONFIGURAZIONE
+const MIN_NIGHTS = 2; // Soggiorno minimo richiesto
+
 // Carica date occupate per un appartamento
 async function loadOccupiedDates(apartmentId) {
   try {
@@ -99,13 +102,19 @@ function renderCalendar() {
       // Hover preview quando si sta selezionando check-out
       if (isSelectingCheckOut && selectedCheckIn && !selectedCheckOut) {
         const checkInDate = new Date(selectedCheckIn);
-        if (currentDate > checkInDate) {
+        const nightsDiff = Math.floor((currentDate - checkInDate) / (1000 * 60 * 60 * 24));
+        
+        if (currentDate > checkInDate && nightsDiff >= MIN_NIGHTS) {
           // Verifica che non ci siano date occupate nel mezzo
           if (canSelectRange(selectedCheckIn, dateStr)) {
             dayEl.classList.add('hover-range');
           } else {
             dayEl.classList.add('blocked-range');
           }
+        } else if (currentDate > checkInDate && nightsDiff < MIN_NIGHTS) {
+          // Troppo vicino al check-in
+          dayEl.classList.add('blocked-range');
+          dayEl.style.opacity = '0.5';
         }
       }
       
@@ -162,16 +171,27 @@ function selectDate(dateStr) {
       // Se la data è prima o uguale al check-in, ricomincia
       selectedCheckIn = dateStr;
       selectedCheckOut = null;
-    } else if (canSelectRange(selectedCheckIn, dateStr)) {
-      // Range valido
-      selectedCheckOut = dateStr;
-      isSelectingCheckOut = false;
-      updateDateInputs();
-      calculatePrice();
     } else {
-      // Range non valido (ci sono date occupate)
-      alert('Non puoi selezionare questo periodo: ci sono date già occupate nel range selezionato.');
-      return;
+      // Verifica vincolo minimo notti
+      const nightsDiff = Math.floor((selectedDate - checkInDate) / (1000 * 60 * 60 * 24));
+      
+      if (nightsDiff < MIN_NIGHTS) {
+        alert(`Soggiorno minimo richiesto: ${MIN_NIGHTS} notti.\nSeleziona una data di check-out successiva.`);
+        return;
+      }
+      
+      // Verifica che non ci siano date occupate nel range
+      if (canSelectRange(selectedCheckIn, dateStr)) {
+        // Range valido
+        selectedCheckOut = dateStr;
+        isSelectingCheckOut = false;
+        updateDateInputs();
+        calculatePrice();
+      } else {
+        // Range non valido (ci sono date occupate)
+        alert('Non puoi selezionare questo periodo: ci sono date già occupate nel range selezionato.');
+        return;
+      }
     }
     
     renderCalendar();
@@ -184,6 +204,13 @@ function updateDateInputs() {
   
   if (checkinInput && selectedCheckIn) {
     checkinInput.value = selectedCheckIn;
+    
+    // Imposta data minima per check-out (check-in + MIN_NIGHTS)
+    if (checkoutInput) {
+      const minCheckoutDate = new Date(selectedCheckIn);
+      minCheckoutDate.setDate(minCheckoutDate.getDate() + MIN_NIGHTS);
+      checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
+    }
   }
   
   if (checkoutInput && selectedCheckOut) {
@@ -280,6 +307,7 @@ function setupDateInputHandlers() {
       selectedCheckIn = e.target.value;
       selectedCheckOut = null;
       isSelectingCheckOut = true;
+      updateDateInputs();
       renderCalendar();
     });
   }
@@ -287,6 +315,16 @@ function setupDateInputHandlers() {
   if (checkoutInput) {
     checkoutInput.addEventListener('change', (e) => {
       if (selectedCheckIn && e.target.value > selectedCheckIn) {
+        const checkIn = new Date(selectedCheckIn);
+        const checkOut = new Date(e.target.value);
+        const nightsDiff = Math.floor((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+        
+        if (nightsDiff < MIN_NIGHTS) {
+          alert(`Soggiorno minimo richiesto: ${MIN_NIGHTS} notti.`);
+          e.target.value = '';
+          return;
+        }
+        
         if (canSelectRange(selectedCheckIn, e.target.value)) {
           selectedCheckOut = e.target.value;
           isSelectingCheckOut = false;
