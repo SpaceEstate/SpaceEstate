@@ -156,6 +156,16 @@ function canSelectRange(startDate, endDate) {
 function selectDate(dateStr) {
   const selectedDate = new Date(dateStr);
   
+  // Se clicco sulla stessa data di check-in, deseleziona tutto
+  if (selectedCheckIn === dateStr && !selectedCheckOut) {
+    selectedCheckIn = null;
+    selectedCheckOut = null;
+    isSelectingCheckOut = false;
+    updateDateInputs();
+    renderCalendar();
+    return;
+  }
+  
   if (!selectedCheckIn || (selectedCheckIn && selectedCheckOut)) {
     // Prima selezione o reset: imposta check-in
     selectedCheckIn = dateStr;
@@ -202,19 +212,31 @@ function updateDateInputs() {
   const checkinInput = document.getElementById('checkin');
   const checkoutInput = document.getElementById('checkout');
   
-  if (checkinInput && selectedCheckIn) {
-    checkinInput.value = selectedCheckIn;
+  if (checkinInput) {
+    checkinInput.value = selectedCheckIn || '';
     
     // Imposta data minima per check-out (check-in + MIN_NIGHTS)
-    if (checkoutInput) {
+    if (checkoutInput && selectedCheckIn) {
       const minCheckoutDate = new Date(selectedCheckIn);
       minCheckoutDate.setDate(minCheckoutDate.getDate() + MIN_NIGHTS);
       checkoutInput.min = minCheckoutDate.toISOString().split('T')[0];
+    } else if (checkoutInput) {
+      // Reset del minimo se non c'è check-in
+      checkoutInput.min = '';
+      checkoutInput.value = '';
     }
   }
   
-  if (checkoutInput && selectedCheckOut) {
-    checkoutInput.value = selectedCheckOut;
+  if (checkoutInput) {
+    checkoutInput.value = selectedCheckOut || '';
+  }
+  
+  // Reset del bottone prenotazione se non ci sono date
+  if (!selectedCheckIn || !selectedCheckOut) {
+    const bookingBtn = document.querySelector('.booking-btn');
+    if (bookingBtn) {
+      bookingBtn.textContent = 'Prenota Ora - €120/notte';
+    }
   }
 }
 
