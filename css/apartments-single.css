@@ -413,6 +413,8 @@
   background: white;
   border-radius: 10px;
   padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden; /* 🔹 Evita che i campi sporgano */
 }
 
 .date-inputs {
@@ -420,12 +422,15 @@
   grid-template-columns: 1fr 1fr;
   gap: 15px;
   margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.date-input {
-  display: flex;
-  flex-direction: column;
+.date-input input {
+  width: 100%; /* 🔹 Garantisce che resti dentro il box */
+  box-sizing: border-box;
 }
+
 
 .date-input label {
   font-size: 12px;
@@ -806,6 +811,7 @@
   font-weight: bold;
 }
 }
+
 
 
 
