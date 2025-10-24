@@ -4,7 +4,7 @@ const fs = require('fs');
 // Configurazione appartamenti
 const apartments = {
   'la-columbera-corte': {
-    booking: 'https://ical.booking.com/v1/export?t=a228fe42-bed2-43ae-a993-3645385ec81c',
+    booking: 'https://ical.booking.com/v1/export?t=a548355b-70dd-434c-aa40-b5f826756554',
     airbnb: 'https://www.airbnb.it/calendar/ical/21897262.ics?s=ac74abfbed5c0fe4915529e86f1ee2db'
   }
 };
@@ -15,8 +15,14 @@ function downloadIcal(url) {
     https.get(url, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
-      res.on('end', () => resolve(data));
-    }).on('error', reject);
+      res.on('end', () => {
+        console.log(`    📦 Scaricati ${data.length} caratteri`);
+        resolve(data);
+      });
+    }).on('error', (err) => {
+      console.error(`    ❌ Errore download: ${err.message}`);
+      reject(err);
+    });
   });
 }
 
@@ -25,9 +31,16 @@ function parseIcalDates(icalData) {
   const occupiedDates = new Set();
   const lines = icalData.split('\n');
   
+  // Limite: 6 mesi nel futuro
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const maxDate = new Date(today);
+  maxDate.setMonth(maxDate.getMonth() + 6);
+  
   let inEvent = false;
   let dtstart = null;
   let dtend = null;
+  let eventCount = 0;
   
   for (let line of lines) {
     line = line.trim();
@@ -36,12 +49,19 @@ function parseIcalDates(icalData) {
       inEvent = true;
       dtstart = null;
       dtend = null;
+      eventCount++;
     }
     
     if (line === 'END:VEVENT') {
       if (dtstart && dtend) {
         const dates = getDateRange(dtstart, dtend);
-        dates.forEach(date => occupiedDates.add(date));
+        // Filtra solo date entro 6 mesi
+        dates.forEach(date => {
+          const d = new Date(date);
+          if (d >= today && d <= maxDate) {
+            occupiedDates.add(date);
+          }
+        });
       }
       inEvent = false;
     }
@@ -56,6 +76,8 @@ function parseIcalDates(icalData) {
     }
   }
   
+  console.log(`    📋 Eventi trovati: ${eventCount}`);
+  console.log(`    📅 Range: ${today.toISOString().split('T')[0]} → ${maxDate.toISOString().split('T')[0]}`);
   return Array.from(occupiedDates).sort();
 }
 
@@ -78,6 +100,7 @@ function getDateRange(startStr, endStr) {
   const start = new Date(startStr);
   const end = new Date(endStr);
   
+  // L'end date in iCal è esclusivo (checkout), quindi sottraiamo 1 giorno
   end.setDate(end.getDate() - 1);
   
   const current = new Date(start);
@@ -95,29 +118,49 @@ function getDateRange(startStr, endStr) {
 // Funzione principale di sincronizzazione
 async function syncCalendars() {
   console.log('🔄 Inizio sincronizzazione calendari...\n');
+  console.log(`📅 Data/ora: ${new Date().toLocaleString('it-IT')}\n`);
   
   for (const [apartmentId, urls] of Object.entries(apartments)) {
     console.log(`📅 Sincronizzazione: ${apartmentId}`);
     
     try {
-      console.log('  ⬇️  Download calendario Booking...');
-      const bookingData = await downloadIcal(urls.booking);
+      let bookingDates = [];
+      let airbnbDates = [];
       
-      console.log('  ⬇️  Download calendario Airbnb...');
-      const airbnbData = await downloadIcal(urls.airbnb);
+      // Booking (opzionale)
+      if (urls.booking) {
+        try {
+          console.log('  ⬇️  Download calendario Booking...');
+          const bookingData = await downloadIcal(urls.booking);
+          bookingDates = parseIcalDates(bookingData);
+        } catch (err) {
+          console.log('  ⚠️  Booking non disponibile, continuo con Airbnb...');
+        }
+      }
       
+      // Airbnb
+      if (urls.airbnb) {
+        console.log('  ⬇️  Download calendario Airbnb...');
+        const airbnbData = await downloadIcal(urls.airbnb);
+        airbnbDates = parseIcalDates(airbnbData);
+      }
+      
+      // Unisci e ordina
       console.log('  📊 Elaborazione date...');
-      const bookingDates = parseIcalDates(bookingData);
-      const airbnbDates = parseIcalDates(airbnbData);
-      
       const allDates = [...new Set([...bookingDates, ...airbnbDates])].sort();
       
-      console.log(`  ✅ Trovate ${allDates.length} date occupate`);
+      console.log(`  ✅ Totale date occupate: ${allDates.length}`);
       console.log(`     - Booking: ${bookingDates.length} date`);
       console.log(`     - Airbnb: ${airbnbDates.length} date`);
       
+      if (allDates.length > 0) {
+        console.log(`     - Prima data: ${allDates[0]}`);
+        console.log(`     - Ultima data: ${allDates[allDates.length - 1]}`);
+      }
+      
+      // Salva risultato
       const outputPath = `./calendars/${apartmentId}.json`;
-      fs.writeFileSync(outputPath, JSON.stringify({
+      const output = {
         apartmentId,
         lastUpdate: new Date().toISOString(),
         occupiedDates: allDates,
@@ -125,16 +168,22 @@ async function syncCalendars() {
           booking: bookingDates.length,
           airbnb: airbnbDates.length
         }
-      }, null, 2));
+      };
       
+      fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
       console.log(`  💾 Salvato in: ${outputPath}\n`);
       
     } catch (error) {
-      console.error(`  ❌ Errore: ${error.message}\n`);
+      console.error(`  ❌ Errore: ${error.message}`);
+      console.error(`  Stack: ${error.stack}\n`);
     }
   }
   
   console.log('✅ Sincronizzazione completata!');
 }
 
-syncCalendars();
+// Esegui
+syncCalendars().catch(err => {
+  console.error('💥 Errore fatale:', err);
+  process.exit(1);
+});
