@@ -4,7 +4,7 @@ const fs = require('fs');
 // Configurazione appartamenti
 const apartments = {
   'la-columbera-corte': {
-    booking: 'https://ical.booking.com/v1/export?t=d5232092-4c34-47b1-b2e8-c435f5e6169f',
+    booking: 'https://ical.booking.com/v1/export?t=a228fe42-bed2-43ae-a993-3645385ec81c',
     airbnb: 'https://www.airbnb.it/calendar/ical/21897262.ics?s=ac74abfbed5c0fe4915529e86f1ee2db'
   }
 };
