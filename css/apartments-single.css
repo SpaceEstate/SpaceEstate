@@ -196,6 +196,7 @@
   border-radius: 10px;
   padding: 20px 20px 25px 20px;
   margin-bottom: 15px;
+  overflow: hidden;
   
 }
 
@@ -805,6 +806,7 @@
   font-weight: bold;
 }
 }
+
 
 
 
