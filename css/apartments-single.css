@@ -326,7 +326,7 @@
   background-color: #2196F3 !important;
   color: white !important;
   font-weight: bold;
-  border-radius: 50%;
+  border-radius: 6px;
   position: relative;
 }
 
@@ -804,5 +804,6 @@
   font-weight: bold;
 }
 }
+
 
 
