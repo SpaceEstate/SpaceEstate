@@ -260,24 +260,114 @@
   color: #8b7355;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
+/* Giorno disponibile */
 .calendar-day.available {
-  background: #e8f5e8;
+  background: #fff;
   color: #2d7a2d;
+  border: 1px solid #e8e4df;
 }
 
 .calendar-day.available:hover {
-  background: #d4af37;
-  color: white;
-  transform: scale(1.1);
+  background: #f0f0f0;
+  transform: scale(1.05);
 }
 
+/* Giorno occupato */
+.calendar-day.occupied {
+  background-color: #ffebee;
+  color: #c62828;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.calendar-day.occupied::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #c62828;
+  transform: translateY(-50%);
+}
+
+/* Giorno passato */
+.calendar-day.past {
+  background: #f0f0f0;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Check-in selezionato */
+.calendar-day.selected-checkin {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  font-weight: bold;
+  border-radius: 50%;
+  position: relative;
+}
+
+.calendar-day.selected-checkin::before {
+  content: '✓';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+  color: white;
+}
+
+/* Check-out selezionato */
+.calendar-day.selected-checkout {
+  background-color: #2196F3 !important;
+  color: white !important;
+  font-weight: bold;
+  border-radius: 50%;
+  position: relative;
+}
+
+.calendar-day.selected-checkout::before {
+  content: '✓';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+  color: white;
+}
+
+/* Giorni nel range tra check-in e check-out */
+.calendar-day.in-range {
+  background-color: #E3F2FD !important;
+  color: #1976D2 !important;
+  border-radius: 0;
+}
+
+/* Preview hover quando si seleziona check-out */
+.calendar-day.hover-range {
+  background-color: #E8F5E9 !important;
+  color: #388E3C !important;
+}
+
+/* Range bloccato (ci sono date occupate) */
+.calendar-day.blocked-range {
+  background-color: #FFEBEE !important;
+  color: #C62828 !important;
+  cursor: not-allowed !important;
+}
+
+/* Legenda calendario */
 .calendar-legend {
   display: flex;
   gap: 20px;
   font-size: 12px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+  flex-wrap: wrap;
 }
 
 .legend-item {
@@ -287,17 +377,33 @@
 }
 
 .legend-color {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
 .legend-color.available {
-  background: #e8f5e8;
+  background-color: #fff;
 }
 
 .legend-color.occupied {
-  background: #ffe8e8;
+  background-color: #ffebee;
+  position: relative;
+}
+
+.legend-color.occupied::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #c62828;
+}
+
+.legend-color.selected {
+  background-color: #4CAF50;
 }
 
 /* BOOKING FORM */
@@ -637,6 +743,14 @@
     font-size: 14px;
     padding: 10px 16px;
   }
+  .calendar-day {
+  font-size: 12px;
+}
+
+.calendar-day.selected-checkin::before,
+.calendar-day.selected-checkout::before {
+  font-size: 8px;
+}
   
   .back-arrow {
     font-size: 18px;
@@ -690,4 +804,5 @@
   font-weight: bold;
 }
 }
+
 
