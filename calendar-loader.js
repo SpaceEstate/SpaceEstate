@@ -20,11 +20,15 @@ function isDateOccupied(date, occupiedDates) {
   return occupiedDates.includes(dateStr);
 }
 
-// Inizializzazione calendario nella pagina
+// Stato selezione date
 let occupiedDates = [];
-let currentMonth = new Date(); // Mese corrente
+let currentMonth = new Date();
 const maxMonth = new Date();
-maxMonth.setMonth(maxMonth.getMonth() + 6); // Limite: 6 mesi nel futuro
+maxMonth.setMonth(maxMonth.getMonth() + 6);
+
+let selectedCheckIn = null;
+let selectedCheckOut = null;
+let isSelectingCheckOut = false;
 
 async function initCalendar(apartmentId) {
   occupiedDates = await loadOccupiedDates(apartmentId);
@@ -43,7 +47,6 @@ function renderCalendar() {
   
   calendarGrid.innerHTML = '';
   
-  // Data corrente per disabilitare giorni passati
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   
@@ -62,20 +65,54 @@ function renderCalendar() {
     const occupied = occupiedDates.includes(dateStr);
     
     const dayEl = document.createElement('div');
+    dayEl.textContent = day;
     
-    // Giorni passati: mostra come non disponibili
+    // Determina lo stato del giorno
     if (isPast) {
       dayEl.className = 'calendar-day occupied';
       dayEl.style.opacity = '0.4';
     } else if (occupied) {
       dayEl.className = 'calendar-day occupied';
     } else {
+      // Giorno disponibile
       dayEl.className = 'calendar-day available';
+      
+      // Check-in selezionato
+      if (selectedCheckIn === dateStr) {
+        dayEl.classList.add('selected-checkin');
+      }
+      
+      // Check-out selezionato
+      if (selectedCheckOut === dateStr) {
+        dayEl.classList.add('selected-checkout');
+      }
+      
+      // Giorni nel range tra check-in e check-out
+      if (selectedCheckIn && selectedCheckOut) {
+        const checkInDate = new Date(selectedCheckIn);
+        const checkOutDate = new Date(selectedCheckOut);
+        if (currentDate > checkInDate && currentDate < checkOutDate) {
+          dayEl.classList.add('in-range');
+        }
+      }
+      
+      // Hover preview quando si sta selezionando check-out
+      if (isSelectingCheckOut && selectedCheckIn && !selectedCheckOut) {
+        const checkInDate = new Date(selectedCheckIn);
+        if (currentDate > checkInDate) {
+          // Verifica che non ci siano date occupate nel mezzo
+          if (canSelectRange(selectedCheckIn, dateStr)) {
+            dayEl.classList.add('hover-range');
+          } else {
+            dayEl.classList.add('blocked-range');
+          }
+        }
+      }
+      
       dayEl.style.cursor = 'pointer';
       dayEl.onclick = () => selectDate(dateStr);
     }
     
-    dayEl.textContent = day;
     calendarGrid.appendChild(dayEl);
   }
   
@@ -87,8 +124,91 @@ function renderCalendar() {
     currentMonthEl.textContent = `${monthNames[month]} ${year}`;
   }
   
-  // Aggiorna stato pulsanti navigazione
   updateNavigationButtons();
+}
+
+function canSelectRange(startDate, endDate) {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  const current = new Date(start);
+  current.setDate(current.getDate() + 1); // Inizia dal giorno dopo check-in
+  
+  while (current < end) {
+    const dateStr = current.toISOString().split('T')[0];
+    if (occupiedDates.includes(dateStr)) {
+      return false; // Trovata data occupata nel range
+    }
+    current.setDate(current.getDate() + 1);
+  }
+  
+  return true;
+}
+
+function selectDate(dateStr) {
+  const selectedDate = new Date(dateStr);
+  
+  if (!selectedCheckIn || (selectedCheckIn && selectedCheckOut)) {
+    // Prima selezione o reset: imposta check-in
+    selectedCheckIn = dateStr;
+    selectedCheckOut = null;
+    isSelectingCheckOut = true;
+    updateDateInputs();
+    renderCalendar();
+  } else if (selectedCheckIn && !selectedCheckOut) {
+    // Seconda selezione: imposta check-out
+    const checkInDate = new Date(selectedCheckIn);
+    
+    if (selectedDate <= checkInDate) {
+      // Se la data è prima o uguale al check-in, ricomincia
+      selectedCheckIn = dateStr;
+      selectedCheckOut = null;
+    } else if (canSelectRange(selectedCheckIn, dateStr)) {
+      // Range valido
+      selectedCheckOut = dateStr;
+      isSelectingCheckOut = false;
+      updateDateInputs();
+      calculatePrice();
+    } else {
+      // Range non valido (ci sono date occupate)
+      alert('Non puoi selezionare questo periodo: ci sono date già occupate nel range selezionato.');
+      return;
+    }
+    
+    renderCalendar();
+  }
+}
+
+function updateDateInputs() {
+  const checkinInput = document.getElementById('checkin');
+  const checkoutInput = document.getElementById('checkout');
+  
+  if (checkinInput && selectedCheckIn) {
+    checkinInput.value = selectedCheckIn;
+  }
+  
+  if (checkoutInput && selectedCheckOut) {
+    checkoutInput.value = selectedCheckOut;
+  }
+}
+
+function calculatePrice() {
+  if (!selectedCheckIn || !selectedCheckOut) return;
+  
+  const checkIn = new Date(selectedCheckIn);
+  const checkOut = new Date(selectedCheckOut);
+  const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
+  
+  // Prezzo base (prendi dal DOM o imposta qui)
+  const pricePerNight = 120;
+  const totalPrice = nights * pricePerNight;
+  
+  // Aggiorna il bottone di prenotazione
+  const bookingBtn = document.querySelector('.booking-btn');
+  if (bookingBtn) {
+    bookingBtn.textContent = `Prenota ${nights} ${nights === 1 ? 'notte' : 'notti'} - €${totalPrice}`;
+  }
+  
+  console.log(`Prezzo calcolato: ${nights} notti × €${pricePerNight} = €${totalPrice}`);
 }
 
 function updateNavigationButtons() {
@@ -107,7 +227,6 @@ function updateNavigationButtons() {
   maxMonthStart.setDate(1);
   maxMonthStart.setHours(0, 0, 0, 0);
   
-  // Disabilita bottone "precedente" se siamo nel mese corrente
   if (prevButton) {
     if (currentMonthStart <= today) {
       prevButton.disabled = true;
@@ -120,7 +239,6 @@ function updateNavigationButtons() {
     }
   }
   
-  // Disabilita bottone "successivo" se siamo a 6 mesi nel futuro
   if (nextButton) {
     if (currentMonthStart >= maxMonthStart) {
       nextButton.disabled = true;
@@ -146,23 +264,50 @@ function changeMonth(direction) {
   maxMonthStart.setDate(1);
   maxMonthStart.setHours(0, 0, 0, 0);
   
-  // Verifica che il nuovo mese sia nel range permesso
   if (newMonth >= today && newMonth <= maxMonthStart) {
     currentMonth = newMonth;
     renderCalendar();
   }
 }
 
-function selectDate(dateStr) {
-  console.log('Data selezionata:', dateStr);
-  // Qui puoi aggiungere logica per il form di prenotazione
+// Gestione input manuali
+function setupDateInputHandlers() {
+  const checkinInput = document.getElementById('checkin');
+  const checkoutInput = document.getElementById('checkout');
+  
+  if (checkinInput) {
+    checkinInput.addEventListener('change', (e) => {
+      selectedCheckIn = e.target.value;
+      selectedCheckOut = null;
+      isSelectingCheckOut = true;
+      renderCalendar();
+    });
+  }
+  
+  if (checkoutInput) {
+    checkoutInput.addEventListener('change', (e) => {
+      if (selectedCheckIn && e.target.value > selectedCheckIn) {
+        if (canSelectRange(selectedCheckIn, e.target.value)) {
+          selectedCheckOut = e.target.value;
+          isSelectingCheckOut = false;
+          calculatePrice();
+          renderCalendar();
+        } else {
+          alert('Non puoi selezionare questo periodo: ci sono date già occupate.');
+          e.target.value = '';
+        }
+      }
+    });
+  }
 }
 
 // Inizializza quando la pagina è pronta
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initCalendar('la-columbera-corte');
+    setupDateInputHandlers();
   });
 } else {
   initCalendar('la-columbera-corte');
+  setupDateInputHandlers();
 }
