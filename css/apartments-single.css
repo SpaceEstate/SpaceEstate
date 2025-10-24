@@ -194,8 +194,9 @@
 .calendar {
   background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 20px 20px 25px 20px;
   margin-bottom: 15px;
+  
 }
 
 .calendar-header {
@@ -804,6 +805,7 @@
   font-weight: bold;
 }
 }
+
 
 
 
