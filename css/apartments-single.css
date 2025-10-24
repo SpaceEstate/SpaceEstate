@@ -810,7 +810,15 @@
   color: white !important;
   font-weight: bold;
 }
+  
 }
+@media (max-width: 480px) {
+  .date-inputs {
+    grid-template-columns: 1fr; /* 🔹 Un campo per riga */
+  }
+}
+
+
 
 
 
