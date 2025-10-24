@@ -9,8 +9,8 @@ const apartments = {
     airbnb: 'https://www.airbnb.it/calendar/ical/21897262.ics?s=ac74abfbed5c0fe4915529e86f1ee2db'
   },
   'la-columbera-torre': {
-    booking: 'TUO_URL_BOOKING_TORRE',  // Inserisci URL iCal di Booking
-    airbnb: 'TUO_URL_AIRBNB_TORRE'     // Inserisci URL iCal di Airbnb
+    booking: 'https://ical.booking.com/v1/export?t=bd8eae75-32cc-462b-9456-565aef8ca666',  
+    airbnb: 'https://www.airbnb.it/calendar/ical/19627139.ics?s=d8f563f5df5b559f04a0ace62ead7302'  
   }
 };
 
