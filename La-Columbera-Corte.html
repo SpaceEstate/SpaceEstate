@@ -331,7 +331,18 @@
     <div data-include="./footer.html"></div>
     <!-- Carica il calendario dinamico -->
 <script src="./calendar-loader.js"></script>
-
+<script>
+  // Inizializza con l'ID corretto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initCalendar('la-columbera-corte');
+      setupDateInputHandlers();
+    });
+  } else {
+    initCalendar('la-columbera-corte');
+    setupDateInputHandlers();
+  }
+</script>
 
 </body>
 </html>
