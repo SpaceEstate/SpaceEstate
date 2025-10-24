@@ -249,8 +249,9 @@ function calculatePrice() {
   const checkOut = new Date(selectedCheckOut);
   const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
   
-  // Prezzo base (prendi dal DOM o imposta qui)
-  const pricePerNight = 120;
+  // Rileva il prezzo dalla pagina
+  const priceElement = document.querySelector('.price');
+  const pricePerNight = priceElement ? parseInt(priceElement.textContent.replace('€', '')) : 120;
   const totalPrice = nights * pricePerNight;
   
   // Aggiorna il bottone di prenotazione
