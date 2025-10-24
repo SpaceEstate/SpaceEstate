@@ -104,17 +104,19 @@ function renderCalendar() {
         const checkInDate = new Date(selectedCheckIn);
         const nightsDiff = Math.floor((currentDate - checkInDate) / (1000 * 60 * 60 * 24));
         
-        if (currentDate > checkInDate && nightsDiff >= MIN_NIGHTS) {
+        // Blocca solo i giorni che non raggiungono il minimo di notti
+        // Con MIN_NIGHTS = 2, blocca solo il giorno dopo (1 notte)
+        if (nightsDiff > 0 && nightsDiff < MIN_NIGHTS) {
+          dayEl.classList.add('blocked-range');
+          dayEl.style.opacity = '0.5';
+          dayEl.style.cursor = 'not-allowed';
+        } else if (currentDate > checkInDate && nightsDiff >= MIN_NIGHTS) {
           // Verifica che non ci siano date occupate nel mezzo
           if (canSelectRange(selectedCheckIn, dateStr)) {
             dayEl.classList.add('hover-range');
           } else {
             dayEl.classList.add('blocked-range');
           }
-        } else if (currentDate > checkInDate && nightsDiff < MIN_NIGHTS) {
-          // Troppo vicino al check-in
-          dayEl.classList.add('blocked-range');
-          dayEl.style.opacity = '0.5';
         }
       }
       
