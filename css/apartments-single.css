@@ -74,7 +74,7 @@
 
 .apartment-image {
   width: 100%;
-  height: 400px;
+  height: 300px;
   background: linear-gradient(45deg, #f5f3f0, #e8e4df);
   border-radius: 15px;
   display: flex;
@@ -82,6 +82,14 @@
   justify-content: center;
   font-size: 120px;
   color: #d4af37;
+  overflow: hidden;
+}
+
+.apartment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
 .thumbnail-grid {
@@ -823,6 +831,7 @@
     grid-template-columns: 1fr; /* 🔹 Un campo per riga */
   }
 }
+
 
 
 
