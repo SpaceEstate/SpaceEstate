@@ -49,6 +49,7 @@
 .back-button:hover .back-arrow {
   transform: translateX(-2px);
 }
+
 /* APARTMENT HERO */
 .apartment-hero {
   background: white;
@@ -110,6 +111,19 @@
   cursor: pointer;
   transition: all 0.3s ease;
   opacity: 0.7;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .thumbnail:hover,
@@ -212,7 +226,6 @@
   padding: 20px 20px 25px 20px;
   margin-bottom: 15px;
   overflow: hidden;
-  
 }
 
 .calendar-header {
@@ -429,7 +442,7 @@
   border-radius: 10px;
   padding: 20px;
   box-sizing: border-box;
-  overflow: hidden; /* 🔹 Evita che i campi sporgano */
+  overflow: hidden;
 }
 
 .date-inputs {
@@ -441,25 +454,26 @@
   box-sizing: border-box;
 }
 
-.date-input input {
-  width: 100%; /* 🔹 Garantisce che resti dentro il box */
-  box-sizing: border-box;
+.date-input {
+  display: flex;
+  flex-direction: column;
 }
 
+.date-input input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #e8e4df;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #6d5a47;
+}
 
 .date-input label {
   font-size: 12px;
   color: #8b7355;
   margin-bottom: 5px;
   font-weight: 500;
-}
-
-.date-input input {
-  padding: 10px;
-  border: 1px solid #e8e4df;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #6d5a47;
 }
 
 .guest-select {
@@ -765,14 +779,15 @@
     font-size: 14px;
     padding: 10px 16px;
   }
+  
   .calendar-day {
-  font-size: 12px;
-}
+    font-size: 12px;
+  }
 
-.calendar-day.selected-checkin::before,
-.calendar-day.selected-checkout::before {
-  font-size: 8px;
-}
+  .calendar-day.selected-checkin::before,
+  .calendar-day.selected-checkout::before {
+    font-size: 8px;
+  }
   
   .back-arrow {
     font-size: 18px;
@@ -781,6 +796,14 @@
   .apartment-image {
     height: 250px;
     font-size: 80px;
+  }
+  
+  .apartment-image img {
+    height: 100%;
+  }
+  
+  .thumbnail {
+    height: 70px;
   }
   
   .thumbnail-grid {
@@ -807,41 +830,29 @@
   .rating-number {
     font-size: 36px;
   }
-  .calendar-day.past {
-  background: #f0f0f0;
-  color: #999;
-  cursor: not-allowed;
-  opacity: 0.4;
-}
-
-.calendar-day.selected-checkin {
-  background: #4CAF50 !important;
-  color: white !important;
-  font-weight: bold;
-}
-
-.calendar-day.selected-checkout {
-  background: #2196F3 !important;
-  color: white !important;
-  font-weight: bold;
-}
   
-}
-@media (max-width: 480px) {
-  .date-inputs {
-    grid-template-columns: 1fr; /* 🔹 Un campo per riga */
+  .calendar-day.past {
+    background: #f0f0f0;
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  .calendar-day.selected-checkin {
+    background: #4CAF50 !important;
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .calendar-day.selected-checkout {
+    background: #2196F3 !important;
+    color: white !important;
+    font-weight: bold;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 480px) {
+  .date-inputs {
+    grid-template-columns: 1fr;
+  }
+}
