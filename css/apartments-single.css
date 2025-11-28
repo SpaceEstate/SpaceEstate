@@ -5,44 +5,45 @@
 
 /* BACK BUTTON STYLES */
 .back-button-container {
-  padding: 20px 0;
+  padding: 15px 0;
   background: white;
+  position: relative;
+  z-index: 10;
 }
 
 .back-button {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: none;
-  border: 2px solid #d4af37;
-  color: #d4af37;
-  font-size: 16px;
-  font-weight: 600;
+  border: 1px solid #8b7355;
+  color: #8b7355;
+  font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 12px 20px;
-  border-radius: 25px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  text-transform: none;
 }
 
 .back-button:hover {
-  color: white;
-  background: #d4af37;
-  transform: translateX(-5px);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  color: #6d5a47;
+  background: #f9f7f4;
+  border-color: #6d5a47;
+  transform: translateX(-3px);
 }
 
 .back-arrow {
-  font-size: 20px;
+  font-size: 14px;
   display: inline-block;
   transition: transform 0.3s ease;
 }
 
 .back-button:hover .back-arrow {
-  transform: translateX(-3px);
+  transform: translateX(-2px);
 }
-
 /* APARTMENT HERO */
 .apartment-hero {
   background: white;
@@ -817,6 +818,7 @@
     grid-template-columns: 1fr; /* 🔹 Un campo per riga */
   }
 }
+
 
 
 
