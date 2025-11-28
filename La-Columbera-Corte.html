@@ -20,13 +20,13 @@
     <!-- MAIN CONTENT -->
     <main class="apartment-page">
        
-
-<div class="back-button-container">
-  <button class="back-button" onclick="window.history.back()">
-    <span class="back-arrow">←</span>
-    <span class="back-text">Indietro</span>
-  </button>
-</div>
+        <div class="back-button-container">
+            <button class="back-button" onclick="window.history.back()">
+                <span class="back-arrow">←</span>
+                <span class="back-text">Indietro</span>
+            </button>
+        </div>
+        
         <!-- APARTMENT HERO -->
         <section class="apartment-hero">
             <div class="apartment-hero-content">
@@ -50,18 +50,18 @@
                                 <h1>La Columbera Corte</h1>
                                 <div class="apartment-rating">
                                     <span class="stars">⭐⭐⭐⭐⭐</span>
-                                    <span class="rating-text">(4.9/5 - 127 recensioni)</span>
+                                    <span class="rating-text">(4.9 · 127 recensioni)</span>
                                 </div>
-                                <p class="apartment-location">📍 Centro Storico, Trento TN</p>
+                                <p class="apartment-location">📍 Centro Storico, Trento, Italia</p>
                                 <div class="apartment-price">
                                     <span class="price">€120</span>
-                                    <span class="price-period">/ notte</span>
+                                    <span class="price-period">a notte</span>
                                 </div>
                             </div>
 
                             <!-- QUICK SPECS -->
                             <div class="sidebar-section">
-                                <h3>Caratteristiche</h3>
+                                <h3>Dettagli Alloggio</h3>
                                 <div class="apartment-specs">
                                     <div class="spec">
                                         <span class="spec-icon">👥</span>
@@ -69,15 +69,15 @@
                                     </div>
                                     <div class="spec">
                                         <span class="spec-icon">🛏️</span>
-                                        <span>2 camere</span>
+                                        <span>2 camere da letto</span>
                                     </div>
                                     <div class="spec">
-                                        <span class="spec-icon">🛁</span>
+                                        <span class="spec-icon">🛏️</span>
+                                        <span>3 letti</span>
+                                    </div>
+                                    <div class="spec">
+                                        <span class="spec-icon">🚿</span>
                                         <span>1 bagno</span>
-                                    </div>
-                                    <div class="spec">
-                                        <span class="spec-icon">📶</span>
-                                        <span>WiFi gratuito</span>
                                     </div>
                                 </div>
                             </div>
@@ -103,26 +103,26 @@
                                     <div class="calendar-grid" id="calendarGrid"></div>
                                 </div>
                                 <div class="calendar-legend">
-    <div class="legend-item">
-        <div class="legend-color available"></div>
-        <span>Disponibile</span>
-    </div>
-    <div class="legend-item">
-        <div class="legend-color occupied"></div>
-        <span>Occupato</span>
-    </div>
-    <div class="legend-item">
-        <div class="legend-color selected" style="background-color: #4CAF50;"></div>
-        <span>Check-in</span>
-    </div>
-    <div class="legend-item">
-        <div class="legend-color selected" style="background-color: #2196F3;"></div>
-        <span>Check-out</span>
-    </div>
-</div>
-<div style="margin-top: 10px; padding: 12px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px; font-size: 13px; color: #856404;">
-    ℹ️ <strong>Soggiorno minimo:</strong> 2 notti
-</div>
+                                    <div class="legend-item">
+                                        <div class="legend-color available"></div>
+                                        <span>Disponibile</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color occupied"></div>
+                                        <span>Occupato</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color selected" style="background-color: #4CAF50;"></div>
+                                        <span>Check-in</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color selected" style="background-color: #2196F3;"></div>
+                                        <span>Check-out</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 10px; padding: 12px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px; font-size: 13px; color: #856404;">
+                                    ℹ️ <strong>Soggiorno minimo:</strong> 2 notti
+                                </div>
                             </div>
 
                             <!-- BOOKING -->
@@ -166,45 +166,72 @@
                     <div class="details-main">
                         <div class="section-block">
                             <h2>Descrizione</h2>
-                            <p>Elegante appartamento nel cuore del centro storico di Trento, La Columbera Corte offre un soggiorno raffinato in un palazzo d'epoca completamente ristrutturato. Con i suoi soffitti alti e gli arredi di design, questo appartamento combina il fascino storico con tutti i comfort moderni.</p>
+                            <p>Alloggio di charme situato in una tipica corte trentina nel cuore del centro storico di Trento. L'appartamento si trova in un palazzo d'epoca completamente restaurato, conservando il fascino architettonico originale con travi a vista e soffitti alti.</p>
                             
-                            <p>Situato in una delle zone più prestigiose della città, l'appartamento si trova a pochi passi dal Duomo, da Piazza del Duomo e dalle principali attrazioni turistiche. La posizione strategica permette di raggiungere facilmente ristoranti, musei e negozi.</p>
+                            <p>Lo spazio è stato arredato con gusto, unendo elementi tradizionali e comfort moderni. La zona giorno è luminosa e accogliente, perfetta per rilassarsi dopo una giornata di visite turistiche o escursioni in montagna.</p>
+                            
+                            <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 20px; color: #6d5a47;">Lo spazio</h3>
+                            <p>L'appartamento dispone di:</p>
+                            <ul style="list-style: none; padding-left: 0; color: #8b7355; line-height: 1.8;">
+                                <li>✓ Soggiorno con divano letto matrimoniale</li>
+                                <li>✓ Camera da letto con letto matrimoniale</li>
+                                <li>✓ Camera con letto singolo</li>
+                                <li>✓ Cucina completamente attrezzata con tutto l'occorrente</li>
+                                <li>✓ Bagno con doccia, asciugacapelli e set cortesia</li>
+                                <li>✓ Biancheria da letto e da bagno fornita</li>
+                            </ul>
                         </div>
 
                         <div class="section-block">
-                            <h2>Servizi e Comfort</h2>
+                            <h2>Cosa troverai</h2>
                             <div class="amenities-grid">
                                 <div class="amenity-item">
-                                    <span class="amenity-icon">📶</span>
-                                    <span>WiFi ad alta velocità</span>
+                                    <span class="amenity-icon">🏔️</span>
+                                    <span>Vista montagna</span>
                                 </div>
                                 <div class="amenity-item">
-                                    <span class="amenity-icon">🍽️</span>
-                                    <span>Cucina completamente attrezzata</span>
+                                    <span class="amenity-icon">🍳</span>
+                                    <span>Cucina completa</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">📶</span>
+                                    <span>WiFi veloce - 100 Mbps</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🅿️</span>
+                                    <span>Parcheggio a pagamento nelle vicinanze</span>
                                 </div>
                                 <div class="amenity-item">
                                     <span class="amenity-icon">📺</span>
-                                    <span>TV Smart con Netflix</span>
-                                </div>
-                                <div class="amenity-item">
-                                    <span class="amenity-icon">🛁</span>
-                                    <span>Bagno privato con doccia</span>
+                                    <span>TV HD 43"</span>
                                 </div>
                                 <div class="amenity-item">
                                     <span class="amenity-icon">🧺</span>
                                     <span>Lavatrice</span>
                                 </div>
                                 <div class="amenity-item">
-                                    <span class="amenity-icon">🅿️</span>
-                                    <span>Parcheggio nelle vicinanze</span>
-                                </div>
-                                <div class="amenity-item">
                                     <span class="amenity-icon">🔥</span>
-                                    <span>Riscaldamento autonomo</span>
+                                    <span>Riscaldamento</span>
                                 </div>
                                 <div class="amenity-item">
-                                    <span class="amenity-icon">🧊</span>
-                                    <span>Aria condizionata</span>
+                                    <span class="amenity-icon">🍽️</span>
+                                    <span>Stoviglie e posate</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">☕</span>
+                                    <span>Macchina del caffè</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🧴</span>
+                                    <span>Shampoo e gel doccia</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🧻</span>
+                                    <span>Carta igienica e asciugamani</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <span class="amenity-icon">🔌</span>
+                                    <span>Adattatori prese elettriche</span>
                                 </div>
                             </div>
                         </div>
@@ -238,33 +265,43 @@
 
                     <div class="details-sidebar">
                         <div class="host-info">
-                            <h3>Il tuo Host</h3>
+                            <h3>Host</h3>
                             <div class="host-card">
                                 <div class="host-avatar">👤</div>
                                 <div class="host-details">
-                                    <h4>Space Estate Team</h4>
-                                    <p>Superhost da 3 anni</p>
+                                    <h4>Space Estate</h4>
+                                    <p>Superhost · Host dal 2021</p>
                                     <div class="host-stats">
                                         <span>⭐ 4.9 rating</span>
-                                        <span>💬 Risposta in 1h</span>
+                                        <span>💬 Risponde entro 1 ora</span>
+                                        <span>🏆 127 recensioni</span>
                                     </div>
                                 </div>
                             </div>
+                            <p style="margin-top: 20px; color: #8b7355; font-size: 14px; line-height: 1.6;">
+                                Per proteggere i tuoi pagamenti, non trasferire mai denaro e non comunicare al di fuori della piattaforma di prenotazione.
+                            </p>
                         </div>
 
                         <div class="policies">
-                            <h3>Politiche</h3>
+                            <h3>Regole della casa</h3>
                             <div class="policy-item">
-                                <strong>Check-in:</strong> 15:00 - 22:00
+                                <strong>Check-in:</strong> Dalle 15:00 alle 22:00
                             </div>
                             <div class="policy-item">
-                                <strong>Check-out:</strong> Prima delle 11:00
+                                <strong>Check-out:</strong> Entro le 11:00
                             </div>
                             <div class="policy-item">
-                                <strong>Cancellazione:</strong> Gratuita fino a 24h prima
+                                <strong>Check-in autonomo:</strong> Smart lock con codice
+                            </div>
+                            <div class="policy-item">
+                                <strong>Massimo ospiti:</strong> 4 persone
                             </div>
                             <div class="policy-item">
                                 <strong>Animali:</strong> Non ammessi
+                            </div>
+                            <div class="policy-item">
+                                <strong>Fumo:</strong> Vietato fumare
                             </div>
                             <div class="policy-item">
                                 <strong>Feste:</strong> Non consentite
@@ -329,20 +366,20 @@
 
     <!-- FOOTER -->
     <div data-include="./footer.html"></div>
+    
     <!-- Carica il calendario dinamico -->
-<script src="./calendar-loader.js"></script>
-<script>
-  // Inizializza con l'ID corretto
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      initCalendar('la-columbera-corte');
-      setupDateInputHandlers();
-    });
-  } else {
-    initCalendar('la-columbera-corte');
-    setupDateInputHandlers();
-  }
-</script>
-
+    <script src="./calendar-loader.js"></script>
+    <script>
+        // Inizializza con l'ID corretto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initCalendar('la-columbera-corte');
+                setupDateInputHandlers();
+            });
+        } else {
+            initCalendar('la-columbera-corte');
+            setupDateInputHandlers();
+        }
+    </script>
 </body>
 </html>
