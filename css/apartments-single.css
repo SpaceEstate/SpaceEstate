@@ -742,18 +742,9 @@
 }
 
 @media (max-width: 768px) {
-  .back-button-container {
-    margin-bottom: 20px;
-  }
-  
   .back-button {
     font-size: 14px;
-    padding: 10px 20px;
-    border-radius: 10px;
-  }
-  
-  .back-arrow {
-    font-size: 16px;
+    padding: 10px 16px;
   }
   
   .calendar-day {
