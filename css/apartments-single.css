@@ -5,18 +5,21 @@
 
 /* BACK BUTTON STYLES */
 .back-button-container {
-  padding: 15px 0;
-  background: white;
-  position: relative;
-  z-index: 10;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  padding: 0;
+  background: transparent;
 }
 
 .back-button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: none;
-  border: 1px solid #8b7355;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(139, 115, 85, 0.3);
   color: #8b7355;
   font-size: 13px;
   font-weight: 500;
@@ -26,13 +29,15 @@
   border-radius: 8px;
   letter-spacing: 0.5px;
   text-transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .back-button:hover {
   color: #6d5a47;
-  background: #f9f7f4;
+  background: white;
   border-color: #6d5a47;
   transform: translateX(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .back-arrow {
@@ -818,6 +823,7 @@
     grid-template-columns: 1fr; /* 🔹 Un campo per riga */
   }
 }
+
 
 
 
