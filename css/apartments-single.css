@@ -135,7 +135,7 @@
 
 /* SIDEBAR STYLES */
 .apartment-sidebar {
-  position: sticky;
+ 
   top: 100px;
 }
 
@@ -582,7 +582,7 @@
 
 /* DETAILS SIDEBAR */
 .details-sidebar {
-  position: sticky;
+  
   top: 100px;
 }
 
@@ -852,5 +852,6 @@
     grid-template-columns: 1fr;
   }
 }
+
 
 
