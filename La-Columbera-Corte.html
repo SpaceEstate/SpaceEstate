@@ -12,6 +12,48 @@
     <link rel="stylesheet" href="./css/apartments-single.css">
     <link rel="stylesheet" href="./css/responsive.css">
     <script src="./include.js" defer></script>
+    
+    <style>
+        /* Gallery con tutte le foto */
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        
+        .thumbnail-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .thumbnail-grid::-webkit-scrollbar-track {
+            background: #f9f7f4;
+            border-radius: 3px;
+        }
+        
+        .thumbnail-grid::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 3px;
+        }
+        
+        .thumbnail {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .thumbnail.active {
+            opacity: 1;
+            border: 3px solid #d4af37;
+        }
+        
+        .thumbnail:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER -->
@@ -34,13 +76,77 @@
                     <div class="apartment-main-info">
                         <div class="apartment-gallery">
                             <div class="main-image">
-                                <div class="apartment-image"><img src="./img/corte/Copia di Soggiorno 2.jpg" ></div>
+                                <div class="apartment-image">
+                                    <img id="mainImage" src="./img/corte/Copia di Soggiorno 2.jpg" alt="La Columbera Corte">
+                                </div>
                             </div>
                             <div class="thumbnail-grid">
-                                <div class="thumbnail active">🏛️</div>
-                                <div class="thumbnail">🛏️</div>
-                                <div class="thumbnail">🛁</div>
-                                <div class="thumbnail">🍽️</div>
+                                <!-- SOGGIORNO -->
+                                <div class="thumbnail active" onclick="changeImage('./img/corte/Copia di Soggiorno 2.jpg', this)">
+                                    <img src="./img/corte/Copia di Soggiorno 2.jpg" alt="Soggiorno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Soggiorno 1.jpg', this)">
+                                    <img src="./img/corte/Copia di Soggiorno 1.jpg" alt="Soggiorno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Soggiorno 3.jpg', this)">
+                                    <img src="./img/corte/Copia di Soggiorno 3.jpg" alt="Soggiorno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Soggiorno 4.jpg', this)">
+                                    <img src="./img/corte/Copia di Soggiorno 4.jpg" alt="Soggiorno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Soggiorno 5.jpg', this)">
+                                    <img src="./img/corte/Copia di Soggiorno 5.jpg" alt="Soggiorno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Soggiorno 6.jpg', this)">
+                                    <img src="./img/corte/Copia di Soggiorno 6.jpg" alt="Soggiorno">
+                                </div>
+                                
+                                <!-- CAMERE DA LETTO -->
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Camera 1.jpg', this)">
+                                    <img src="./img/corte/Copia di Camera 1.jpg" alt="Camera da letto">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Camera 2.jpg', this)">
+                                    <img src="./img/corte/Copia di Camera 2.jpg" alt="Camera da letto">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Camera 3.jpg', this)">
+                                    <img src="./img/corte/Copia di Camera 3.jpg" alt="Camera da letto">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Camera 4.jpg', this)">
+                                    <img src="./img/corte/Copia di Camera 4.jpg" alt="Camera da letto">
+                                </div>
+                                
+                                <!-- LETTI -->
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Letto 1.jpg', this)">
+                                    <img src="./img/corte/Copia di Letto 1.jpg" alt="Letto">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Letto 2.jpg', this)">
+                                    <img src="./img/corte/Copia di Letto 2.jpg" alt="Letto">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Letto 3.jpg', this)">
+                                    <img src="./img/corte/Copia di Letto 3.jpg" alt="Letto">
+                                </div>
+                                
+                                <!-- BAGNO -->
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Bagno 1.jpg', this)">
+                                    <img src="./img/corte/Copia di Bagno 1.jpg" alt="Bagno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Bagno 2.jpg', this)">
+                                    <img src="./img/corte/Copia di Bagno 2.jpg" alt="Bagno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Bagno 3.jpg', this)">
+                                    <img src="./img/corte/Copia di Bagno 3.jpg" alt="Bagno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Bagno 4.jpg', this)">
+                                    <img src="./img/corte/Copia di Bagno 4.jpg" alt="Bagno">
+                                </div>
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Bagno 5.jpg', this)">
+                                    <img src="./img/corte/Copia di Bagno 5.jpg" alt="Bagno">
+                                </div>
+                                
+                                <!-- CORRIDOIO -->
+                                <div class="thumbnail" onclick="changeImage('./img/corte/Copia di Corridoio.jpg', this)">
+                                    <img src="./img/corte/Copia di Corridoio.jpg" alt="Corridoio">
+                                </div>
                             </div>
                         </div>
                         
@@ -370,7 +476,20 @@
     <!-- Carica il calendario dinamico -->
     <script src="./calendar-loader.js"></script>
     <script>
-        // Inizializza con l'ID corretto
+        // Funzione per cambiare l'immagine principale
+        function changeImage(src, thumbnail) {
+            document.getElementById('mainImage').src = src;
+            
+            // Rimuovi la classe active da tutti i thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Aggiungi la classe active al thumbnail cliccato
+            thumbnail.classList.add('active');
+        }
+        
+        // Inizializza calendario
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
                 initCalendar('la-columbera-corte');
